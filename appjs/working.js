@@ -126,6 +126,16 @@ $(document).ready(function () {
         closenav();
         clearall();
     }) 
+    $("#coorbtn").click(function () {
+        openit("#coor");
+        closenav();
+        clearall();
+    })
+    $("#vectorbtn").click(function () {
+        openit("#vector");
+        closenav();
+        clearall();
+    })  
     $("#curvebtn").click(function () {
         openit("#curve");
         closenav();
@@ -356,7 +366,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-
+    $("#meanbtn").click(function(){
+        openit("#mean");
+        closenav();
+        clearall();
+    });
 });
 
 function loader(action) {
