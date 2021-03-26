@@ -181,6 +181,7 @@ function openit(id) {
         "#differentiate-rulecollapse",
         "#emical",
         "#trigsolcollapse",
+        "#grey-bin",
         "#consim",
         "#convdiv",
         "#curve",
@@ -188,7 +189,7 @@ function openit(id) {
 
         "#mean",
         "#vector",
-
+        "#diffeqn",
     ];
     console.log(id)
     for (i = 0; i < ids.length; i++) {
