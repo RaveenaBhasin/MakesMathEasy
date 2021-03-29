@@ -40,6 +40,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#mathrbtn").click(function(){
+        openit("#math");
+        closenav();
+        clearall();
+    });
     $("#aboutbutton").click(function () {
         openit("#about");
         closenav();
@@ -63,6 +68,12 @@ $(document).ready(function () {
 //            matrix
     $("#matrixcollapsebtn").click(function () {
         openit("#matrixcollapse");
+        closenav();
+        clearall();
+    });
+
+    $("#ex3btn").click(function () {
+        openit("#ex3");
         closenav();
         clearall();
     });
@@ -155,13 +166,28 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#transbtn").click(function () {
+        openit("#trans");
+        closenav();
+        clearall();
+    })
     $("#consimbtn").click(function () {
         openit("#consim");
         closenav();
         clearall();
     })
+    $("#boolbtn").click(function () {
+        openit("#bool");
+        closenav();
+        clearall();
+    })
     $("#convdivbtn").click(function () {
         openit("#convdiv");
+        closenav();
+        clearall();
+    })
+    $("#setopbtn").click(function () {
+        openit("#setop");
         closenav();
         clearall();
     })
@@ -182,6 +208,21 @@ $(document).ready(function () {
     })
     $("#trigonovaluestablebutton").click(function () {
         openit("#trigonovaluestable");
+        closenav();
+        clearall();
+    })
+    $("#srfbtn").click(function () {
+        openit("#srf");
+        closenav();
+        clearall();
+    })
+    $("#maxminbtn").click(function () {
+        openit("#maxmin");
+        closenav();
+        clearall();
+    })
+    $("#locrootsbtn").click(function () {
+        openit("#locroots");
         closenav();
         clearall();
     })
@@ -314,6 +355,20 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+	
+	$("#onetwocom-calc-btn").click(function(){
+        openit("#onetwocom-calc");
+        closenav();
+        clearall();
+    });
+
+
+    $("#ninetencom-calc-btn").click(function(){
+        openit("#ninetencom-calc");
+        closenav();
+        clearall();
+    });
+
 
 //Function of collapsing binary/octal section on click
     $("#octal-to-binary-btn").click(function(){
@@ -321,8 +376,13 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-    $("#complexcollapsebtn").click(function(){
-        openit("#complexcollapse");
+    $("#complex1collapsebtn").click(function(){
+        openit("#complex1collapse");
+        closenav();
+        clearall();
+    });
+    $("#complex2collapsebtn").click(function(){
+        openit("#complex2collapse");
         closenav();
         clearall();
     });
@@ -407,9 +467,25 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-});
 
-function loader(action) {
+ 
+
+
+    $("#lapprobtn").click(function(){
+        openit("#lappro");
+        closenav();
+        clearall();
+    });
+     
+
+    $("#jointprobabilitycollapsebtn").click(function(){
+        openit("#joint-probabilitycollapse");
+        closenav();
+        clearall();
+    });
+})
+
+    function loader(action) {
     var body = document.getElementsByTagName("body");
     var head = document.getElementsByTagName("head");
     switch (action) {
@@ -504,5 +580,4 @@ function loader(action) {
             head[0].removeChild(head[0].lastChild);
             break;
     }
-
 }
