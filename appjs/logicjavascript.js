@@ -3711,7 +3711,6 @@ function tempbu(a) {
 }
 
 function tempcon() {
-
   const fd = tempau(document.getElementById("tempcon-1").value);
   const tm = tempau(document.getElementById("tempcon-2").value);
   const fs = tempbu(document.getElementById("tempcon-1").value);
@@ -3757,19 +3756,6 @@ function polar()
   var y = nerdamer((Math.atan(i/r))/3.141592653589793).evaluate().toString();
   x=x+"( cos( π" +y+") + i sin ( π"+ y+ "))";
   result.innerHTML = x;
-}
- function datau(a) {
-      switch(a)
-       {
-          case "1":
-
-    const fd = tempau(document.getElementById("tempcon-1").value);
-    const tm = tempau(document.getElementById("tempcon-2").value);
-    const fs = tempbu(document.getElementById("tempcon-1").value);
-    const ta = tempbu(document.getElementById("tempcon-2").value);
-    const i = parseInt(document.getElementById("tempconin").value);
-    const a = ((i - fs) / fd) * tm + ta;
-    document.getElementById("tempconou").innerHTML = `${a}`;
 }
 
 
