@@ -3895,7 +3895,14 @@ function curcon() {
                 const f = c.rates[document.getElementById("curcon-1").value];
                 const t = c.rates[document.getElementById("curcon-2").value];
                 const i = parseInt(document.getElementById("curconin").value);
-                document.getElementById("curconou").innerHTML = `${(i * t) / f}`;
+                if(i<0)
+                {
+                    document.getElementById("curconou").innerHTML = "Enter <strong>only</strong> positive amount values";
+                }
+                else
+                {
+                    document.getElementById("curconou").innerHTML = `${(i * t) / f}`;
+                }
             })
         );
 }
@@ -4095,22 +4102,29 @@ function check_prime(isprime) {
     var ans = document.getElementById("isprimesol");
     var flag = true;
     if (!isNaN(num1)) {
-        ans.innerHTML = num1;
-        ans.innerHTML += " is ";
-        if (num1 == 1 || num1 == 0) {
-            ans.innerHTML += "neither Prime nor Composite number";
-        } else {
-            for (i = 2; i <= Math.sqrt(num1); i++) {
-                if (num1 % i == 0) {
-                    flag = false;
-                    break;
+        if(num1>=0)
+        {
+            ans.innerHTML = num1;
+            ans.innerHTML += " is ";
+            if (num1 == 1 || num1 == 0) {
+                ans.innerHTML += "neither Prime nor Composite number";
+            } else {
+                for (i = 2; i <= Math.sqrt(num1); i++) {
+                    if (num1 % i == 0) {
+                        flag = false;
+                        break;
+                    }
+                }
+                if (flag == true) {
+                    ans.innerHTML += "a Prime number";
+                } else {
+                    ans.innerHTML += "a Composite number";
                 }
             }
-            if (flag == true) {
-                ans.innerHTML += "a Prime number";
-            } else {
-                ans.innerHTML += "a Composite number";
-            }
+        }
+        else
+        {
+            ans.innerHTML = "There are no negative prime numbers. Enter positive numbers to check for Primality."
         }
     } else
         ans.innerHTML = "Enter an integer!"
@@ -4215,12 +4229,19 @@ function permutationcal(nval, rval) {
         // document.getElementById("permutation_wrong").innerHTML="Enter a Number."
         document.getElementById("premutation_div_div2").style.display = "none";
         document.getElementById("permutation_div_div1").style.display = "none";
+	} else if(val3<0 || val4<0) {
+		document.getElementById("permutation_wrong").innerHTML =
+            "n and r must be positive integers.";
+        document.getElementById("premutation_div_div2").style.display = "none";
+        document.getElementById("permutation_div_div1").style.display = "block";
     } else if (val3 < val4) {
         document.getElementById("permutation_wrong").innerHTML =
             "n must be greater than r.";
         document.getElementById("premutation_div_div2").style.display = "none";
         document.getElementById("permutation_div_div1").style.display = "block";
-    } else {
+    
+	} else
+	{
         let ans1 = 1,
             ans2 = 1,
             ans3 = 0;
@@ -4260,12 +4281,20 @@ function combinationcal(nval, rval) {
     if (isNaN(val3) || isNaN(val4)) {
         document.getElementById("combination_div_div2").style.display = "none";
         document.getElementById("combination_div_div1").style.display = "none";
+	} else if(val3<0 || val4<0) {
+		 document.getElementById("combination_wrong").innerHTML =
+            "n and r must be positive integers";
+        document.getElementById("combination_div_div2").style.display = "none";
+        document.getElementById("combination_div_div1").style.display = "block";
+	
     } else if (val3 < val4) {
         document.getElementById("combination_wrong").innerHTML =
             "n must be greater than r.";
         document.getElementById("combination_div_div2").style.display = "none";
         document.getElementById("combination_div_div1").style.display = "block";
-    } else {
+
+	} else
+		{
         let ans1 = 1,
             ans2 = 1,
             ans3 = 1;
@@ -5025,13 +5054,14 @@ function computebayesprobability() {
     var favourable2 = parseInt(document.getElementById("fav2").value)
     var total1 = parseInt(document.getElementById("tot1").value)
     var total2 = parseInt(document.getElementById("tot2").value)
+	var pbanda = parseFloat(document.getElementById("pandb").value)
 
     var probability1 = favourable1 / total1;
     var probability2 = favourable2 / total2;
 
-    var probability3 =(0.5*probability1)/((0.5*probability1)+(0.5*probability2));
+    var probability3 =pbanda/probability2;
 
-    var probability4=(0.5*probability2)/((0.5*probability1)+(0.5*probability2));
+    var probability4=pbanda/probability1;
     
     console.log(probability1);
     console.log(probability2);
@@ -5048,6 +5078,11 @@ function computebayesprobability() {
 
         else if (favourable2 > total2) {
             result2.innerHTML = "Number of favourable outcomes can't exceeds number of possible outcomes in second event";
+            check = false;
+        } 
+		 else if (pbanda>probability2 || pbanda>probability1) {
+            result1.innerHTML = "Probability of intersection is always equal to or less than the probability of individual events";
+			result2.innerHTML ="";
             check = false;
         } 
 
