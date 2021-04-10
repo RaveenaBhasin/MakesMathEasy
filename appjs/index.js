@@ -162,6 +162,7 @@ function openit(id) {
         "#algebraic-idencollapse",
         "#about",
         "#propcircle",
+        "#pythtriple",
         "#rootsquadratic",
         "#plotgraph",
         "#roundoff",
@@ -236,7 +237,8 @@ function openit(id) {
         "#bayes-probabilitycollapse",
         "#prism",
         "#anglecon",
-	    "#ip"
+	    "#ip",
+	    "#prices"
     ];
     for (i = 0; i < ids.length; i++) {
         if (ids[i] != id) {

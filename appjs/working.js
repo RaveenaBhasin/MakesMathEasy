@@ -166,6 +166,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#pythtriplebtn").click(function () {
+        openit("#pythtriple");
+        closenav();
+        clearall();
+    })
 
     $("#partialdiff").click(function () {
         openit("#partialdiffcollapse");
@@ -271,6 +276,11 @@ $(document).ready(function () {
     })
     $("#interestbtn").click(function () {
         openit('#interest');
+        closenav();
+        clearall();
+    })
+    $("#pricesbtn").click(function () {
+        openit('#prices');
         closenav();
         clearall();
     })
