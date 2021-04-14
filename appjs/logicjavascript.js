@@ -1541,6 +1541,39 @@ function printtable() {
     }
 }
 
+function ShowDistance()
+{
+var x1, x2, y1, y2;
+    x1=parseFloat(document.getElementById('xOne').value);
+    x2=parseFloat(document.getElementById('xTwo').value);
+    y1=parseFloat(document.getElementById('yOne').value);
+    y2=parseFloat(document.getElementById('yTwo').value);
+    var explain = document.getElementById("dis_formula");
+    explain.innerHTML = "\\[Distance \\space between \\space two \\space points =\\space \\sqrt{ (x1-x2)^2 + (y1-y2)^2 } \\] ";
+    renderMathInElement(document.getElementById("dis_formula"));
+
+var distance = Math.sqrt( Math.pow((x1-x2), 2) + Math.pow((y1-
+y2), 2) ).toFixed(2);
+    document.getElementById('outPut').innerHTML= 'The distance between (' + x1 + ',' + y1 + ') and ('+ x2 + ',' + y2 + ') is '+ distance;
+
+    
+}
+
+function midpointsolve()
+{
+    var X1, X2, Y1, Y2;
+    X1=parseFloat(document.getElementById('XOne').value);
+    X2=parseFloat(document.getElementById('XTwo').value);
+    Y1=parseFloat(document.getElementById('YOne').value);
+    Y2=parseFloat(document.getElementById('YTwo').value);
+    var explain_mid = document.getElementById("mid_formula");
+    explain_mid.innerHTML = "\\[Midpoint \\space between \\space two \\space points =\\space  (\\frac{x1 + x2}{2}, \\space \\frac{y1+y2}{2} ) \\] ";
+    renderMathInElement(document.getElementById("mid_formula"));
+var midpoint1 = (X1 + X2)/2;
+var midpoint2= (Y1 + Y2)/2;
+    document.getElementById('mid_output').innerHTML= 'The midpoint between (' + X1 + ',' + Y1 + ') and ('+ X2 + ',' + Y2 + ') is '+ '(' + midpoint1 + ','  + midpoint2 + ')';
+    
+}
 //-----------------------------------------------------
 //shapes calculator
 function solveperisq() {
@@ -4287,6 +4320,44 @@ function emical() {
     renderMathInElement(document.getElementById("emio3"));
 }
 
+// GST Calulator
+function gstcal() {
+    var p, r,final, gst,cgst;
+    p = parseInt(document.getElementById("O_Price").value);
+    r = parseFloat(document.getElementById("GST").value) / 100;
+    gst = p*r;
+    final=p+gst;
+    cgst=gst/2;
+    if (isNaN(p)|| isNaN(r))
+    {
+        document.getElementById("gst1").innerHTML ="Enter integer value" ;
+        document.getElementById("gst0").innerHTML = "";
+        document.getElementById("gst2").innerHTML = "";
+        document.getElementById("gst3").innerHTML = "";
+    }
+    else if(p<0 || r<0)
+    {
+        document.getElementById("gst1").innerHTML ="Enter a positive integer value" ;
+        document.getElementById("gst0").innerHTML = "";
+        document.getElementById("gst2").innerHTML = "";
+        document.getElementById("gst3").innerHTML = "";
+    }
+    else{
+        document.getElementById("gst0").innerHTML ="Working"
+        document.getElementById("gst2").innerHTML ="Results"
+        var gst_work="",gst_result="";
+        gst_work+="\\[\\mathrm{GST}=\\frac{\\mathrm{Original}\\space\\mathrm{Cost}\\times\\mathrm{GST}\\%}{100}\\]"+"\\[\\mathrm{GST}=\\space"+p+"\\times"+r+"\\]"+"\\[\\mathrm{GST}= \\space" + gst.toFixed(2) + "\\]";
+        gst_work+="\\[\\mathrm{CGST/SGST}=\\frac{\\mathrm{GST}}{2}\\]"+"\\[\\mathrm{CGST/SGST}= \\space" + cgst.toFixed(2) + "\\]";
+        gst_work+="\\[\\mathrm{Final}\\space\\mathrm{Cost}=\\space\\mathrm{Original}\\space\\mathrm{Cost}+\\mathrm{GST}\\]"+"\\[\\mathrm{Final}\\space\\mathrm{Cost}=\\space"+p+"+\\space"+ gst.toFixed(2) +"\\]";
+        gst_result+="\\[\\mathrm{GST}= \\space" + gst.toFixed(2) + "\\]"+"\\[\\mathrm{CGST/SGST}= \\space" + cgst.toFixed(2) + "\\]"+"\\[\\mathrm{Final}\\space\\mathrm{Cost}= \\space" + final.toFixed(2) + "\\]";
+        document.getElementById("gst1").innerHTML =gst_work;
+        document.getElementById("gst3").innerHTML =gst_result;
+        renderMathInElement(document.getElementById("gst1"));
+        renderMathInElement(document.getElementById("gst3"));
+        
+    }
+    
+}
 
 // cost and selling price
 //-----------------------------------------------------
@@ -5398,11 +5469,15 @@ function clearInputs() {
 //Function that performs bitwise calculation
 function bitwiseCalc() {
 
+    addEventListener("change",x =>{
+        if(operation == "NOT")
+        document.getElementById("bitwise-second-number").style = "display:none";
+        else
+        document.getElementById("bitwise-second-number").style = "display:inline-block";
+        })
     const operation = document.getElementById("bitwise-operation").value;
     const numberSystem = document.getElementById("bitwise-numbers-system").value;
     let result;
-
-
     let firstOperand = parseInt(
         document.getElementById("bitwise-first-number").value
     );
@@ -5446,6 +5521,9 @@ function bitwiseCalc() {
         document.getElementById("bitwise-result").innerHTML = str;
     } else {
         switch (operation) {
+            case "NOT":
+                result = ~firstOperand;
+                break;
             case "AND":
                 result = firstOperand & secondOperand;
                 break;
@@ -5823,6 +5901,50 @@ function convertex3() {
 }
 
 //----------------------------
+
+//Function which performs conversion of Decimal to 2421
+function convertdec2421(){
+    var input = document.getElementById("dec2421-input").value;
+    let result = document.getElementById("dec2421-result");
+    var x = "_";
+
+    for (var i = 0; i < input.length; i++) {
+        if (input[i] == 0){
+            x = x + "0000_";
+        }
+        if (input[i] == 1) {
+            x = x + "0001_" ;
+        }
+        if (input[i] == 2) {
+            x = x + "0010_" ;
+        }
+        if (input[i] == 3) {
+            x = x + "0011_";
+        }
+        if (input[i] == 4) {
+            x = x + "0100_";
+        }
+        if(input[i] == 5){
+            x = x + "1011_";
+        }
+        if(input[i] == 6){
+            x = x + "1100_";
+        }
+        if(input[i] == 7){
+            x = x + "1101_";
+        }
+        if(input[i] == 8){
+            x = x + "1110_";
+        }
+        if(input[i] == 9){
+            x = x + "1111_";
+        }
+    }
+    result.innerHTML = x;
+}
+
+
+//---------------------------------------------------------------------------
 //Function that performs conversion of grey to Decimal and viceversa
 function reverseString(str) {
     return str.split("").reverse().join("");
@@ -5854,7 +5976,7 @@ function convertgreydec(){
             x += parseInt(result1[i - 1] ^ result1[i]).toString();
     }
     if(input=="")
-	{ 
+	{
 	  x="";
 	}
     result2.innerHTML = x;

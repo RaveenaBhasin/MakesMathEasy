@@ -1388,7 +1388,23 @@
                     </tr>
                 </table>
             </li>
-
+             
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="gstbtn"
+                               style="font-size:15px;cursor: pointer;background:transparent;border:none;">GST
+                                Calculator</a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('GST Calculator ','#gstcal','c','gstimgfav')"><img
+                                        id="gstimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem; filter:none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <li>
                 <table class="table">
                     <tr>
@@ -1689,6 +1705,22 @@
                         <td style="float:right;border-top: none;">
                                 <span onclick="addtofavourite('Coordinate Systems','#coor','c','coorfav')"><img
                                         id="coorfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="analyticalbtn"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Coordinate Geometry
+                               Calculator</a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Coordinate Geometry Calculator','#analytical','c','analyticalfav')"><img
+                                        id="analyticalfav" src="images/unfavourite.png"
                                         style="height:1.5625rem;filter: none;"></span>
                         </td>
                     </tr>
@@ -2105,6 +2137,25 @@
                                 <span
                                         onclick="addtofavourite('Excess-3 Code Converter','#ex3','c','ex3-imgfav')"><img
                                         id="ex3-imgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="dec2421btn"
+                               style="font-size:0.875rem;cursor: pointer;background:transparent;border:none;">Decimal/2421
+                                Code
+                                Converter</a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span
+                                        onclick="addtofavourite('Decimal/2421 Code Converter','#dec2421','c','dec2421-imgfav')"><img
+                                        id="dec2421-imgfav" src="images/unfavourite.png"
                                         style="height:1.5625rem;filter: none;"></span>
                         </td>
                     </tr>
@@ -3105,7 +3156,49 @@
                 </div>
             </div>
         </div>
-
+        <div class="collapse" id="analytical">
+            <div class="text-center">
+                <h2><label>Coordinate Geometry Calculator</label></h2>
+            </div>
+            <h3>Distance </h3><br>
+            <div class="coll">
+                <p>
+                    Coordinate 1 = (<input type="text" id="xOne" size=12 value='' placeholder="                   x1"> , 
+                <input type="text" id="yOne" size=12 value='' placeholder="                   y1">)
+                    <br>
+                    Coordinate 2 = (<input type="text" id="xTwo" size=12 value='' placeholder="                   x2"> , 
+                <input type="text" id="yTwo" size=12 value='' placeholder="                   y2">)
+                        <br>
+                        <br>
+                <button type="button" class="btn btn-light" onclick=ShowDistance()>
+                    Calculate Distance
+                </button><br>
+                </p>
+            </div><br>
+            <p id="dis_formula" style="display:flex;font-family:mathfont;;width:auto;"
+                class="stopwrap"
+               align="right"></p>
+            <h4 id="outPut"> </h4> <br>
+            <h3>Midpoint </h3><br>
+            <div class="coll">
+                <p>
+                    Coordinate A = (<input type="text" id="XOne" size=12 value='' placeholder="                   x1"> , 
+                <input type="text" id="YOne" size=12 value='' placeholder="                   y1">)
+                    <br>
+                    Coordinate B = (<input type="text" id="XTwo" size=12 value='' placeholder="                   x2"> , 
+                <input type="text" id="YTwo" size=12 value='' placeholder="                   y2">)
+                        <br>
+                        <br>
+                <button type="button" class="btn btn-light" onclick=midpointsolve()>
+                    Calculate Midpoint
+                </button><br>
+                </p>
+            </div><br>
+            <p id="mid_formula" style="display:flex;font-family:mathfont;;width:auto;"
+                class="stopwrap"
+               align="right"></p>
+            <h4 id="mid_output"> </h4> 
+        </div>
         <div class="collapse" id="vecalg">
             <div class="stopwrap">
                 <div class="coll">
@@ -7596,6 +7689,30 @@
                 <p class="stopwrap" style="color:var(--appimage); font-size: large; font-family:mathfont;" id="emio3"></p>
             </div>
         </div>
+        
+        <div class="collapse" id="gstcal">
+            <h2 style="color: var(--appimage);">GST Calculator</h2>
+            <br>
+            <div class="form-group">
+                <input type="text" style="width: 15.625rem;" class="form__field" name="a"
+                       id="O_Price"
+                       placeholder="Enter Original Price"/>      
+                <input type="text" name="c" style="width: 15.625rem;" class="form__field"
+                       id="GST"
+                       placeholder="Enter GST(%)"/>
+                <p style="display: inline;"> % </p>
+                <br>
+                <br>
+                <button class="btn btn-outline-light" onclick="gstcal()">Calculate</button>
+                <br><br><br>
+                <p class="stopwrap" style="color:var(--appimage); font-size: xx-large; text-decoration: underline; text-align: left;
+                font-family:mathfont;" id="gst0"></p>
+                <p class="stopwrap" style="color:var(--appimage); font-size: large; font-family:mathfont;" id="gst1"></p>
+                <p class="stopwrap" style="color:var(--appimage); font-size: xx-large; text-decoration: underline; text-align: left;
+                 font-family:mathfont;" id="gst2"></p>
+                <p class="stopwrap" style="color:var(--appimage); font-size: large; font-family:mathfont;" id="gst3"></p>
+            </div>
+        </div>
 
         <div class="collapse" id="equationssolver">
             <div class="form-group">
@@ -9296,6 +9413,9 @@
                                 OR
                             </option>
                             <option class="form__field" style="background-color: #232a36;">
+                                NOT
+                            </option>
+                            <option class="form__field" style="background-color: #232a36;">
                                 XOR
                             </option>
                             <option class="form__field" style="background-color: #232a36;">
@@ -9599,6 +9719,29 @@
             </div>
         </div>
         <!-- End of ex3 convertor -->
+
+ <!-- Start of Decimal/2421 convertor -->
+ <div>
+    <div class="collapse" id="dec2421">
+        <div class="col-6">
+            <div class="form-group">
+                <h5>Decimal</h5>
+
+                <input type="number" id="dec2421-input" value="0" class="form__field"
+                       oninput="convertdec2421()">
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-group">
+                <h5>2421</h5>
+
+            </div>
+            <label class="form__group" id="dec2421-result">0</label>
+        </div>
+    </div>
+</div>
+<!-- End of Decimal/2421 convertor -->
+
          <!-- Start   -->
          <div>
             <div class="collapse" id="rankcal">
@@ -12386,18 +12529,14 @@
                                     <div class="form-group">
                                         <img src="images/torus.jpg" class="img-fluid">
                                     </div>
-                                    
+                                </div>
                                 <div class="dropdown-divider"></div>
-                                <br>
-                               <br>
-                                <p>Fill All Two</p>
                                 <input class="form__field" type="number"
                                        placeholder="Enter Major radius (cm)"
                                        id="inputmajorradiustorus" oninput="torussolve()">
                                 <input class="form__field" type="number"
                                        placeholder="Enter Minor  radius (cm)"
                                        id="inputminorradiustorus" oninput="torussolve()">
-                               
                                 <br>
                                 <p class="stopwrap" id="resultofvoltorus"
                                    style="font-family:mathfont;"></p>
