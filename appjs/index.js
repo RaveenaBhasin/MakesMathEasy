@@ -191,6 +191,7 @@ function openit(id) {
         "#decimal-binary",
         "#bitwise-calc",
         "#adding-all",
+        "#subtract-all",
         "#multiplying-all",
 		"#onetwocom-calc",
         "#3dgeo",
@@ -246,6 +247,7 @@ function openit(id) {
         "#frustum",
 	    "#ip",
 	    "#prices",
+        "#lyear",
         "#setformula"
     ];
     for (i = 0; i < ids.length; i++) {

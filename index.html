@@ -1179,6 +1179,23 @@
                     </tr>
                 </table>
             </li>
+
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="leapyearbtn"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Leap Year
+                                </a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Leap Year','#lyear','c','lyearimgfav')"><img
+                                        id="lyearimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <li>
                 <table class="table">
                     <tr>
@@ -1969,6 +1986,29 @@
             </li>
 
             <!--end -->
+
+            <!--Start of Subtraction -->
+
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="subtracting-all-btn"
+                               style="font-size:0.875rem;cursor: pointer;background:transparent;border:none;"> Subtraction Of any Number System </a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span
+                                        onclick="addtofavourite('Binary / Hexadecimal Converter','#subtract-all','c','subtract-all-imgfav')"><img
+                                        id="subtract-all-imgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+            <!--end -->
+
+
             <!-- Start of multiplication of any number -->
 
             <li>
@@ -2509,6 +2549,39 @@
             <!--lcm result-->
             <p id="hcfprimefactor" style="font-family:mathfont" class="stopwrap"></p>
             <p id="resulthcf" style="font-family:mathfont" class="stopwrap"></p>
+		<h4>What is a factor?</h4>
+            <p>Factors of a number are numbers that divide the given number exactly without leaving any remainder. 
+                That is, they are exact divisors of the given numbers. For example, the number 12 is divisible by 2, 3, 4, and 6.</p>
+            <h4>What is HCF?</h4>
+            <p>The greatest common factor (GCF or GCD or HCF) of a set of whole numbers is the largest positive integer that divides evenly all the given numbers with zero remainders. 
+                HCF stands for Highest Common Factor. HCF is also known as GCF (Greatest Common Factor) or GCD (Greatest Common Divisor).</p>
+            <p>The Highest Common Factor of two or more numbers is the highest number by which all the given numbers are divisible without leaving any remainders. 
+                Basically, it is the largest number that divides all the given numbers.</p>
+            <p><b>Let’s understand the concept of HCF with an example:</b></p>
+            <p>Consider two numbers: 12 and 18</p>
+            <img src="https://d2cyt36b7wnvt9.cloudfront.net/exams/wp-content/uploads/2020/12/28185936/image90-300x96.png"
+                 style="margin-left: 300px; height: 200px;" alt="">
+            <p>Factors of 12: 1, 2, 3, 4, 6, and 12 </p>
+            <p>Factors of 18: 1, 2, 3, 6, 9, and 18 </p>
+            <p>Both 12 and 18 have 1, 2, 3, and 6 as common factors, of which 6 is the highest. So, 6 is the HCF of 12 and 18.</p>
+            <h4>What is LCM?</h4>
+            <p>LCM stands for Lowest or Least Common Multiple. The LCM of two or more numbers is the smallest positive integer that is divisible by all the given numbers.</p>
+            <p><b>Let’s understand the concept of LCM with an example:</b></p>
+            <p>Consider two numbers: 8 and 12.</p>
+            <p>The multiples of 8 are:</p>
+            <p> 8 X 1 = 8,<br>
+                8 X 2 = 16,<br>
+                8 X 3 = 24,<br>
+                8 X 4 = 32, and so on…
+            <p>The multiples of 12 are:</p>
+            <p> 12 X 1 = 12,<br>
+                12 X 2 = 24,<br>
+                12 X 3 = 36,<br>
+                12 X 4 = 48, and so on… </p>
+            <p>Of all these multiples of 8 and 12, 24 is the lowest and common multiple of both. So, 24 is the LCM of 8 and 12.</p>
+            <h4>LCM And HCF Formula</h4>
+            <p>The relation between HCF and LCM for two numbers is defined by the HCF and LCM formula given by:</p>
+            <p>Product of two numbers = (HCF of the two numbers) x (LCM of the two numbers)</p>
 
         </div>
         <!--        end factors-->
@@ -4194,6 +4267,31 @@
             </div>
             <div class="form-group">
                 <p id="integralplot"></p>
+            </div>
+
+
+        </div>
+
+        
+        <div class="collapse" id="lyear">     
+            <h1 style="text-align: center;">Check Leap Year</h1><br>       
+            <div class="form-group">
+                <input type="text" id="leapin" class="form__field"
+                       placeholder="Enter Year"
+                       >
+            </div><br>
+
+            
+            <div class="form-group">
+                <button type="button" class="btn btn-light"
+                        onclick="leap()">
+                    Solve
+                </button><br>
+                
+            </div>
+            <div class="form-group">
+                <p id="leapresult"
+                   style="overflow-x:scroll;overflow-y:hidden;height:100%"></p>
             </div>
 
 
@@ -9044,6 +9142,35 @@
         </div>
         <!-- End of Addition of any number system -->
 
+        <!-- Start of Subtraction of any number system -->
+        <div class="collapse" id="subtract-all">
+            <div class="col-6">
+                <div class="form-group">
+                    <h5>Choose Number System</h5><br>
+                    <select id="subtract-all-select1" class="form__field"
+                            onchange="subBinDecHexOct()">
+                        <option class="form_field" style="background-color: #232a36;">
+                            Binary
+                        </option>
+                    </select>
+                    <br><br><h2>Input Of Minuend</h2>
+                    <input type=" " id="subtract-all-input1" value="0"
+                           class="form__field"
+                           oninput="subBinDecHexOct()">
+                    <br><br><h2>Input Of Subtrahend</h2>
+                    <input type=" " id="subtract-all-input2" value="0"
+                    class="form__field"
+                    oninput="subBinDecHexOct()">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <br><br><h2>Result Of Subtraction</h2>
+                </div>
+                <label class="form__group" id="subtract-all-result">0</label>
+            </div>
+        </div>
+        <!-- End of Subtraction of any number system -->
 
          <!-- Start of Multiplication of any number system -->
          <div class="collapse" id="multiplying-all">
@@ -9052,7 +9179,7 @@
                     <h2>1st Input</h2>
                     <h5>Choose Number System</h5>
                     <select id="multiplying-all-select1" class="form__field"
-                            onchange="addBinDecHexOct()">
+                            onchange="multBinDecHexOct()">
                         <option class="form_field" style="background-color: #232a36;">
                             Decimal
                         </option>
@@ -9068,7 +9195,7 @@
                     </select>
                     <input type=" " id="multiplying-all-input1" value="0"
                            class="form__field"
-                           oninput="addBinDecHexOct()">
+                           oninput="multBinDecHexOct()">
                 </div>
             </div>
             <div class="col-6">
@@ -9076,7 +9203,7 @@
                     <h2>2nd Input</h2>
                     <h5>Choose Number System</h5>
                     <select id="multiplying-all-select2" class="form__field"
-                            onchange="addBinDecHexOct()">
+                            onchange="multBinDecHexOct()">
                         <option class="form__field" style="background-color: #232a36;">
                             Decimal
                         </option>
@@ -9092,7 +9219,7 @@
                     </select>
                     <input type=" " id="multiplying-all-input2" value="0"
                     class="form__field"
-                    oninput="addBinDecHexOct()">
+                    oninput="multBinDecHexOct()">
                 </div>
             </div>
             <div class="col-6">
@@ -9100,7 +9227,7 @@
                     <h2>Result Of Addition</h2>
                     <h5>Choose Number System</h5>
                     <select id="multiplying-all-result-type" class="form__field"
-                    onchange="addBinDecHexOct()">
+                    onchange="multBinDecHexOct()">
                 <option class="form__field" style="background-color: #232a36;">
 
                 </option>
