@@ -204,6 +204,16 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#giffbtn").click(function () {
+        openit("#giff");
+        closenav();
+        clearall();
+    })
+    $("#secareabtn").click(function () {
+        openit("#secarea");
+        closenav();
+        clearall();
+    })
     $("#propcirclebtn").click(function () {
         openit("#propcircle");
         closenav();
@@ -512,6 +522,13 @@ $(document).ready(function () {
             closenav();
             clearall();
         });
+
+        // anyBase-to-anyBase-btn
+        $("#anyBase-to-anyBase-btn").click(function(){
+                openit("#anyBase");
+                closenav();
+                clearall();
+            });
 
 
     $("#complexidentitiesbtn").click(function(){

@@ -130,6 +130,7 @@ function collapseit(openit) {
 
 function openit(id) {
     var ids = [
+        "#anyBase",
         "#complex1collapse",
         "#complex2collapse",
         "#complexidentities",
@@ -137,6 +138,7 @@ function openit(id) {
         "#theo",
         "#equationssolver",
         "#mulsolwithsteps",
+        "#secarea",
         "#table",
         "#shapescal",
         "#tdshapescal",
@@ -175,6 +177,7 @@ function openit(id) {
         "#betagamma",
         "#parallel",
         "#unitconcal",
+        "#giff",
         "#spiconcal",
         "#home",
         "#curconcal",
@@ -247,6 +250,7 @@ function openit(id) {
         "#tripyramid",
         "#anglecon",
         "#frustum",
+        "#annulus",
 	    "#ip",
 	    "#prices",
         "#lyear",

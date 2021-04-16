@@ -1383,7 +1383,39 @@ var pardifforder = "";
 function getparorder(value) {
     pardifforder = value;
 }
+function gif(){
+    var giffnum = parseInt(document.getElementById("giffnum").value)
+    if(giffnum >=0){
+        let ans = Math.floor(giffnum)
+        document.getElementById("giffans").innerHTML = "The gif is " + ans
+    }
+    else {
+        let ans1 = Math.abs(ans1)
+        let ans = Math.ceil(ans1)
+        document.getElementById("giffans").innerHTML = "The gif is " + "-" + ans
+    }
+}
 
+function fp(){
+    var giffnum = parseInt(document.getElementById("giffnum").value)
+    if(giffnum >=0){
+        let ans1 = Math.floor(giffnum)
+        let ans = giffnum - ans1
+        document.getElementById("giffans").innerHTML = "The fractional part is " + ans
+    }
+    else{
+        let ans1 = Math.abs(giffnum)
+        let ans2 = Math.ceil(giffnum)
+        let ans = ans2 - ans1
+        document.getElementById("giffans").innerHTML = "The fractional part is " + ans
+    }
+}
+function findsecarea(){
+    var ang = parseInt(document.getElementById("ang").value)
+    var r = parseInt(document.getElementById("rad").value)
+    var ans = (360/ang)*3.14*r*r
+    document.getElementById("secans").innerHTML = "The area of sector is " + ans + " " + "units.square"
+}
 function partialdiffsolve() {
     var ikk = document.getElementById("inputpartialorder");
     if (ikk.value == "") {
@@ -1572,6 +1604,22 @@ function midpointsolve()
 var midpoint1 = (X1 + X2)/2;
 var midpoint2= (Y1 + Y2)/2;
     document.getElementById('mid_output').innerHTML= 'The midpoint between (' + X1 + ',' + Y1 + ') and ('+ X2 + ',' + Y2 + ') is '+ '(' + midpoint1 + ','  + midpoint2 + ')';
+    
+}
+
+function dispointsolve()
+{
+    var a,b,c;
+    a=parseFloat(document.getElementById('a').value);
+    b=parseFloat(document.getElementById('b').value);
+    c=parseFloat(document.getElementById('c').value);
+    x1=parseFloat(document.getElementById('one').value);
+    y1=parseFloat(document.getElementById('two').value);
+    var explain = document.getElementById("dis_point");
+    explain.innerHTML = "\\[Distance \\space between \\space point \\space and \\space a \\space line  =\\space  \\frac{Ax1 + By1 + C}{\\sqrt{A^2+B^2}} \\] ";
+    renderMathInElement(document.getElementById("dis_point"));
+    var dis = (Math.abs(a*x1 + b*y1 +c))/(Math.sqrt(a*a + b*b )).toFixed(2);
+    document.getElementById('dis_op').innerHTML= 'The distance between (' + x1 + ',' + y1 + ') and ' + '    ' + a  + 'x' + '+' + b + 'y' + '+' + c + '=0' + '     is      ' + dis;
     
 }
 //-----------------------------------------------------
@@ -2226,6 +2274,76 @@ function solvecircle() {
     //renderMathInElement(document.getElementById("resultofdiameterc"));
 }
 
+function solveannulus() {
+    let radius1 = document.getElementById("inputradius1").value;
+    let radius2 = document.getElementById("inputradius2").value;
+    let area1 = 3.14 * radius1 * radius1;
+    let area2 = 3.14 * radius2 * radius2;
+    let area = area1-area2;
+    let Circumference1 = 2 * 3.14 * radius1;
+    let Circumference2 = 2 * 3.14 * radius2; 
+    console.log(radius1);
+    console.log(radius2);
+    area1 = area1.toPrecision(3);
+    area2 = area2.toPrecision(3);
+    area = area.toPrecision(3);
+    Circumference1 = Circumference1.toPrecision(3);
+    Circumference2 = Circumference2.toPrecision(3);
+    document.getElementById("resultofarea1").innerHTML = "\\[Area \\space of \\space outer \\space circle = " + area1 + "\\]";
+    document.getElementById("resultofarea2").innerHTML = "\\[Area \\space of \\space inner \\space circle \\ 3.14 r^2\\ = " + area2 + "\\]";
+    document.getElementById("resultofarea").innerHTML = "\\[Area \\space of \\space Annulus \\space \\ 3.14 r^2\\ = " + area + "\\]";
+    document.getElementById("resultofcircumference1").innerHTML = "\\[Circumference \\space of \\space Circle \\ 2*3.14 r \\ = " + Circumference1 + "\\]";
+    document.getElementById("resultofcircumference2").innerHTML = "\\[Circumference \\space of \\space Circle \\ 2*3.14 r \\ = " + Circumference2 + "\\]";
+    renderMathInElement(document.getElementById("resultofarea1"));
+    renderMathInElement(document.getElementById("resultofarea2"));
+    renderMathInElement(document.getElementById("resultofarea"));
+    renderMathInElement(document.getElementById("resultofcircumference1"));
+    renderMathInElement(document.getElementById("resultofcircumference2"));
+}
+
+function solveannulus() {
+    var radius1 = document.getElementById("inputradius1").value;
+    var radius2 = document.getElementById("inputradius2").value;
+    var area1output = document.getElementById("resultofarea1");
+    var area2output = document.getElementById("resultofarea2");
+    var circum1output = document.getElementById("resultofcircum1");
+    var circum2output = document.getElementById("resultofcircum2");
+    var areaoutput = document.getElementById("resultofarea");
+    var area1temp = "";
+    var area2temp = "";
+    var circum1temp = "";
+    var circum2temp = "";
+    var areatemp = "";
+    if ((radius1 != "") && (radius2 != "")) {
+        area1temp += "\\[" + "\\pi" + "\\times" + radius1 + "\\times" + radius1  + "\\]";
+        area1temp += "\\[Area \\space enclosed \\space by \\space Outer \\space circle \\space is \\space " + eval(String(3.14 * radius1 * radius1)) + "\\]";
+        area1output.innerHTML = area1temp;
+        area2temp += "\\["  + "\\pi" +  "\\times" + radius2 + "\\times"  + radius2  + "\\]";
+        area2temp += "\\[Area \\space enclosed \\space by \\space Inner \\space circle \\space is \\space " + eval(String(3.14 * radius2 * radius2)) +  "\\]";
+        area2output.innerHTML = area2temp;
+        areatemp += "\\["  + "\\pi" +  "\\times" + '(' + radius1 + "\\times"  + radius1   + '-' + radius2 + "\\times" + radius2 +  ')' + "\\]";
+        areatemp += "\\[Area \\space of \\space annulus \\space is \\space " + eval(String((3.14 * radius1 * radius1)-(3.14 * radius2 *radius2))) +  "\\]";
+        areaoutput.innerHTML = areatemp;
+        circum1temp += "\\["  + 2 +  "\\times" + "\\pi " + "\\times" + radius1 + "\\]";
+        circum1temp += "\\[Outer \\space cicrumference \\space of \\space annulus \\space is \\space " + eval(String(3.14 * 2* radius1)) +  "\\]";
+        circum1output.innerHTML = circum1temp;
+        circum2temp += "\\["  + 2 +  "\\times" + "\\pi " + "\\times" + radius2 + "\\]";
+        circum2temp += "\\[Inner \\space cicrumference \\space of \\space annulus \\space is \\space " + eval(String(3.14 * 2* radius2)) +  "\\]";
+        circum2output.innerHTML = circum2temp;
+        renderMathInElement(area1output);
+        renderMathInElement(area2output);
+        renderMathInElement(areaoutput);
+        renderMathInElement(circum1output);
+        renderMathInElement(circum2output);
+    } else {
+        area1output.innerHTML = "";
+        area2output.innerHTML = "";
+        areaoutput.innerHTML = "";
+        circum1output.innerHTML = "";
+        circum2output.innerHTML = "";
+    }
+}
+
 function solveSlope() {
     let x1 = document.getElementById("inputLineX1").value;
     let y1 = document.getElementById("inputLineY1").value;
@@ -2440,6 +2558,7 @@ function cubosolve() {
         diagoutput.innerHTML = "";
     }
 }
+//Traingular Prism
 function prismsolve() {
     var length = document.getElementById("inputprismlength").value;
     var breadth = document.getElementById("inputprismbreadth").value;
@@ -2463,6 +2582,7 @@ function prismsolve() {
         tsaoutput.innerHTML = "";
     }
 }
+//Pentagonal Prism
 function pentprismsolve() {
     var height = document.getElementById("inputpentprismheight").value;
     var edge = document.getElementById("inputpentprismedge").value;
@@ -2485,7 +2605,48 @@ function pentprismsolve() {
         tsaoutput.innerHTML = "";
     }
 }
-     
+//Hexagonal Prism
+function hexprismsolve(){
+    var edge = document.getElementById("inputhexprismedge").value;
+    var height = document.getElementById("inputhexprismheight").value;
+    var voloutput1 = document.getElementById("resultofvolhexprism1");
+    var voloutput2 = document.getElementById("resultofvolhexprism2");
+    var areaoutput1 = document.getElementById("resultofareahexprism1");
+    var areaoutput2 = document.getElementById("resultofareahexprism2");
+    var vol = (0.5 * 3 * math.sqrt(3)) * edge**2 * height;
+    var area = 6 * edge * height + 3 * math.sqrt(3) * edge**2;
+    if ((height != "") && (edge != "")) {
+        voloutput1.innerHTML = "\\[Volume \\space of \\space Hexagonal  \\space Prism \\space is \\]";
+        voloutput2.innerHTML = "\\[\\frac{3 \\sqrt{3}}{2} \\times" + edge + "\\times" +edge+ "\\times"+height+" = " + vol.toFixed(2) + "\\]";
+        renderMathInElement(voloutput1);
+        renderMathInElement(voloutput2);
+        areaoutput1.innerHTML = "\\[Area \\space of \\space Hexagonal  \\space Prism \\space is \\]";
+        areaoutput2.innerHTML = "\\[6 \\times "+edge+"\\times"+height+" + \\space 3 \\sqrt{3} \\times" + edge + "\\times" +edge+" = " + area.toFixed(2) + "\\]";
+        renderMathInElement(areaoutput1);
+        renderMathInElement(areaoutput2);
+    }
+}
+//Octagonal Prism
+function octprismsolve(){
+    var edge = document.getElementById("inputoctprismedge").value;
+    var height = document.getElementById("inputoctprismheight").value;
+    var voloutput1 = document.getElementById("resultofvoloctprism1");
+    var voloutput2 = document.getElementById("resultofvoloctprism2");
+    var areaoutput1 = document.getElementById("resultofareaoctprism1");
+    var areaoutput2 = document.getElementById("resultofareaoctprism2");
+    var vol = 2*(1 +math.sqrt(2)) * edge**2 * height;
+    var area = 8 * edge * height + 4 * (1 + math.sqrt(2)) * edge**2;
+    if ((height != "") && (edge != "")) {
+        voloutput1.innerHTML = "\\[Volume \\space of \\space Octagonal  \\space Prism \\space is \\]";
+        voloutput2.innerHTML = "\\[2 \\times ( 1 \\space + \\space \\sqrt" + 2 + ") \\times" + edge + "\\times" +edge+ "\\times"+height+" = " + vol.toFixed(2) + "\\]";
+        renderMathInElement(voloutput1);
+        renderMathInElement(voloutput2);
+        areaoutput1.innerHTML = "\\[Area \\space of \\space Octagonal  \\space Prism \\space is \\]";
+        areaoutput2.innerHTML = "\\[8 \\times "+edge+"\\times"+height+" + \\space 4( 1 \\space + \\space \\sqrt" + 2 + ")" + edge + "\\times" +edge+" = " + area.toFixed(2) + "\\]";
+        renderMathInElement(areaoutput1);
+        renderMathInElement(areaoutput2);
+    }
+}    
 function frustumsolve() {
     var radius1 = document.getElementById("inputfrustumradius1").value;
     var radius2 = document.getElementById("inputfrustumradius2").value;
@@ -2525,6 +2686,17 @@ function frustumsolve() {
         tsaoutput.innerHTML = "";
         slantoutput.innerHTML = "";
     }
+}
+
+findFactors = function() {
+    var number = document.getElementById("numforfactorhcflcm").value; // Get the number entered by user.
+    var integer = parseInt(number); // Convert it to a number since all the inputs are treaded as string by JavaScript.
+    var loopCount = integer / 2; // Divide the number in half for which we will run loop, since half of any given number is it's second-largest factor.
+    for (var i = 1; i <= loopCount; i++) {
+      if (integer % i == 0) // If remainder is 0, then the number is a factor.
+        document.getElementById("allfactor").innerHTML += i +","; // Print out the factor
+    }
+    document.getElementById("allfactor").innerHTML +=  number; // Print out the number itself.
 }
 
 function pyramidsolve() {
@@ -4206,6 +4378,29 @@ function polar()
   result.innerHTML = x;
 }
 
+
+function expoxn()
+{
+  var r = parseInt(document.getElementById("cpreale").value);
+  var i = parseInt(document.getElementById("cpimge").value);
+  var result= document.getElementsByClassName("comp1resulte");
+  var y = nerdamer((Math.atan(i/r))/3.141592653589793).evaluate().toString();
+  var x ="iπ *" +y
+  result[1].innerHTML = x;
+  result[2].innerHTML = x;
+
+  var p = (Math.sqrt((r*r)+(i*i)));
+  var j =p;
+  if(!Number.isInteger(p))
+  {
+    j = (r*r)+(i*i);
+    j = "&#8730; "+ j ;
+
+  }
+  result[0].innerHTML =  j ;
+
+}
+
 function datau(a) {
     switch (a) {
         case "1":
@@ -5436,24 +5631,49 @@ function convertBinDec() {
     const toBase = document.getElementById("decimal-binary-select2").value;
     const input = document.getElementById("decimal-binary-input").value;
     let result = document.getElementById("decimal-binary-result");
-    let from = 10;
-    let to = 10;
 
-    if (fromBase === "Decimal") from = 10;
-    else from = 2;
+    if (fromBase === "Decimal" && toBase === "Binary"){
+    var i = 1;
+    var s = "";
+    var n ;
+    var [integer , fraction = ''] = input.toString().split('.');
+    fraction = Math.pow(10,-1 * fraction.length) * fraction;
 
-    if (toBase === "Decimal") to = 10;
-    else to = 2;
+    while(i<=7 ){
+       fraction = 2 * fraction;
+       s = s + parseInt(fraction).toString(2);;
+       fraction = "0"+fraction.toString().substring(fraction.toString().indexOf("."));
+       n= Math.abs(fraction);
+       if(n - Math.floor(n) == 0){
+       break;
+       }
+       i++;
+    }
+    result.innerHTML =   parseInt(integer,10).toString(2) + "."+ s ;
 
-    result.innerHTML = parseInt(input, from).toString(to);
+    }else if (fromBase === "Binary" && toBase === "Decimal"){
+        result.innerHTML = calculatefrac(input,2);
+    }else if (fromBase === "Binary" && toBase === "Binary"){
+        result.innerHTML = input;
+    }else if (fromBase === "Decimal" && toBase ==="Decimal"){
+        result.innerHTML = input;
+    }
+
     if (input == "") {
         result.innerHTML = "";
-    } else if (from == 2) {
-        if (input.search(/^[10]+$/) == -1)
+    } else if (fromBase  === "Binary") {
+        if (input.search(/^[-.10]+$/) == -1)
             result.innerHTML = "Binary numbers can only have 0's and 1's";
 
     }
 }
+//converts both integer and fractional part of  binary/hexa/octal to decimal
+function calculatefrac(value, base = 2) {
+    var [integer, fraction = ''] = value.toString().split('.');
+
+    return parseInt(integer, base) + (integer[0] !== '-' || -1) * fraction.split('').reduceRight((r, a) => (r + parseInt(a, base)) / base, 0);
+}
+
 
 //////////////////////////////////////////////////////////////
 
@@ -5584,7 +5804,60 @@ function convertBinOct() {
 }
 
 //----------------------------
+//Function that performs anyBase to anyBase Conversion
+function convertAnyBaseToAnyBase() {
+  const fromBase = document.getElementById("anyBase-select1").value;
+  const toBase = document.getElementById("anyBase-select2").value;
+  const input = document.getElementById("anyBase-input").value;
+  let result = document.getElementById("anyBase-result");
 
+  let from = 2;
+  let to = 2;
+
+  if (fromBase === "2(Binary)") from = 2;
+  else if (fromBase === "3") from=3;
+  else if (fromBase === "4") from=4;
+  else if (fromBase === "5") from=5;
+  else if (fromBase === "6") from=6;
+  else if (fromBase === "7") from=7;
+  else if (fromBase === "8(Octal)") from=8;
+  else if (fromBase === "9") from=9;
+  else if (fromBase === "10(Decimal)") from=10;
+  else if (fromBase === "11") from=11;
+  else if (fromBase === "12") from=12;
+  else if (fromBase === "13") from=13;
+  else if (fromBase === "14") from=14;
+  else if (fromBase === "15") from=15;
+  else from = 16;
+
+  if (toBase === "2(Binary)") to = 2;
+  else if(toBase === "3") to = 3;
+  else if(toBase === "4") to = 4;
+  else if(toBase === "5") to = 5;
+  else if(toBase === "6") to = 6;
+  else if(toBase === "7") to = 7;
+  else if(toBase === "8(Octal)") to = 8;
+  else if(toBase === "9") to = 9;
+  else if(toBase === "10(Decimal)") to = 10;
+  else if(toBase === "11") to = 11;
+  else if(toBase === "12") to = 12;
+  else if(toBase === "13") to = 13;
+  else if(toBase === "14") to = 14;
+  else if(toBase === "15") to = 15;
+  else to = 16;
+
+  result.innerHTML = parseInt(input, from).toString(to);
+  if (input == "") {
+      result.innerHTML = "";
+  } else if (from == 2) {
+      if (input.search(/^[10]+$/) == -1)
+          result.innerHTML = "Binary numbers can only have 0's and 1's";
+
+  }
+
+
+
+}
 //Function that performs conversion of Octal/hexadecimal
 function convertOctHex() {
     const fromBase = document.getElementById("octal-hexadecimal-select1").value;
@@ -5615,30 +5888,50 @@ function addBinDecHexOct(){
     const input2 = document.getElementById("adding-all-input2").value;
     const resultType= document.getElementById("adding-all-result-type").value;
     let result = document.getElementById("adding-all-result");
-    var x1;
-    var x2;
+    var x1,x1o;
+    var x2,x2o;
+   
+    if(firstBase === "Binary"){
+        x1=parseInt(input1,2);
+        x1o=x1.toString(2);
+    }
+    else if (firstBase === "Octal"){
+        x1=parseInt(input1,8);
+        x1o=x1.toString(8);
+    }
+    else if(firstBase === "Hexa Decimal"){
+        x1=parseInt(input1,16);
+        x1o=x1.toString(16);
+    }
+    else if(firstBase === "Decimal"){
+        x1=parseInt(input1);
+        x1o=x1;
+    }
 
-    if(firstBase === "Binary")
-    x1=parseInt(input1,2);
-    else if (firstBase === "Octal")
-    x1=parseInt(input1,8);
-    else if(firstBase === "Hexa Decimal")
-    x1=parseInt(input1,16);
-    else if(firstBase === "Decimal")
-    x1=parseInt(input1);
-
-    if(secondBase === "Binary")
-    x2=parseInt(input2,2);
-    else if (secondBase === "Octal")
-    x2=parseInt(input2,8);
-    else if(secondBase === "Hexa Decimal")
-    x2=parseInt(input2,16);
-    else if(secondBase === "Decimal")
-    x2=parseInt(input2);
+    if(secondBase === "Binary"){
+        x2=parseInt(input2,2);
+        x2o=x2.toString(2);
+    }
+    else if (secondBase === "Octal"){
+        x2=parseInt(input2,8);
+        x2o=x2.toString(8);
+    }
+    else if(secondBase === "Hexa Decimal"){
+        x2=parseInt(input2,16);
+        x2o=x2.toString(16);
+    }
+    else if(secondBase === "Decimal"){
+        x2=parseInt(input2);
+        x2o=x2;
+    }
 
     var x3=x1+x2;
-
-    if(resultType === "Binary")
+    console.log(x1)
+    if(isNaN(x1) || x1o!=input1)
+    result.innerHTML="Enter correct "+firstBase+" value in Input 1";
+    else if(isNaN(x2)|| x2o!=input2)
+    result.innerHTML="Enter a "+secondBase+" value in Input 2";
+    else if(resultType === "Binary")
     result.innerHTML="Answer in binary="+x3.toString(2);
     else if (resultType === "Octal")
     result.innerHTML="Answer in Octal="+x3.toString(8);
@@ -5646,6 +5939,8 @@ function addBinDecHexOct(){
     result.innerHTML="Answer in Hexa Decimal="+x3.toString(16);
     else if(resultType === "Decimal")
     result.innerHTML="Answer in Decimal="+x3.toString();
+    else
+    result.innerHTML="";
 }
 
 //---------------------------------------------------------------------
@@ -5687,12 +5982,34 @@ function subBinDecHexOct(){
             ans = add.substring(1);
             result.innerHTML = ans;
         } else if (add.length < input1.length){
-            var aryan = input1.length - add.length;
-            aryan = Math.pow(10,aryan);
-            ans = aryan + add;
+            var a1 = input1.length - add.length;
+            a1 = Math.pow(10,a1);
+            ans = a1 + add;
             ans = ans.substring(1);
             result.innerHTML = "-" + calculateTwoComplement(ans);
         }
+        
+    }else if(base === "Octal"){
+        var add1 = "";
+        var ans1 = "";
+        var eigco= calculateEightComplement(input2);
+        console.log(eigco);
+        add1 = (parseInt(eigco,8)+parseInt(input1,8)).toString(8);
+        console.log(add1);
+        if(add1.length == input1.length){
+            ans1 = calculateEightComplement(add1);
+            result.innerHTML = "-" + ans1;
+        } else if (add1.length > input1.length){
+            ans1 = add1.substring(1);
+            result.innerHTML = ans1;
+        } else if (add1.length < input1.length){
+            var a2 = input1.length - add1.length;
+            a2 = Math.pow(10,a2);
+            ans1 = a2 + add1;
+            ans1 = ans1.substring(1);
+            result.innerHTML = "-" + calculateEightComplement(ans1);
+        }
+        
     }
 }
 
@@ -5721,6 +6038,21 @@ function calculateTwoComplement(x){
         var twoc = two.join('');
     }
     return twoc;
+}
+
+//called this function while subtracting octal numbers
+function calculateEightComplement(x){
+    if(x.search(8)==0 || x.search(9)==0){
+        return  "Invalid";
+    }else{
+    var sev = "";
+    var eig = "";
+    for (var i = 0; i < x.length; i++) {
+        sev += '7' - x[i];
+    }
+    eig = (parseInt(sev,8) + 1).toString(8);
+    return eig;
+    }
 }
 
 //----------------------------
@@ -6109,7 +6441,7 @@ function seveneightCalc(){
         seven += '7' - input[i];
     }
     result.innerHTML = "Seven's complement of " + input + " is " + seven + "<br>";
-    eight = parseInt(seven) + 1;
+    eight = (parseInt(seven,8) + 1).toString(8);
     result.innerHTML = "Seven's complement of "+ input + " is " + parseInt(seven) + "<br>";
     result.innerHTML += "Eight's complement of "+ input + " is " + eight + "<br>";
 
