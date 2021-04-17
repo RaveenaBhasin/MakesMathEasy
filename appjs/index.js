@@ -248,13 +248,16 @@ function openit(id) {
         "#pentprism",
         "#pyramid",
         "#tripyramid",
+        "#hexpyramid",
         "#anglecon",
         "#frustum",
         "#annulus",
+        "#cosine",
 	    "#ip",
 	    "#prices",
         "#lyear",
         "#analytical",
+        "#expo",
         "#setformula"
     ];
     for (i = 0; i < ids.length; i++) {

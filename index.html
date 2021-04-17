@@ -1150,6 +1150,21 @@
                 <table class="table">
                     <tr>
                         <td style="border-top: none;">
+                            <a id="expobtn"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Solve for Exponents</a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Solve for Exponents','#expo','c','expoimgfav')"><img
+                                        id="expoimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
                             <a id="profitlossbutton"
                                style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Profit
                                 Loss Calculations</a>
@@ -2388,7 +2403,6 @@
                     </tr>
                 </table>
             </li>
-
             <li>
                           <table class="table">
                               <tr>
@@ -4170,7 +4184,23 @@
             <p>take out least degree term and use binomial expansion to solve</p>
             <p>4. If Q = e^{ax}.V</p>
             <p>Take out e<sup>ax</sup> by putting D to D+a and then solve</p>
-            
+            <br>
+            <h4>Homogenous Differential equations</h4>
+            <br>
+            <p>A linear differential equation of the form,</p>
+            <p>\[x^{n} \frac{d^{n}y}{dx^{n}} + a_1x^{n-1}\frac{d^{n-1}y}{dx^{n-1}}+a_2 x^{n-2}\frac{d^{n-2}y}{dx^{n-2}}+.....+a_n y\space =\space Q\]</p>
+            <p>with a<sub>0</sub>, a<sub>1</sub>, . . . , a<sub>n</sub> constants is called the homogeneous Euler-Cauchy equation of order n.</p>
+            <p>We introduce a new variable z where,</p>
+            <p>\[z\space =\space ln(x)\space or\space x\space =\space e^{z}\]</p>
+            <p>Then we change differentiation terms to</p>
+            <p>\[x\frac{d}{dx}\space =\space D\space,\space where\space D = \frac{d}{dz}\]</p>
+            <p>\[x^{2}\frac{d^{2}}{dx^{2}}\space =\space D(D-1)\space\space and\space\space x^{3}\frac{d^{3}}{dx^{3}}\space =\space D(D-1)(D-2) and\space so\space on\]</p>
+            <p>Now it reduces to linear differntial eqn with constant coefficients,find CF and PI to get solution and put back z = ln(x) to get final answer</p>
+            <h5>Legendre's Differential eqn</h5>
+            <p>A linear differential equation of the form,</p>
+            <p>\[(ax+b)^{n} \frac{d^{n}y}{dx^{n}} + a_1(ax+b)^{n-1}\frac{d^{n-1}y}{dx^{n-1}}+a_2 (ax+b)^{n-2}\frac{d^{n-2}y}{dx^{n-2}}+.....+a_n y\space =\space Q\]</p>
+            <p>Put ax+b = e<sup>z</sup> and solve line homogenous equations</p>
+            <p>\[(ax+b)\frac{dy}{dx}\space = \space bD\space (ax+b)^{2}\frac{d^{2}}{dx^{2}}\space =\space b^{2}D(D-1)\space and\space so\space on\]</p>
         </div>
         <div class="collapse" id="maxmin">
             <h2 style="text-align: center;">Maxima and Minima of Functions</h2>
@@ -6984,8 +7014,14 @@
         </div>
 
         <div class="collapse" id="solutiontri">
-            <h2 style="text-align: center;">Solution of Triangles</h2>
+            <h3 style="text-align: center;">Solution of Triangles</h3>
             <br>
+            <tr>
+                <td><a data-toggle="modal" data-target="#cosine"
+                    style="text-decoration:none;"
+                    href="#"><h4>Law of Cosines Calculator</h4></a>
+                </td>
+            </tr>
             <p>\[1) \space Sine\space rule : \frac{a}{sinA} = \frac{b}{sinB} =
                 \frac{c}{sinC}\]</p>
             <p>\[2) \space Cosine\space rule : cosA = \frac{(b^2+c^2-a^2)}{2bc}\]</p>
@@ -7983,6 +8019,68 @@
                 <img style="margin-left: 300px;"src="images/pr12.png" alt="">
             </ol>
         </div>
+
+        <div class="modal fade" id="cosine" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Law of Cosines</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"
+                                style="outline:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <br><br>
+                                    <h5 class="text-center">Angle A</h5>
+                                    <p class="text-center">\[cos^{-1}\Big[\frac{b^2 + c^2 -a^2}{2bc}\Big]\]</p><br>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Angle B</h5>
+                                    <p class="text-center">\[ cos^{-1}\Big[\frac{a^2 + c^2 -b^2}{2ac}\Big]\]</p>
+
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group"><br>
+                                        <img src="images/cosinerule.png" class="img-fluid">
+                                    </div>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Angle C</h5>
+                                    <p class="text-center">\[ cos^{-1}\Big[\frac{a^2 + b^2 -c^2}{2ab}\Big]\]</p>
+                                </div><br>
+                                <div class="dropdown-divider"></div>
+                                <input class="form__field" type="number"
+                                       placeholder="Enter side a"
+                                       id="inputsidea" oninput="solvecosine()">
+                                <input class="form__field" type="number"
+                                       placeholder="Enter side b"
+                                       id="inputsideb" oninput="solvecosine()">
+                                <input class="form__field" type="number"
+                                       placeholder="Enter side c"
+                                       id="inputsidec" oninput="solvecosine()">
+                                <br>
+                                <p class="stopwrap" id="resultofanglea"
+                                   style="font-family:mathfont;"></p>
+                                <p class="stopwrap" id="resultofangleb"
+                                   style="font-family:mathfont;"></p>
+                                <p class="stopwrap" id="resultofanglec"
+                                   style="font-family:mathfont;"></p>
+                                
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary"
+                                    data-dismiss="modal">Close
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="collapse" id="curve">
             <h2 style="text-align: center;">Curve Tracing</h2>
             <h4>For Cartesian Curves</h4>
@@ -8260,7 +8358,44 @@
                 three sides of another triangle, then the two triangles are similar.</p>
             <br>
             <img src="images/SSSsimilar.png" alt="" style="width: 750px;height: 361px;">
-            <br><br>
+            <br><br><br><br>
+            <h2>Fundamental Theorem of Proportionality</h2>
+            <br>
+            <p>If a line parallel to one of the sides of a triangle intersects the other two sides 
+                in distinct points, then the segments of the other two sides in one halfplane are 
+                proportional to the segments in the other halfplane.</p>
+            <br>
+            <img src="images/proptheo.png" alt="" style="width: 750px;height: 361px;">
+            <br><br><br><br>
+            <p>Using the fundamental theorem on proportionality, we can obtain some results:</p>
+            <ol>
+                <li style="color: white; font-size: 20px;">If a line parallel to one side of a triangle 
+                    intersects the other two sides of the triangle in distinct points, the segments of the 
+                    other sides of the triangle in the same halfplane of the line are proportional to the 
+                    corresponding sides of the triangle.<br>
+                    <img src="images/propres1.jpg" alt="" style="width: 750px;height: 361px;">  
+                </li>
+                <br>
+                <li style="color: white; font-size: 20px;">If three (or more than three) parallel lines 
+                    are intercepted by two transversals, the segments cut off on the transversals between 
+                    the same parallel lines are proportional.<br>
+                    <img src="images/propres2.jpg" alt="" style="width: 750px;height: 361px;">
+                </li>
+                <br>
+                <li style="color: white; font-size: 20px;">In a triangle the bisector of an angle divides 
+                    the side opposite to the angle in the segments whose lengths are in the ratio of their 
+                    corresponding sides.<br>
+                    <img src="images/propres3.jpg" alt="" style="width: 750px;height: 361px;">
+                </li>
+                <br>
+            </ol>
+            <br><br><br><br>
+            <h2>Converse of the fundamental theorem of proportionality</h2>
+            <br>
+            <p>If a line intersects two sides of a triangle such that segments of the sides in each half-plane 
+                are proportional then the line is parallel to the third side.</p>
+            <br>
+            <img src="images/propcontheo.png" alt="" style="width: 750px;height: 361px;">
         </div>
 
         <div class="collapse" id="tdshapescal">
@@ -8373,6 +8508,11 @@
                                     <td><a data-toggle="modal" data-target="#tripyramid"
                                         style="text-decoration:none;"
                                         href="#">Triangular Pyramid</a></td>
+                                </tr>
+                                <tr>
+                                    <td><a data-toggle="modal" data-target="#hexpyramid"
+                                        style="text-decoration:none;"
+                                        href="#">Hexagonal Pyramid</a></td>
                                 </tr>
                             </table>
                         </div>
@@ -8628,6 +8768,32 @@
 
         </div>
         <!-- Factorial end -->
+
+        <div class="collapse" id="expo">
+            <div class="text-center">
+                <h2><label>Solve for Exponent n</label></h2>
+            </div>
+            <h3>\[x^n \space =  \space y\]</h3>
+            <div class="coll">
+                <form class="form-inline">
+                    <input type="number" id="xval"  value='' placeholder="Enter x"
+                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>       
+                    <input type="text" id="yval"  value='' placeholder="Enter y"
+                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
+                    <br>
+                <button type="button" class="btn btn-light" onclick=exposol()>
+                    Calculate
+                </button><br>
+                </form>
+            </div>
+            <br>
+          
+            <h3 class="stopwrap" id="res"
+                                   style="font-family:mathfont;"></h3>
+            <p class="stopwrap" id="steps"
+                                   style="font-family:mathfont;"></p>
+            <br>
+        </div>
 
         <!--sum of nterms in A.P.-->
         <div class="collapse" id="sum_n_AP">
@@ -9337,6 +9503,9 @@
                         </option>
                         <option class="form_field" style="background-color: #232a36;">
                             Octal
+                        </option>
+                        <option class="form_field" style="background-color: #232a36;">
+                            Hexa Decimal
                         </option>
                     </select>
                     <br><br><h2>Input Of Minuend</h2>
@@ -10134,7 +10303,7 @@
 
         </div>
 
-        <!--End of Joint Probability-->l̥
+        <!--End of Joint Probability-->
 
         <!--Bayes  Probability-->
         <div class="collapse" id="bayes-probabilitycollapse">
@@ -10199,7 +10368,7 @@
         </div>
 
 
-        <!--End of Bayes Probability-->l̥
+        <!--End of Bayes Probability-->
 
 
         <div class="collapse" id="cal" style="z-index:9;position:relative;">
@@ -12766,6 +12935,81 @@
                             <p class="stopwrap" id="resultoftritsapyramid"
                                style="font-family:mathfont;"></p>
                             
+
+                        </div>
+                        <!-- ------HERE------ -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary"
+                                data-dismiss="modal">Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="hexpyramid" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Hexagonal Pyramid</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"
+                                style="outline:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- added div with class container -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="text-center">Base Area</h5>
+                                    <p class="text-center">\[A = 3ab \]</p>
+                                    <p class="text-center">a = apothem</p>
+                                    <p class="text-center">b = base length</p>
+                                    <br>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Volume</h5>
+                                    <p class="text-center">\[V = abh \]</p>
+                                    <p class="text-center">h = height</p>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Total Surface area</h5>
+                                    <p class="text-center">\[S = 3b(a + s) \]</p>
+                                    <p class="text-center">s = slant height</p>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Lateral Surface area</h5>
+                                    <p class="text-center">\[LSA = \frac{1}{2}(Perimeter \times s) \]</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <img src="images/hexpyramid.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <!-- --------FROM------- -->
+                            <input class="form__field" type="number"
+                                   placeholder="Enter apothem of hexagon(a)" id="inputhexpyramidapothem"
+                                   oninput="hexpyramidsolve();">
+                            <input class="form__field" type="number"
+                                   placeholder="Enter base length of hexagon(b)" id="inputhexpyramidbase"
+                                   oninput="hexpyramidsolve();">  
+                            <input class="form__field" type="number"
+                                   placeholder="Enter slant height(s)" id="inputhexpyramidslant"
+                                   oninput="hexpyramidsolve();">   
+                            <input class="form__field" type="number"
+                                   placeholder="Enter height of pyramid(h)" id="inputhexpyramidheight"
+                                   oninput="hexpyramidsolve();">
+                            <p class="stopwrap" id="resultofhexbasepyramid"
+                                style="font-family:mathfont;"></p>
+                            <p class="stopwrap" id="resultofhexvolpyramid"
+                                style="font-family:mathfont;"></p>
+                            <p class="stopwrap" id="resultofhextsapyramid"
+                                style="font-family:mathfont;"></p>
+                            <p class="stopwrap" id="resultofhexperipyramid"
+                                style="font-family:mathfont;"></p>
+                            <p class="stopwrap" id="resultofhexlsapyramid"
+                                style="font-family:mathfont;"></p>
 
                         </div>
                         <!-- ------HERE------ -->
