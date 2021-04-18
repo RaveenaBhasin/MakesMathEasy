@@ -1272,6 +1272,38 @@
                     </tr>
                 </table>
             </li>
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="hydrops"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;"> Hydrostatic Pressure </a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Hydrostatic Pressure', '#hydroz', 'c', 'hydrostaticimg')"><img
+                                        id="hydrostaticimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="strclc"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Strain Calculator </a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Strain Calculator', '#straincalc', 'c', 'strainimg')"><img
+                                        id="strainimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
 
             
             <li>
@@ -3922,20 +3954,26 @@
 
           <!--Sets Formulas List ends-->
         <div class="collapse" id="log_values">
-            <fieldset class="form-group">
+
                 <legend style="color:rgba(243, 118, 218, 0.8)!important; font-size: 45px;">Log
                     Calculator
                 </legend>
-                <strong style="font-size: 30px; color: aliceblue;">log</strong>
-                <sub><input type="number" min="1" max="9999" step="1" name="log-base"
-                            id="log-base" placeholder="Number"
-                            value="" required="">
-                </sub>
-                <sup><input type="number" min="1" max="999999999" name="x-number" id="x-number"
-                            placeholder="Number"
-                            class="fontbig" value="" required=""></sup>
 
-            </fieldset>
+            <div class="col-6">
+                <div class="form-group">
+                    <h5>Base</h5>
+
+                    <input type="number" min="1" max="9999" step="1" id="log-base" value="0" class="form__field">
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-group">
+                    <h5>Number</h5>
+
+                    <input type="number" min="1" max="9999" step="1" id="x-number" value="0" class="form__field">
+                </div>
+            </div>
+            
 
             <button type="button" class="btn btn-light" style="margin-top: 40px" ;
                     onclick="cal_log()">
@@ -4269,6 +4307,30 @@
             <p>\[(ax+b)^{n} \frac{d^{n}y}{dx^{n}} + a_1(ax+b)^{n-1}\frac{d^{n-1}y}{dx^{n-1}}+a_2 (ax+b)^{n-2}\frac{d^{n-2}y}{dx^{n-2}}+.....+a_n y\space =\space Q\]</p>
             <p>Put ax+b = e<sup>z</sup> and solve line homogenous equations</p>
             <p>\[(ax+b)\frac{dy}{dx}\space = \space bD\space (ax+b)^{2}\frac{d^{2}}{dx^{2}}\space =\space b^{2}D(D-1)\space and\space so\space on\]</p>
+            <br>
+            <h4>Solving Simultaneous Linear Differential Equation</h4>
+            <br>
+            <p>Each equation in a system will be assumed to have constant coefficients and be of the general form<br>
+                f(D)x + g(D)y + ....... + h(D)u = G(t)<br> where x, y, ...... , u are the dependent variables, t is the independent variable.
+            </p>
+            <br>
+            <p>A system of n equations in the n dependent variables x, y, ..... , u and independent variable t will have a solution consisting of n functions</p>
+            <p> x = x(t)<br>
+                y = y(t) <br>    
+                ............. <br>    
+                .............<br>    
+                u = u(t)
+            </p>
+            <p>
+                The method used to solve a system of n equations in n variables is analogous to the procedure used to solve a system of n linear equations in n unknowns in 
+                algebra. In algebra, we solve a system of n equations in n unknowns by eliminating unknowns between equations until we obtain an equation containing a 
+                single unknown, from which we deduce the value of the unknown. Then we substitute the value of that unknown into other equations to obtain the values of 
+                other unknowns. In solving systems of linear differential equations we go through the same type process to obtain an equation containing a single dependent 
+                variable. The equation in this single dependent variable will be a linear differential equation with constant coefficients. We then solve this equation, 
+                using methods for solving such equations, to obtain an expression for that dependent variable. We then substitute the expression for that variable into 
+                another equation to obtain an expression for another variable. As with the algebraic problem, we can also employ determinants.
+            </p>
+            <p><b>Theorem.</b> The number of constants in the general solution of a system of equations must equal the sum of the orders of the equations.</p>
             <br>
             <h4>Linear Differential equation of second order</h4>            
             <br>
@@ -8458,6 +8520,11 @@
                     <td><a data-toggle="modal" data-target="#pentagon"
                            style="text-decoration:none;"
                            href="#">Pentagon</a></td>
+                </tr>         
+                <tr>
+                    <td><a data-toggle="modal" data-target="#hexagon"
+                           style="text-decoration:none;"
+                           href="#">Hexagon</a></td>
                 </tr>            
             </table>
         </div>
@@ -8680,6 +8747,11 @@
                             </table>
                         </div>
                     </td>
+                </tr>
+                <tr>
+                    <td><a data-toggle="modal" data-target="#octahedron"
+                           style="text-decoration:none;"
+                           href="#">Octahedron</a></td>
                 </tr>
                 <tr>
                     <td><a data-toggle="modal" data-target="#tetrahedron"
@@ -9447,7 +9519,53 @@
         </div>
 
         <!-- P&C end -->
+<!--Hydrostatic Pressure starts-->
 
+ 
+<div class="collapse" id="hydroz">
+
+    
+    <h1 style="font-family:mathfont; text-align:center;">HYDROSTATIC PRESSURE CALCULATOR </h1>
+    <input type="number" name="dens" class="form__field" id="dens" width="5em" placeholder="Enter fluid's density(in kg/m^3)">
+    <p>&nbsp;</p>
+    <input type="number" name="dept" class="form__field" id="dept" placeholder="Enter fluid's depth (in meter)">
+    <p>&nbsp;</p>
+    <button type="button" class="btn btn-outline-light" onclick="hydrocal()">Calculate</button>
+    <p id="hydroans"></p>
+    
+   
+</div>
+<!--Hydrosrtatic Pressure ends-->
+
+<!--Strain Calculator starts-->
+<div class="collapse" id="straincalc">
+
+    
+    <h1 style="font-family:mathfont; text-align:center;">STRAIN CALCULATOR </h1>
+    <input type="number" name="chnln" class="form__field" id="chnln"  placeholder="Enter change in length">
+    <select id="chunit" class="form__field">
+        <option class="form__field" value="µm" style="background-color: #232a36;"> µm</option>
+        <option class="form__field" value="mm"  style="background-color: #232a36;"> mm</option>
+        <option class="form__field" value="cm"  style="background-color: #232a36;"> cm</option>
+        <option class="form__field" value="m" style="background-color: #232a36;"> m</option>
+        <option class="form__field" value="inch"  style="background-color: #232a36;"> inch</option>
+    </select>
+    <p>&nbsp;</p>
+    <input type="number" name="orln" class="form__field" id="orln" placeholder="Enter original length">
+    <select id="orunit" class="form__field">
+        <option class="form__field" value="µm" style="background-color: #232a36;"> µm</option>
+        <option class="form__field" value="mm" style="background-color: #232a36;"> mm</option>
+        <option class="form__field" value="cm" style="background-color: #232a36;"> cm</option>
+        <option class="form__field" value="mm"  style="background-color: #232a36;"> m</option>
+        <option class="form__field" value="inch"  style="background-color: #232a36;"> inch</option>
+    </select>
+    <p>&nbsp;</p>
+    <button type="button" class="btn btn-outline-light" onclick="straincal()">Calculate</button>
+    <div style="color: white; text-align: center; font-size: 1.5em; font-family:mathfont;" id="strainans"></p>
+    
+   
+</div>
+<!--Strain Calculator Ends-->
         <!-- Primarity test and prime till n cal -->
         <div class="collapse" id="prime">
             <form class="form-group">
@@ -12439,6 +12557,57 @@
         </div>
     </div>
 
+
+    <div class="modal fade" id="hexagon" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Hexagon</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"
+                            style="outline:none">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!-- added div with class container -->
+                    <div class="conatiner">
+                        <div class="row">
+                            <div class="col-6">
+                                <h5 class="text-center">Area</h5>
+                                <p class="text-center">\[A = \frac{3 \sqrt{3}}{2} \space a^2\]</p>
+                                <div class="dropdown-divider"></div>
+                                <h5 class="text-center">Perimeter</h5>
+                                <p class="text-center">\[P = 6 \times a \]</p>
+
+                            </div>
+                            <div class="col-6">
+                                <div class="form-group">
+                                    <img src="images/hex.PNG" class="img-fluid">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <!---FROM-->
+                        <input class="form__field" type="number" placeholder="Enter side (a)"
+                               id="inputsidehex"
+                               oninput="solvehex()">
+                        <p class="stopwrap" id="resultofareahex1"
+                           style="font-family:mathfont;"></p>
+                        <p class="stopwrap" id="resultofareahex2"
+                           style="font-family:mathfont;"></p>
+                        <p class="stopwrap" id="resultofperimeterhex"
+                           style="font-family:mathfont;"></p>-
+                    </div>
+                    <!---TILL-->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!--shapes end-->
 
     <!--3-D shapes model -------->
@@ -13397,7 +13566,55 @@
                 </div>
             </div>
         </div>
-        
+        <div class="modal fade" id="octahedron" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Regular Octahedron</h5>
+                        <button type="button" class="close" data-dismiss="modal"
+                                aria-label="Close"
+                                style="outline:none">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- added div with class container -->
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-6">
+                                    <h5 class="text-center">Volume</h5>
+                                    <p class="text-center">\[V=\frac{\sqrt{2}a^3}{3}\]</p>
+                                    <div class="dropdown-divider"></div>
+                                    <h5 class="text-center">Surface Area</h5>
+                                    <p class="text-center">\[A = 2 \sqrt{3} a^2\]</p>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form-group">
+                                        <img src="images/octa.png" class="img-fluid">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dropdown-divider"></div>
+                            <!-- --------FROM------- -->
+                            <input class="form__field" type="number"
+                                   placeholder="Enter Side (a)"
+                                   id="inputtside" oninput="solveocta()">
+                            <p class="stopwrap" id="resultofvolt"
+                               style="font-family:mathfont;"></p>
+                            <p class="stopwrap" id="resultoftsa"
+                               style="font-family:mathfont;"></p>
+                            
+                        </div>
+                        <!-- ------HERE------ -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                            Close
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
 		    <div class="modal fade" id="tetrahedron" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
