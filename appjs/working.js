@@ -448,7 +448,11 @@ $(document).ready(function () {
         clearall();
     });
 
-
+    $("#powsbtn").click(function () {
+        openit("#pows");
+        closenav();
+        clearall();
+    });
     $("#curconbtn").click(function () {
         openit("#curconcal");
         closenav();
@@ -646,6 +650,12 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+
+    $("#percalbtn").click(function(){
+        openit("#percal");
+        closenav();
+        clearall();
+    });
     
     $("#meanbtn").click(function(){
         openit("#mean");
@@ -662,9 +672,6 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-
-
-
 
     $("#lapprobtn").click(function(){
         openit("#lappro");
