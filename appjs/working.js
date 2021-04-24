@@ -55,6 +55,11 @@ $(document).ready(function () {
         closenav();
     });
 
+    $("#centcalbut").click(function () {
+        openit("#centcal");
+        closenav();
+    });
+
     $("#leapyearbtn").click(function () {
         openit("#lyear");
         closenav();
@@ -106,11 +111,41 @@ $(document).ready(function () {
         clearall();
     });
 
+
+
+    $("#impfix").click(function () {
+        openit("#impfixs");
+        closenav();
+        clearall();
+    });
+
+
+
+    $("#segcal").click(function () {
+        openit("#segcals");
+        closenav();
+        clearall();
+    });
+
+
+
     $("#ssst").click(function () {
         openit("#ssts");
         closenav();
         clearall();
     });
+
+
+
+
+    $("#sosq").click(function () {
+        openit("#sosqs");
+        closenav();
+        clearall();
+    });
+
+
+
 
     $("#arc").click(function () {
         openit("#arcs");
@@ -760,6 +795,13 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+
+     $("#plotbargraphoption").click(function(){
+        openit("#plotbargraph");
+        closenav();
+        clearall();
+    });
+
 
 })
 
