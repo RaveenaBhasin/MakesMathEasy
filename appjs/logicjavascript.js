@@ -1599,6 +1599,21 @@ function solvelaplace() {
     );
 }
 
+function dlp(){
+    var a1 = parseFloat(document.getElementById("la").value)
+    var b1 = parseFloat(document.getElementById("lb").value)
+    var c1 = parseFloat(document.getElementById("lc").value)
+    var a2 = parseFloat(document.getElementById("pa").value)
+    var b2 = parseFloat(document.getElementById("pb").value)
+    var c2 = parseFloat(document.getElementById("pc").value)
+    var cor1 = parseFloat(document.getElementById("cor1").value)
+    var cor2 = parseFloat(document.getElementById("cor2").value)
+    var cor3 = parseFloat(document.getElementById("cor3").value)
+    var d = parseFloat(document.getElementById("d").value)
+    var dlpans = (cor1*a2 + cor2*b2  + cor3*c2 +d)/(Math.sqrt(a2*a2+b2*b2+c2*c2))
+    document.getElementById("dlpans").innerHTML = "The distance is  " +dlpans
+}
+
 function solveinverselaplace() {
     var ilurl = encodeURIComponent(
         document.getElementById("inputinverselaplace").value
@@ -1758,9 +1773,25 @@ function plpSolve()
    
     var dis = (((b*x1)-(a*y1)));
     if(-a>0)
-    document.getElementById('plp_op').innerHTML= 'Equation Of Line Perpendicular to ' + a  + 'x' + '+' + b + 'y' + '+' + c + '=0'+ 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  b  + 'x' + '+' + (-a) + 'y' + '=' + dis;
+    document.getElementById('plp_op').innerHTML= 'Equation Of Line Perpendicular to ' + a  + 'x' + '+ (' + b + ')y' + '=' + c + 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  b  + 'x' + '+' + (-a) + 'y' + '=' + dis;
     else
-    document.getElementById('plp_op').innerHTML= 'Equation Of Line Perpendicular to ' + a  + 'x' + '+' + b + 'y' + '+' + c + '=0'+ 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  b  + 'x'  + (-a) + 'y' +  '=' + dis;
+    document.getElementById('plp_op').innerHTML= 'Equation Of Line Perpendicular to ' + a  + 'x' + '+' + b + 'y' + '=' + c + 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  b  + 'x'  + (-a) + 'y' +  '=' + dis;
+    
+}
+function pppSolve()
+{
+    var a,b,c, x1,x2;
+    a=parseFloat(document.getElementById('pppa').value);
+    b=parseFloat(document.getElementById('pppb').value);
+    c=parseFloat(document.getElementById('pppc').value);
+    x1=parseFloat(document.getElementById('pppx').value);
+    y1=parseFloat(document.getElementById('pppy').value);
+   
+    var dis = (((a*x1)+(b*y1)));
+    if(b>0)
+    document.getElementById('ppp_op').innerHTML= 'Equation Of Line Parallel to ' + a  + 'x' + '+' + b + 'y' + '=' + c + 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  a  + 'x' + '+' + (b) + 'y' + '=' + dis;
+    else
+    document.getElementById('ppp_op').innerHTML= 'Equation Of Line Parallel to ' + a  + 'x' + b + 'y' + '=' + c + 'and pass through point (' + x1 + ',' + y1 + ')  is  ' +  a  + 'x'  + (b) + 'y' +  '=' + dis;
     
 }
 
@@ -1877,6 +1908,25 @@ function incentersolve(){
         renderMathInElement(document.getElementById("informula"));
 
     }
+}
+
+function excentersolve(){
+    var x1,y1,x2,y2,x3,y3,a,b,c;
+    x1=parseFloat(document.getElementById('Xn1').value);
+    y1=parseFloat(document.getElementById('Yn1').value);
+    x2=parseFloat(document.getElementById('Xn2').value);
+    y2=parseFloat(document.getElementById('Yn2').value);
+    x3=parseFloat(document.getElementById('Xn3').value);
+    y3=parseFloat(document.getElementById('Yn3').value);
+    a=parseFloat(document.getElementById('ena').value);
+    b=parseFloat(document.getElementById('enb').value);
+    c=parseFloat(document.getElementById('enc').value);
+    var excenterop1 = (-a*x1 + b*y1 + c*z1)/(-a+b+c)
+    var excenterop2 = (-a*x1 + b*y1 + c*z1)/(-a+b+c)
+    var excenterop2 = (-a*x1 + b*y1 + c*z1)/(-a+b+c)
+    document.getElementById("ex_output1").innerHTML = "The excentre for first side is " + excenterop1
+    document.getElementById("ex_output2").innerHTML = "The excentre for second side is " + excenterop2
+    document.getElementById("ex_output3").innerHTML = "The excentre for third side is " + excenterop3
 }
 
 function collinearsolve()
@@ -3360,15 +3410,16 @@ function tripyramidsolve() {
 }
 
 function centsolve(){
-    var x1 = parseInt(document.getElemnentById("x1st").value)
-    var y1 = parseInt(document.getElemnentById("y1st").value)
-    var x2 = parseInt(document.getElemnentById("x2nd").value)
-    var y2 = parseInt(document.getElemnentById("y2nd").value)
-    var x3 = parseInt(document.getElemnentById("x3rd").value)
-    var y3 = parseInt(document.getElemnentById("y3rd").value)
+    var x1 = parseInt(document.getElementById("x1st").value)
+    var y1 = parseInt(document.getElementById("y1st").value)
+    var x2 = parseInt(document.getElementById("x2nd").value)
+    var y2 = parseInt(document.getElementById("y2nd").value)
+    var x3 = parseInt(document.getElementById("x3rd").value)
+    var y3 = parseInt(document.getElementById("y3rd").value)
     var xans = (x1+x2+x3)/3
     var yans = (y1+y2+y3)/3
     document.getElementById("apk").innerHTML = xans + "," + yans
+}
 //Octagonal pyramid
 function octpyramidsolve() {
     var side = document.getElementById("inputoctpyramidside").value;
@@ -4965,6 +5016,8 @@ function tempau(a) {
             return 180;
         case "3":
             return 100;
+        case "4":
+             return 80;
     }
 }
 
@@ -4976,6 +5029,8 @@ function tempbu(a) {
             return 32;
         case "3":
             return 273;
+        case "4":
+            return 0;
     }
 }
 
@@ -7217,7 +7272,6 @@ function convertBinhex() {
     }
 }
 
-//--------------------------------------------------------------------------------
 
 // 1's 2's complement
 function onetwoCalc() {
@@ -7278,7 +7332,6 @@ function onetwoCalc() {
 
 }
 
-//----------------
 //7's 8's complement
 function seveneightCalc(){
     const input = document.getElementById("seveneightnumber").value;
@@ -7311,8 +7364,6 @@ function seveneightCalc(){
     }
 }
 
-
-//--------------------
 //15's 16's compliment
 function fiftnsixtnCalc() {
     var input = document.getElementById("fiftnsixtnnumber").value;
@@ -7358,7 +7409,6 @@ function fiftnsixtnCalc() {
     }
 }
 
-
 //9's 10's complement
 
 function ninetenCalc() {
@@ -7388,7 +7438,7 @@ function ninetenCalc() {
         result.innerHTML = "Decimal Numbers can only have digits between 0 to 9 and '-' sign not allowed";
 }
 
-////////////////////date calculator///////////
+
 function datecal() {
     var c = new Date(Date.parse(document.getElementById("datef").value));
     var d = new Date(Date.parse(document.getElementById("datet").value));
@@ -7442,8 +7492,6 @@ function datecal() {
     }
 }
 
-//--------------------------------------------------------------------------------
-
 
 function computeprobability() {
 
@@ -7463,8 +7511,6 @@ function computeprobability() {
 
         result.innerHTML = "The probability of the event is : " + (favour / nettotal).toFixed(3);
     }
-
-
 }
 
 
@@ -7500,10 +7546,8 @@ function computejointprobability() {
             result2.innerHTML = "The probability of second event is : " + (probability2).toFixed(3);
         }
 
-
         if (check == true) {
             result3.innerHTML = "The joint probability of both the events is: " + (probability3).toFixed(3);
-
 
         }
     } else {
@@ -7511,9 +7555,8 @@ function computejointprobability() {
         result2.innerHTML = "";
         result3.innerHTML = "";
     }
-
-
 }
+
 
 function computebayesprobability() {
 
@@ -7562,24 +7605,7 @@ function computebayesprobability() {
         result.innerHTML = "Outcomes can't be negative. Enter positive values only";
 
     }
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 function angleplot() {
@@ -7595,12 +7621,10 @@ function angleplot() {
     var ctx = c.getContext("2d");
     ctx.lineWidth = 3;
 
-
 //for labelling 0
     var c0tx = c.getContext("2d");
     c0tx.font = "15px Arial";
     c0tx.fillText("0° ", 630, 250);
-
 
 //for labelling 90
     var c90tx = c.getContext("2d");
@@ -7612,12 +7636,10 @@ function angleplot() {
     c180tx.font = "15px Arial";
     c180tx.fillText("180° ", 335, 250);
 
-
 //for labelling 270
     var c270tx = c.getContext("2d");
     c270tx.font = "15px Arial";
     c270tx.fillText("270° ", 510, 400);
-
 
     var ytx = c.getContext("2d");
     var xtx = c.getContext("2d");
@@ -7644,6 +7666,7 @@ function fa(x)
     return x * fa(x-1);
 }
 
+
 function rankcal() {
 
     var input = document.getElementById("rankcal-input").value;
@@ -7667,6 +7690,8 @@ function rankcal() {
         result.innerHTML = "Invalid input use alphabet only";
 
 }
+
+
 function ran(x,y,z)
 {
     var c = 0;
@@ -7684,6 +7709,8 @@ function radians_to_degrees(radians)
   var pi = Math.PI;
   return radians * (180/pi);
 }
+
+
 function ssscal()
 {
     var a=document.getElementById("sd1").value;
@@ -7715,13 +7742,6 @@ function ssscal()
             bc=bc.toPrecision(4);
             ca=ca.toPrecision(4);
             ans="The required angles oppsite to first side is: "+ab+" second side is: "+bc+"  third side is: "+ca;
-
-
     }
     document.getElementById("sstans").innerHTML=ans;
-
-
-
-
-
-}}
+}
