@@ -30,6 +30,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#std_dvtn").click(function () {
+        openit("#deviation");
+        closenav();
+        clearall();
+    });
      $("#fractions_op").click(function(){
          openit("#fractions");
          closenav();
@@ -145,12 +150,43 @@ $(document).ready(function () {
 
 
 
+    $("#numcubesRange").click(function () {
+        openit("#numcubesRanges");
+        closenav();
+        clearall();
+    });
+
+
+    $("#sosqn").click(function () {
+        openit("#sosqsn");
+
+        closenav();
+        clearall();
+    });
+
+
+
+    $("#socbn").click(function () {
+        openit("#socbsn");
+        closenav();
+        clearall();
+    });
+
+
+
+    $("#squaresRange").click(function () {
+        openit("#squaresRanges");
+        closenav();
+        clearall();
+    });
+
+
+
     $("#cubesRange").click(function () {
         openit("#cubesRanges");
         closenav();
         clearall();
     });
-
 
 
 
@@ -293,7 +329,7 @@ $(document).ready(function () {
         clearall();
     })
 
-    $("#HPbtn").click(function () {
+    $("#HPbttn").click(function () {
         openit("#hp");
         closenav();
         clearall();
@@ -350,6 +386,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#vecbtn").click(function () {
+        openit("#vec");
+        closenav();
+        clearall();
+    })
     $("#curvebtn").click(function () {
         openit("#curve");
         closenav();
@@ -386,6 +427,18 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#cevthabtn").click(function () {
+        openit("#cevtha");
+        closenav();
+        clearall();
+    })
+
+    $("#mibtn").click(function () {
+        openit("#mi");
+        closenav();
+        clearall();
+    })
+
     $("#boolbtn").click(function () {
         openit("#bool");
         closenav();
