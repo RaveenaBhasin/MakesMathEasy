@@ -535,7 +535,7 @@ function hcf(input) {
 	document.getElementById("hcfprimefactor").textContent = "";
 	if (val.search(/^[0-9 ]+$/) == -1)
 	{
-		document.getElementById("hcfprimefactor").innerHTML ="Enter numbers only";
+		document.getElementById("hcfprimefactor").innerHTML ="Enter positive numbers only";
 		return;
 	}
     val = val.split(" ");
@@ -619,7 +619,7 @@ function factorselect(numid) {
     num = num.replace(/\s+$/, ""); //right trim
 	if (num.search(/^[0-9 ]+$/) == -1)
 	{
-		document.getElementById("hcfprimefactor").innerHTML ="Enter numbers only";
+		document.getElementById("hcfprimefactor").innerHTML ="Enter positive numbers only";
 		return;
 	}
     num = num.split(" ");
@@ -651,7 +651,7 @@ function lcmsol(input) {
     var num = document.getElementById(input).value;
 	if (num.search(/^[0-9 ]+$/) == -1)
 	{
-		document.getElementById("hcfprimefactor").innerHTML ="Enter numbers only";
+		document.getElementById("hcfprimefactor").innerHTML ="Enter positive numbers only";
 		return;
 	}
     num = num.split(" ");
@@ -3066,6 +3066,32 @@ function solvehex(){
 
 }
 
+//created function for Heptagon
+function solvehept() {
+    var side = document.getElementById("inputsidehept").value;  
+    var areaoutput = document.getElementById("resultofheptarea");
+    var perioutput = document.getElementById("resultofheptperi");
+    var areatemp = "";
+    var peritemp = "";
+    if ((side != "")) {
+        areatemp += "\\[Area \\space of \\space Heptagon \\space" +  "\\]";
+        areatemp += "\\[\\frac{7}{4}" + "\\times" + side + "\\times" + side + "\\times" + "\\space cot(\\frac{180}{7} \\degree) \\space" + "=" + eval(String(3.63391 * side * side)).toFixed(2) + "\\]";
+        areaoutput.innerHTML = areatemp;
+
+        peritemp += "\\[Perimeter \\space of \\space Heptagon \\space is \\space \\]";
+        peritemp += "\\[" + 7 + "\\times" + side + "=" + eval(String(7 * side)) + "\\]";
+        perioutput.innerHTML = peritemp;
+       
+        renderMathInElement(areaoutput);
+        renderMathInElement(perioutput);
+
+    } else {
+        areaoutput.innerHTML = "";
+        perioutput.innerHTML = "";    
+
+    }
+}
+
 //created function for Octagon
 function solveoct(){
     let side = document.getElementById("inputsideoct").value;
@@ -3405,14 +3431,17 @@ function prismsolve() {
     var side = document.getElementById("inputprismside").value;
     var voloutput = document.getElementById("resultofvolprism");
     var tsaoutput = document.getElementById("resultoftsaprism");
+
     var voltemp = "";
     var tsatemp = "";
-    if ((length != "") && (breadth != "") && (height != "") && (side != "")) {
-        voltemp += "\\[(" + length + "\\times" + breadth + "\\times" + height + ")" + "\\div" + 2 + "\\]";
-        voltemp += "\\[Volume \\space of \\space Prism \\space is \\space " + eval(String((length * breadth * height ) / 2)) + "\\]";
+    var res=((a**1.6 * b**1.6) + (b**1.6 * c**1.6 ) + (a**1.6 * c**1.6))**0.625;
+    if ((a != "") && (b != "") && (c != "")) {
+        voltemp += "\\[" + "\\frac{4}{3}" + "\\times" + "\\pi" + "\\times" + a + "\\times" + b + "\\times" + c   + "\\]";
+        voltemp += "\\[Volume \\space of \\space Ellipsoid \\space is \\space " + eval(String(4.18 * a * b* c )) + "\\]";
         voloutput.innerHTML = voltemp;
-        tsatemp += "\\[ " + breadth + "(" + length + "+" + height + ")" + "+" + 2 +  "\\times"  + length + "\\times" + side + "\\]";
-        tsatemp += "\\[Surface \\space Area \\space of \\space Prism \\space is \\space" + eval(String((breadth*height) + (breadth *length)+ (2*length*side))) + "\\]";
+        tsatemp += "\\[" + 4 + "\\pi" + "(" + "\\frac{(" + a + "\\times" + b + ")^{1.6}" + "(" + b + "\\times" + c +")^{1.6}" + "(" + a + "\\times" + c + ")^{1.6}}{3}" + " )^{\\frac{1}{1.6}}"   + "\\]";
+        tsatemp += "\\[Surface \\space area \\space of \\space Ellipsoid \\space is \\space  \\]";
+        tsatemp += "\\[" + eval(String((6.343 * res).toFixed(2) ))  + "\\]";
         tsaoutput.innerHTML = tsatemp;
         renderMathInElement(voloutput);
         renderMathInElement(tsaoutput);
@@ -7749,11 +7778,11 @@ function fiftnsixtnCalc() {
         result.innerHTML = "Fifteen's complement of " + input + " is " + fiftn + "<br>";
         result.innerHTML += "Sixteen's complement of " + input + " is " + sixtn + "<br>";
 
+
         print+=" - "+input+"</span> = <span style='text-decoration: underline;'>"+fiftn+"</span><br>";
         print+= "<br><h5 style='margin-top: 5px;'>Working of the 16's Complement -</h5> &emsp; 15's Complement + 1 = 16's Complement <br>&emsp; "
         print+=fiftn+" + 1</span> = <span style='text-decoration: underline;'>"+sixtn+"</span>";
         work.innerHTML = print;
-
 
         if (input == "") {
             result.innerHTML = "";
@@ -7765,6 +7794,7 @@ function fiftnsixtnCalc() {
         }
     }
 }
+
 
 //9's 10's complement
 
