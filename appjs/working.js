@@ -390,6 +390,12 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#zscore").click(function () {
+        openit("#zscores");
+        closenav();
+        clearall();
+    })
+
     $("#ipbtn").click(function () {
         openit("#ip");
         closenav();
@@ -400,14 +406,32 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#igcbtn").click(function () {
+        openit("#igc");
+        closenav();
+        clearall();
+    })
+
+    $("#resbtn").click(function () {
+        openit("#res");
+        closenav();
+        clearall();
+    })
     $("#vectorbtn").click(function () {
         openit("#vector");
         closenav();
         clearall();
     })
+    $("#mtmbtn").click(function () {
+        openit("#mtm");
+        closenav();
+        clearall();
+    })
+
 
     $("#clrbtn").click(function () {
         openit("#clr");
+
         closenav();
         clearall();
     })
@@ -707,13 +731,6 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-    //Function of collapsing binary/decimal section on click
-    $("#decimal-to-binary-btn").click(function(){
-        openit("#decimal-binary");
-        closenav();
-        clearall();
-    });
-
     //Function of collapsing bitwise calculator section on click
     $("#bitwise-calc-btn").click(function(){
         openit("#bitwise-calc");
@@ -726,20 +743,6 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-
-
-//Function of collapsing binary/octal section on click
-    $("#octal-to-binary-btn").click(function(){
-        openit("#octal-binary");
-        closenav();
-        clearall();
-    });
-
-    $("#octal-to-hexadecimal-btn").click(function(){
-            openit("#octal-hexadecimal");
-            closenav();
-            clearall();
-        });
 
         // anyBase-to-anyBase-btn
         $("#anyBase-to-anyBase-btn").click(function(){
@@ -933,6 +936,12 @@ $(document).ready(function () {
 
      $("#plotbargraphoption").click(function(){
         openit("#plotbargraph");
+        closenav();
+        clearall();
+    });
+
+    $("#cv").click(function(){
+        openit("#cvs");
         closenav();
         clearall();
     });

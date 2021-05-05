@@ -147,7 +147,7 @@ function openit(id) {
         "#sosqsn",
         "#socbsn",
         "#squaresRanges",
-
+        "#favourite",
         "#cubesRanges",
         "#numcubesRanges",
         "#segcals",
@@ -208,6 +208,7 @@ function openit(id) {
         "#bool",
         "#suppangs",
         "#eirs",
+        "#zscores",
         "#errpers",
         "#log_values",
         "#oops",
@@ -218,7 +219,6 @@ function openit(id) {
         "#stresscalc",
         "#pairfacts",
         "#interest",
-        "#decimal-binary",
         "#bitwise-calc",
         "#adding-all",
         "#subtract-all",
@@ -227,10 +227,8 @@ function openit(id) {
         "#3dgeo",
         "#bpmfs",
         "#straightline",
-        "#octal-binary",
         "#binary-hexadecimal",
         "#cay",
-        "#octal-hexadecimal",
         "#inversetrigonoiden",
         "#hyptrigonoiden",
         "#invhyptrigonoiden",
@@ -285,6 +283,10 @@ function openit(id) {
         "#hexpyramid",
         "#octahedron",
         "#repp",
+        "#partial_sphere",
+        "#mtm",
+        "#igc",
+        "#res",
         "#clr",
         '#dodecahedron',
         "#icosahedron",
@@ -296,11 +298,13 @@ function openit(id) {
         "#setcal",
         "#mi",
 	    "#ip",
+        "#partialcy",
 	    "#prices",
         "#centcal",
         "#cevtha",
         "#sum_n",
         "#percal",
+        "#parabolic_arc",
         "#lyear",
         "#analytical",
         "#isoright",
@@ -308,7 +312,8 @@ function openit(id) {
         "#expo",
         "#setformula",
         "#wedge",
-        "#fourier_series"
+        "#fourier_series",
+        "#cvs"
     ];
     for (i = 0; i < ids.length; i++) {
         if (ids[i] != id) {
@@ -461,6 +466,10 @@ $(document).on('click', ' .favourites ', function () {
 $(document).on('hover', ' .favnew ', function () {
     $(this).addClass('favourites');
 });
+
+document.querySelector(".container").addEventListener('click',function(){
+    $(".favouritecontainer").slideUp();
+})
 
 function removefavourite() {
     localStorage.removeItem("favouritearray");
