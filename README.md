@@ -145,6 +145,7 @@ Other Tech/Libraries
   - Work And Time Calculator
   - Solve for Exponents
   - Sum of Square of Given number
+  - Natural Numbers
   - Percentage Calculator
   - Set Calculator
   - Pythagorean Triplets
@@ -248,7 +249,7 @@ Other Tech/Libraries
     - Ellipse
     - Parallelogram
     - Polygons: Pentagon, Hexagon, Heptagon, Octagon, Nonagon, Decagon
-    - Star Polygons: Pentagram
+    - Star Polygons: Pentagram, Double Star Polygon
   - 3D Shapes Calculator
     - Cube
     - Cuboid
@@ -306,6 +307,7 @@ Other Tech/Libraries
   - Grey Code Converter
   - Bitwise Calculator
   - (R-1)'s & R's Complement Calculator
+  - Hamming Code
 
 - Complex Numbers
 
@@ -333,7 +335,8 @@ Other Tech/Libraries
   - Binomial Distribution Calculator
   - Poisson Distribution Calculator
   - Bayes Probability Theorem
-
+- Statistics
+  - T-test
 ---
 
 ## Documentation

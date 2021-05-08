@@ -493,16 +493,28 @@ function factorial(n){
     var d = document.getElementById("diff").value;
     var n = document.getElementById("noofTerms").value;
     var printseries = document.getElementById("printHPseries");
-    var num;
-    if (!isNaN(parseInt(n)) || !isNaN(parseInt(a)) | !isNaN(parseInt(d))) {
-            num = (Math.log(2*a + (2*n-1)*d)/(2*a-d))/d;
+    var printemp = "";
+    var num = (Math.log(2*a + (2*n-1)*d)/(2*a-d));
+    var num1 = num/d;
+    if(a == "" || d == "" || n == ""){
+        printemp += "\\[Please \\space enter \\space all \\space fields \\]";
+        printseries.innerHTML = printemp;
+        renderMathInElement(printseries);
+    }
+   else if (!isNaN(parseInt(n)) || !isNaN(parseInt(a)) || !isNaN(parseInt(d))) {
+            printemp += "\\[Sum \\space of \\space Nterms \\space of \\space HP \\space = \\space \\frac{1}{d} ln \\frac{2a+(2n-1)d}{2a-d} \\]";
+            printemp += "\\[S_n \\space = \\space \\frac{1}{" + d + "} ln \\frac{2*" + a + "+(2*" + n + "- 1)" + d + "}{2*" + a + "-" + d + "} \\]";
+            printemp += "\\[S_n \\space = \\space \\frac{1}{" + d + "} ln (" + (num).toFixed(3) + ")\\]";
+            printemp += "\\[S_n \\space = \\space " + (num1).toFixed(3) + "\\]";
+            printseries.innerHTML = printemp;
+            renderMathInElement(printseries);
       }
       else
       {
-        printseries.innerHTML = "Enter numbers only. Blank inputs are not allowed";
-        return;
+        printemp += "\\[Enter \\space numbers \\space only. \\space Blank \\space inputs \\space are \\space not \\space allowed \\]";
+        printseries.innerHTML = printemp;
+        renderMathInElement(printseries);
       }
-      document.getElementById("sumhp").innerHTML = "Sum = " + num;
 }
 // HP ends
 
@@ -687,21 +699,37 @@ function ssqncal()
     var num=document.getElementById("ssqn").value;
     num = parseInt(num);
     valid=/^([-]{0,1}\d{1,}[\.]{0,1}\d{0,}[ ]?)*$/;
+    var soutput = document.getElementById("ssqnans");
     var s="";
     if(num=="")
     {
-       s= "Please enter number";
+       s += "\\[Please \\space enter \\space number \\]";
+       soutput.innerHTML = s;
+       renderMathInElement(soutput);
     }
     else if(!valid.test(num))
     {
-        s= "Enter space separated numbers. Use of alphabets and special character is not allowed for calculation purpose";
+        s += "\\[Enter \\space space \\space separated \\space numbers. \\space Use \\space of \\space alphabets \\space and \\space special \\space character \\space is \\space not \\space allowed \\space for \\space calculation \\space purpose \\]";
+        soutput.innerHTML = s;
+        renderMathInElement(soutput);
+    }
+    else if(num<1){
+        s += "\\[Natural \\space Numbers \\space cannot \\space be \\space negative \\]";
+        soutput.innerHTML = s;
+        renderMathInElement(soutput);
     }
     else{
-        var sum=Math.trunc((num*(num+1)*(2*num+1))/6);
-        s="Your answer is: "+sum;
+        var sum=Math.trunc((num*(num+1)*(2*num+1)));
+        var sum1 = sum/6;
+        s += "\\[Sum \\space of \\space the \\space Squares \\space of \\space the \\space First \\space n \\space Natural \\space Numbers \\space is \\]";
+        s += "\\[ \\sum {n}^2 \\space = \\space \\frac{n(n+1)(2n+1)}{6}  \\]";
+        s += "\\[\\sum {n}^2 \\space = \\space \\frac{" + num + "(" + num + " + 1)(2 \\times" + num + "+ 1)}{6} \\]";
+        s += "\\[\\sum {n}^2 \\space = \\space \\frac{" + num + "\\times" + (num+1) + "\\times" + ((2*num)+1) + "}{6} \\]";
+        s += "\\[\\sum {n}^2 \\space = \\space \\frac{" + sum + "}{6} \\]";
+        s += "\\[\\sum {n}^2 \\space = \\space " + sum1 + "\\]";
+        soutput.innerHTML = s;
+        renderMathInElement(soutput);
     }
-
-    document.getElementById("ssqnans").innerHTML=s;
 
 }
 
@@ -710,23 +738,81 @@ function scbncal()
     var num=document.getElementById("scbn").value;
     num = parseInt(num);
     valid=/^([-]{0,1}\d{1,}[\.]{0,1}\d{0,}[ ]?)*$/;
-    var s="";
+    var soutput3 = document.getElementById("scbnans");
+    var stemp="";
     if(num=="")
     {
-       s= "Please enter number";
+        stemp += "\\[Please \\space enter \\space number \\]";
+        soutput3.innerHTML = stemp;
+        renderMathInElement(soutput3);
     }
     else if(!valid.test(num))
     {
-        s= "Enter space separated numbers. Use of alphabets and special character is not allowed for calculation purpose";
+        stemp += "\\[Enter \\space space \\space separated \\space numbers. \\space Use \\space of \\space alphabets \\space and \\space special \\space character \\space is \\space not \\space allowed \\space for \\space calculation \\space purpose \\]";
+        soutput3.innerHTML = stemp;
+        renderMathInElement(soutput3);
+    }
+    else if(num<1){
+        stemp += "\\[Natural \\space Numbers \\space cannot \\space be \\space negative \\]";
+        soutput3.innerHTML = stemp;
+        renderMathInElement(soutput3);
     }
     else{
-        var sum=Math.trunc(((num*(num+1))/2)**2);
-        s="Your answer is: "+sum; 
+        var sum=Math.trunc((num*(num+1)));
+        var sum1 = (sum/2);
+        var sum2 = (sum1)**2;
+        stemp += "\\[Sum \\space of \\space the \\space Cubes \\space of \\space the \\space First \\space n \\space Natural \\space Numbers \\space is \\]";
+        stemp += "\\[ \\sum {n}^3 \\space = \\space (\\frac{n(n+1)}{2})^2  \\]";
+        stemp += "\\[\\sum {n}^3 \\space = \\space (\\frac{" + num + "(" + num + " + 1)}{2})^2 \\]";
+        stemp += "\\[\\sum {n}^3 \\space = \\space (\\frac{" + num + "\\times" + (num+1) + "}{2})^2 \\]";
+        stemp += "\\[\\sum {n}^3 \\space = \\space (\\frac{" + sum + "}{2})^2 \\]";
+        stemp += "\\[\\sum {n}^3 \\space = \\space (" + sum1 + ")^2\\]";
+        stemp += "\\[\\sum {n}^3 \\space = \\space " + sum2 + "\\]";
+        soutput3.innerHTML = stemp;
+        renderMathInElement(soutput3);
     }
 
-    document.getElementById("scbnans").innerHTML=s;
+}
+
+function ssncal()
+{
+    var num=document.getElementById("ssn").value;
+    num = parseInt(num);
+    valid=/^([-]{0,1}\d{1,}[\.]{0,1}\d{0,}[ ]?)*$/;
+    var sumoutput = document.getElementById("ssnans");
+    var sumtemp="";
+    if(num=="")
+    {
+       sumtemp += "\\[Please \\space enter \\space number \\]";
+       sumoutput.innerHTML = sumtemp;
+       renderMathInElement(sumoutput);
+    }
+    else if(!valid.test(num))
+    {
+        sumtemp += "\\[Enter \\space space \\space separated \\space numbers. \\space Use \\space of \\space alphabets \\space and \\space special \\space character \\space is \\space not \\space allowed \\space for \\space calculation \\space purpose \\]";
+        sumoutput.innerHTML = sumtemp;
+        renderMathInElement(sumoutput);
+    }
+    else if(num<1){
+        sumtemp += "\\[Natural \\space Numbers \\space cannot \\space be \\space negative \\]";
+        sumoutput.innerHTML = sumtemp;
+        renderMathInElement(sumoutput);
+    }
+    else{
+        var sumN=Math.trunc((num*(num+1)));
+        var sum1N = sumN/2;
+        sumtemp += "\\[Sum \\space of \\space the \\space First \\space n \\space Natural \\space Numbers \\space is \\]";
+        sumtemp += "\\[ \\sum {n} \\space = \\space \\frac{n(n+1)}{2}  \\]";
+        sumtemp += "\\[ \\sum {n} \\space = \\space \\frac{" + num + "(" + num + " + 1)}{2} \\]";
+        sumtemp += "\\[ \\sum {n} \\space = \\space \\frac{" + num + "\\times" + (num+1) +  "}{2} \\]";
+        sumtemp += "\\[ \\sum {n} \\space = \\space \\frac{" + sumN + "}{2} \\]";
+        sumtemp += "\\[ \\sum {n} \\space = \\space " + sum1N + "\\]";
+        sumoutput.innerHTML = sumtemp;
+        renderMathInElement(sumoutput);
+    }
 
 }
+
 
 
   function numcubesRangecal()
@@ -876,27 +962,32 @@ function factorial(n){
 
 function hpcal()
 {
-    var x=document.getElementById("ath").value;
-    var y=document.getElementById("differ").value;
-    var z=document.getElementById("totno").value;
-    var ans="";
-    if(x==""||y==""||z=="")
-    {
-      ans="Please enter all the field";
+    var x=parseInt(document.getElementById("ath").value);
+    var y=parseInt(document.getElementById("differ").value);
+    var z=parseInt(document.getElementById("totno").value);
+    var ansout = document.getElementById("hpans");
+    var anstemp ="";
+    if(x == "" || y == "" || z == ""){
+        anstemp += "\\[Please \\space enter \\space all \\space fields \\]";
+        ansout.innerHTML = anstemp;
+        renderMathInElement(ansout);
+    }
+   else if(!isNaN(parseInt(x)) && !isNaN(parseInt(y)) && !isNaN(parseInt(z)))
+   {
+    var numb = x + ((y - 1)*z);
+    var num6 = (1 / numb) ;
+    anstemp += "\\[nth \\space Term \\space of \\space HP \\space = \\space \\frac{1}{a+(n-1)d} \\]";
+    anstemp += "\\[nth \\space Term \\space of \\space HP \\space = \\space \\frac{1}{" + x +  "+ (" + y + " - 1)" + z + "} \\]";
+    anstemp +=  "\\[nth \\space Term \\space of \\space HP \\space = \\space" + (num6).toFixed(3) + "\\]";
+    ansout.innerHTML = anstemp;
+    renderMathInElement(ansout);
    }
    else
    {
-        var a=parseInt(x);
-        var b=parseInt(y);
-        var c=parseInt(z);
-       var num=(c-1)*b;
-       var t=a+num;
-        console.log(a+num);
-        ans= 1/num;
+     anstemp += "\\[Enter \\space numbers \\space only. \\space Blank \\space inputs \\space are \\space not \\space allowed \\]";
+     ansout.innerHTML = anstemp;
+     renderMathInElement(ansout);
    }
-   document.getElementById("hpans").innerHTML=ans;
-     
-
 }
 
 function ppcal()
@@ -1020,7 +1111,7 @@ function wmccal()
     
     }
     document.getElementById("wmcans").innerHTML=ans;
-
+}
 
 function cvcal()
 {
@@ -1066,7 +1157,7 @@ function cvcal()
     }
 
     document.getElementById("cvans").innerHTML=s;
-
+}
 
 
 
@@ -1149,7 +1240,7 @@ function slpsolve()
 
 
 
-}
+
 
 function suppangcal()
 {
@@ -1190,7 +1281,7 @@ function suppangvercal()
     document.getElementById("suppangverans").innerHTML=ans;
 }
 
-}
+
 
 function faccal()
 {
@@ -1263,4 +1354,120 @@ function facpaircal()
  document.getElementById("facans").innerHTML=ans;
 }
 
+
+function skewcal()
+{   var num=document.getElementById("skewinput").value;
+var ans="";
+if(num=="")
+{
+    ans="Please enter datasets";
+}
+else{
+    num=num.trim();
+    num = num.split(" ");
+    var len=parseInt(num.length);
+   var sum=0;
+    var number=[]
+    for (i = 0; i < len; i++) {
+        number[i] = parseFloat(num[i].trim());
+        sum+=number[i];
+    }
+    sum=sum/len;
+    var ansno=0;
+    for (i = 0; i < len; i++)
+     {
+       var g=(number[i]-sum);
+       g=g**3;
+       ansno+=g;
+     }
+
+     var varrzlt=0;
+     for (i = 0; i < len; i++) {
+         varrzlt = varrzlt + ((number[i])-sum)*((number[i])-sum);
+     }
+
+     varrzlt = varrzlt/(len-1);
+     var sampstddev=Math.sqrt(varrzlt);
+     sampstddev=sampstddev**3;
+     var rzlt= ansno/((len-1)*sampstddev);
+     ans="The skewness is: "+rzlt;
+}
+document.getElementById("skewans").innerHTML=ans;
+}
+function clockcal()
+{
+    a=document.getElementById("hclock").value;  
+    b=document.getElementById("mclock").value;   
+    var ans="";
+    if(a==""||b=="")
+    {
+        ans="Please enter both minutes and hour to find angle";
+    }
+    else
+    {
+        a=parseFloat(a);
+        b=parseFloat(b);
+        var angmin=b*6;
+        var anghour=30*a+0.5*b
+
+        ans="Angle from minute to hour hands: "+Math.abs(anghour-angmin)+" degree";
+        ans+="<br>"
+        ans+="Angle from hour to minute hands: "+Math.abs(360-Math.abs(anghour-angmin))+" degree";
+    }
+    document.getElementById("clockans").innerHTML=ans;
+}
+
+function traprzlt()
+{
+
+    a=parseFloat(document.getElementById("tr1").value);    
+    b=parseFloat(document.getElementById("tr2").value);    
+    c=parseFloat(document.getElementById("tr3").value);    
+    d=parseFloat(document.getElementById("tr4").value);    
+    var k=(a+b)/2;
+    var traparea= c*k;
+    var trapvol=c*d*k;
+
+    var ans="The calculated area is: "+traparea+" and volume is: "+trapvol;
+    document.getElementById("trapans").innerHTML=ans;
+}
+
+
+function perrankcal()
+{
+    var num=document.getElementById("perrank").value;
+    var num2=document.getElementById("peryour").value;
+    valid=/^([-]{0,1}\d{1,}[\.]{0,1}\d{0,}[ ]?)*$/;
+    var s="";
+    if(num==""||num2=="")
+    {
+       s= "Please enter number";
+    }
+    else if(!valid.test(num))
+    {
+        s= "Enter space separated numbers. Use of alphabets and special character is not allowed for calculation purpose";
+    }
+    else{
+    num=num.trim();
+    num = num.split(" ");
+    var len=parseInt(num.length);
+   
+    var number=[]
+    for (i = 0; i < len; i++) {
+        number[i] = parseFloat(num[i].trim());
+    }
+    num2=parseFloat(num2);
+    var sum=0, count=0;
+    for(var i=0; i<len;i++)
+    {
+         if(number[i]<=num2)
+         {
+             count++;
+         }
+    }
+    var pr= (count/len)*100;
+    var s="The percentile rank for given marks is: "+pr;
+}
+document.getElementById("perrankans").innerHTML=s;
+}
 

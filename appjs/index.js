@@ -130,6 +130,7 @@ function collapseit(openit) {
 
 function openit(id) {
     var ids = [
+        "#hamming-dist",
         "#anyBase",
         "#complex1collapse",
         "#complex2collapse",
@@ -137,6 +138,7 @@ function openit(id) {
         "#complexproperties",
         "#theo",
         "#impfixs",
+        "#etf",
         "#equationssolver",
         "#mulsolwithsteps",
         "#secarea",
@@ -145,11 +147,14 @@ function openit(id) {
         "#arcs",
         "#sosqs",
         "#sosqsn",
-        "#socbsn",
         "#squaresRanges",
         "#favourite",
         "#cubesRanges",
         "#numcubesRanges",
+
+        "#segcals",
+        "#vtp",
+
         "#hydroz",
         "#straincalc",
         "#shapescal",
@@ -192,8 +197,9 @@ function openit(id) {
         "#euclid",
         "#aod",
         "#vecalg",
-        "#thedif",
+        "#thdif",
         "#corgeo",
+        "#ttest",
         "#betagamma",
         "#parallel",
         "#unitconcal",
@@ -226,7 +232,8 @@ function openit(id) {
         "#adding-all",
         "#subtract-all",
         "#multiplying-all",
-        "#onetwocom-calc",
+	"#onetwocom-calc",
+        "#hamming-calc",
         "#3dgeo",
         "#bpmfs",
         "#straightline",
@@ -258,6 +265,7 @@ function openit(id) {
         "#grey-bin",
         "#consim",
         "#convdiv",
+        "#gamma",
         "#curve",
         "#coor",
         "#mean",
@@ -266,6 +274,7 @@ function openit(id) {
         "#vector",
         "#vec",
         "#diffeqn",
+        "#pdiffeqn",
         "#maxmin",
         "#locroots",
         "#tangent",
@@ -320,7 +329,14 @@ function openit(id) {
         "#wmcs",
         "#cvs",
         "#rmss",
-        "#relationtypes"
+        "#relationtypes",
+        "#skews",
+        "#clocks",
+        "#slvxs",
+        "#rankcals",
+        "#covs",
+        "#lrcs"
+
     ];
     for (i = 0; i < ids.length; i++) {
         if (ids[i] != id) {
