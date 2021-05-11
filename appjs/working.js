@@ -23,6 +23,11 @@ $("#clock").click(function(){
     closenav();
     clearall();
 });
+$("#utc").click(function(){
+    openit("#utcs");
+    closenav();
+    clearall();
+});
 
 function closenav() {
     $('#slide-out').addClass('sidenav-close');
@@ -189,6 +194,11 @@ $(document).ready(function () {
     });
     $("#vecalgbtn").click(function () {
         openit("#vecalg");
+        closenav();
+        clearall();
+    });
+    $("#imprtoprbtn").click(function () {
+        openit("#imprtopr");
         closenav();
         clearall();
     });
@@ -367,6 +377,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });   
+    $("#chitestbtn").click(function () {
+        openit("#chitest");
+        closenav();
+        clearall();
+    });   
     $("#gammabtn").click(function () {
         openit("#gamma");
         closenav();
@@ -436,7 +451,7 @@ $(document).ready(function () {
 
 
     $("#resbtn").click(function () {
-        openit("#res");
+        openit("#res1");
         closenav();
         clearall();
     })
