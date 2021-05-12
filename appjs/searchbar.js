@@ -184,6 +184,12 @@ function autocomplete(inp, arr) {
                     else if(inp.value.toUpperCase() == "ELLIPSE"){
                         document.getElementById('ellipsecollapse').click();
                     } 
+                    else if (inp.value.toUpperCase() == "BETA FUNCTION CALCULATOR") {
+                        $("#beta").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "BETA FUNCTION CALCULATOR"){
+                        document.getElementById('beta').click();
+                    } 
                     else if (inp.value.toUpperCase() == "HYPERBOLA") {
                         $("#hyperbolacollapse").slideToggle();    
                     }
@@ -608,6 +614,12 @@ function autocomplete(inp, arr) {
                     else if(inp.value.toUpperCase() == "CURRENCY CONVERTOR"){
                         document.getElementById('curconcal').click();
                     } 
+                    else if (inp.value.toUpperCase() == "CONTOUR INTEGRATION") {
+                        $("#ci").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "CONTOUR INTEGRATION"){
+                        document.getElementById('ci').click();
+                    } 
                     else if (inp.value.toUpperCase() == "SPI/CGPA CONVERTOR") {
                         $("#spiconcal").slideToggle();    
                     }
@@ -620,11 +632,29 @@ function autocomplete(inp, arr) {
                     else if(inp.value.toUpperCase() == "DATE"){
                         document.getElementById('datecal').click();
                     }
+                    else if (inp.value.toUpperCase() == "SQUARE AND CUBE CALCULATOR") {
+                        $("#datecal").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "SQUARE AND CUBE CALCULATOR"){
+                        document.getElementById('datecal').click();
+                    }
                     else if (inp.value.toUpperCase() == "MILNE THOMSON METHOD") {
                         $("#mtm").slideToggle();    
                     }
                     else if(inp.value.toUpperCase() == "MILNE THOMSON METHOD"){
                         document.getElementById('mtm').click();
+                    }
+                    else if (inp.value.toUpperCase() == "MANHATTAN DISTANCE CALCULATOR") {
+                        $("#manhats").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "MANHATTAN DISTANCE CALCULATOR"){
+                        document.getElementById('manhats').click();
+                    }
+                    else if (inp.value.toUpperCase() == "UNIT RATE CALCULATOR") {
+                        $("#utcs").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "UNIT RATE CALCULATOR"){
+                        document.getElementById('utcs').click();
                     }
 
                     else if (inp.value.toUpperCase() == "IMPORTANT GRAPH CALCULATORS") {
@@ -641,6 +671,20 @@ function autocomplete(inp, arr) {
                     }
                     else if(inp.value.toUpperCase() == "EMI CALCULATOR"){
                         document.getElementById('emical').click();
+                    }
+                    else if (inp.value.toUpperCase() == "BINOMIAL COEFFICIENT CALCULATOR") {
+
+                        $("#binomialcoeff").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "BINOMIAL COEFFICIENT CALCULATOR"){
+                        document.getElementById('binomialcoeff').click();
+                    }
+                    else if (inp.value.toUpperCase() == "ENNEADECAGON CALCULATOR") {
+
+                        $("#enneadecagon").slideToggle();    
+                    }
+                    else if(inp.value.toUpperCase() == "ENNEADECAGON CALCULATOR"){
+                        document.getElementById('enneadecagon').click();
                     }
                     else if (inp.value.toUpperCase() == "GST CALCULATOR") {
                         $("#gstcal").slideToggle();    
@@ -810,7 +854,7 @@ var arrayofelements =  ["Divide", "Integration","T test","Z test","Chi-Square te
                         "Simple Trigonometry", "Graph", "Roman to Arabic", "Arabic to Roman", "Multiply With Steps", "Roots of Equation", "Play With Equations", "Ascending Order", "Descending Order",
                         "Conversion to Words","Work And Time Calculator", "Roundoff", "LCM", "HCF","Ellipse","Circle","Expansion of Functions","Inverse Trigonometric Identities","Trigonometric Identities","P/B/H Trigo","Limits",
                         "Vector Algebra","Vector Calculus","Laplace Transforms and Properties","Hyperbola","Joint Probability","Algebraic Equations Formulas","Date","Currency Convertor","Beta Gamma Functions","Transformation of Functions","Inverse and Periodicity of Functions","Trigonometric Functions", "Operations on Sets","Euclid Geometry",
-                        "Trigonometric Values", "Power Series","Unit Converter" ,"Polynomial Degree","Set Calculator","GST Calculator","Representation by Power Series","EMI Calculator","Hydrostatic Pressure","3-D Geometry Calculator","Leap Year","Rank Calculator","Excess-3 Code Convertor","Linear Regression Calculator","Covariance Calculator","Skewness Calculator","Solve For X","Grey Code Convertor","Bitwise Calculator","Boolean Algebra",
+                        "Trigonometric Values", "Power Series","Unit Converter" ,"Polynomial Degree","Set Calculator","GST Calculator","Representation by Power Series","EMI Calculator","Binomial Coefficient Calculator","Enneadecagon Calculator","Manhattan Distance calculator","Unit Rate Calculator","Hydrostatic Pressure","3-D Geometry Calculator","Leap Year","Rank Calculator","Excess-3 Code Convertor","Linear Regression Calculator","Covariance Calculator","Skewness Calculator","Solve For X","Grey Code Convertor","Bitwise Calculator","Boolean Algebra",
                         ,"Bayes Probability Theorem","Probability Properties","Empirical Probability","OPS1 on Complex Numbers","OPS2 on Complex Numbers","Properties","Identities","3-D Geometry","3-D Shapes Calculator","Shapes Calculator",
                         "Curve Tracing","Coordinate Systems","Coordinate Geometry Calculator","Cauchy Integral,Liouville and Rouche Theorem","Coordinate Geometry Formula and Theorem","Mean Calculator","Statistics Formulae","Pythagorean Triplets","Profit/Loss Calculations","LCM/HCF/Factors","Binary/Hexadecimal Convertor","Tangent and Normal","Application of Derivatives","Maxima and Minima of Functions","Properties of Parallel Lines","Straight Line","Plot Angle","Plot Graph","Location of Roots",
                         "SPI/CGPA Convertor","Parabola","Log Calculator","Operations on Fractions","Mathematical Reasoning","Interest(Simple,Compound)","Cost and Selling Prices","Sets,Relations and Functions","Sets Formulas List","Properties of Matrices and Determinants","Cayley Hamilton Theorem and Diagonalization","Sum of Nterms of an Arithmetic Progression","Sum of Nterms of an Geometric Progression","Integration Formulae","Definite Integration Formulae","Differential Equations","Convergence and Divergence of Series","Hyperbolic Trigonometric Identities","General Solution of Trigonometric Equations","Solution of Triangles","Greatest Integer Function and Fractional Part","Solve for Exponents","Percentage Calculator","Standard Deviation","Mean Median Mode","Prime Numbers","Plot Bar Graph",
@@ -819,7 +863,9 @@ var arrayofelements =  ["Divide", "Integration","T test","Z test","Chi-Square te
                         "Coordinate Geometry Calculator","Coordinate Geometry Formula and Theorem","Mean Calculator","Statistics Formulae","Pythagorean Triplets","Profit/Loss Calculations","LCM/HCF/Factors","Binary/Hexadecimal Convertor","Tangent and Normal","Application of Derivatives","Maxima and Minima of Functions","Properties of Parallel Lines","Straight Line","Plot Angle","Plot Graph","Location of Roots","Perfect Squares & Cubes in a range",
                         "Mathematical Reasoning","Interest(Simple,Compound)","Cost and Selling Prices","Sets,Relations and Functions","Sets Formulas List","Properties of Matrices and Determinants","Cayley Hamilton Theorem and Diagonalization","Integration Formulae","Definite Integration Formulae","Differential Equations","Convergence and Divergence of Series","Hyperbolic Trigonometric Identities","General Solution of Trigonometric Equations",
                         "Solution of Triangles","Greatest Integer Function and Fractional Part","Direct And Indirect Proportion","Solve for Exponents","Percentage Calculator","Standard Deviation","Mean Median Mode","Prime Numbers","Plot Bar Graph","Sum of N terms of AP,GP & HP","Binomial Coefficient Calculator"
-                        ,"Contour Integration","Improper to Proper Integral"
+
+                        ,"Contour Integration","Improper to Proper Integral","Beta Function Calculator","Square and Cube Calculator"
+
                     ];
 
                       
@@ -1036,6 +1082,12 @@ function handleclick(value) {
     else if (inp.value.toUpperCase() == "CIRCLE") {
         $("#circlecollapse").slideToggle(); 
     }
+    else if(inp.value.toUpperCase() == "SQAURE AND CUBE CALCULATOR"){
+        document.getElementById('squarecube').click(); 
+    }
+    else if (inp.value.toUpperCase() == "SQAURE AND CUBE CALCULATOR") {
+        $("#squarecube").slideToggle(); 
+    }
     else if(inp.value.toUpperCase() == "IMPROPER TO PROPER INTEGRAL"){
         document.getElementById('imprtopr').click(); 
     }
@@ -1047,6 +1099,12 @@ function handleclick(value) {
     }
     else if (inp.value.toUpperCase() == "ELLIPSE") {
         $("#ellipsecollapse").slideToggle(); 
+    }
+    else if(inp.value.toUpperCase() == "BETA FUNCTION CALCULATOR"){
+        document.getElementById('beta').click(); 
+    }
+    else if (inp.value.toUpperCase() == "BETA FUNCTION CALCULATOR") {
+        $("#beta").slideToggle(); 
     }
     else if(inp.value.toUpperCase() == "HYPERBOLA"){
         document.getElementById('hyperbolacollapse').click(); 
@@ -1232,6 +1290,18 @@ function handleclick(value) {
     else if (inp.value.toUpperCase() == "EMI CALCULATOR") {
         $("#emical").slideToggle(); 
     }
+    else if(inp.value.toUpperCase() == "BINOMIAL COEFFICIENT CALCULATOR"){
+        document.getElementById('binomialcoeff').click(); 
+    }
+    else if (inp.value.toUpperCase() == "BINOMIAL COEFFICIENT CALCULATOR") {
+        $("#binomialcoeff").slideToggle(); 
+    }
+    else if(inp.value.toUpperCase() == "ENNEADECAGON CALCULATOR"){
+        document.getElementById('enneadecagon').click(); 
+    }
+    else if (inp.value.toUpperCase() == "ENNEADECAGON CALCULATOR") {
+        $("#enneadecagon").slideToggle(); 
+    }
     else if(inp.value.toUpperCase() == "GST CALCULATOR"){
         document.getElementById('gstcal').click(); 
     }
@@ -1299,6 +1369,18 @@ function handleclick(value) {
     }
     else if (inp.value.toUpperCase() == "MILNE THOMSON METHOD") {
         $("#mtm").slideToggle(); 
+    }
+    else if(inp.value.toUpperCase() == "MANHATTAN DISTANCE CALCULATOR"){
+        document.getElementById('manhats').click(); 
+    }
+    else if (inp.value.toUpperCase() == "MANHATTAN DISTANCE CALCULATOR") {
+        $("#manhats").slideToggle(); 
+    }
+    else if(inp.value.toUpperCase() == "UNIT RATE CALCULATOR"){
+        document.getElementById('utcs').click(); 
+    }
+    else if (inp.value.toUpperCase() == "UNIT RATE CALCULATOR") {
+        $("#utcs").slideToggle(); 
     }
     else if(inp.value.toUpperCase() == "RANK CALCULATOR"){
         document.getElementById('rankcal').click(); 
