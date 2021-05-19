@@ -14,7 +14,7 @@ function cleardiv(arrayofclearids) {
 }
 function clearall() {
     setTimeout(function () {
-        cleardiv(["catNumResult","dblFactResult","smDivResult","smPrimeResult","nextPrimeResult","distResult","resultintegration", "integralplot","etfResult", "resultdiff", "diffplot", "resulttable", "generatedmatrixsingle", "singlematrixresult", "singlematrixexplanation", "generatedmatrix1", "signofmatrix", "generatedmatrix2", "matrixresult", "explanationmatrixresult", "rootsquadraticresult", "inputroundoffoutput", "plotequationresult", "resultlaplace", "laplaceplot", "resultinverselaplace", "inverselaplaceplot", "resultpardiff", "resultmulsol", "soltri", "resultofdivsteps", "resultdivi", "divisibilitycheckresult", "divisibilitycheckresultexplanation", "dividefactor", "dividefactorresult", "factorresult", "resultfac", "resultlcm", "resultlcms", "hcfprimefactor", "resulthcf", "displayequation", "resultsimplifyequation", "resultexpandequation", "equationsmany", "resultsolverequation", "compresult"]);
+        cleardiv(["lucNumResult","smNumResult","catNumResult","dblFactResult","smDivResult","smPrimeResult","nextPrimeResult","distResult","resultintegration", "integralplot","etfResult", "resultdiff", "diffplot", "resulttable", "generatedmatrixsingle", "singlematrixresult", "singlematrixexplanation", "generatedmatrix1", "signofmatrix", "generatedmatrix2", "matrixresult", "explanationmatrixresult", "rootsquadraticresult", "inputroundoffoutput", "plotequationresult", "resultlaplace", "laplaceplot", "resultinverselaplace", "inverselaplaceplot", "resultpardiff", "resultmulsol", "soltri", "resultofdivsteps", "resultdivi", "divisibilitycheckresult", "divisibilitycheckresultexplanation", "dividefactor", "dividefactorresult", "factorresult", "resultfac", "resultlcm", "resultlcms", "hcfprimefactor", "resulthcf", "displayequation", "resultsimplifyequation", "resultexpandequation", "equationsmany", "resultsolverequation", "compresult"]);
     }, 1000);
 }
 
@@ -210,6 +210,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#crescent").click(function () {
+        openit("#crescentLune");
+        closenav();
+        clearall();
+    });
     $("#ex3btn").click(function () {
         openit("#ex3");
         closenav();
@@ -288,6 +293,11 @@ $(document).ready(function () {
     });
     $("#3dgeobtn").click(function () {
         openit("#3dgeo");
+        closenav();
+        clearall();
+    });
+    $("#desbtn").click(function () {
+        openit("#des");
         closenav();
         clearall();
     });
@@ -493,7 +503,16 @@ $(document).ready(function () {
         openit("#ip");
         closenav();
         clearall();
-
+    });
+    $("#ineqtribtn").click(function () {
+        openit("#ineqtri");
+        closenav();
+        clearall();
+    });
+    $("#gcdbtn").click(function () {
+        openit("#gcd");
+        closenav();
+        clearall();
     });
     $("#per_chng_volbtn").click(function () {
         openit("#per_chng_vol");
@@ -504,6 +523,11 @@ $(document).ready(function () {
     //Euler's Totient Function
     $("#etfbtn").click(function () {
         openit("#etf");
+        closenav();
+        clearall();
+    })
+    $("#etcbtn").click(function () {
+        openit("#etc");
         closenav();
         clearall();
     })
@@ -534,6 +558,18 @@ $(document).ready(function () {
     //Catalan numbers calculator
     $("#cat-btn").click(function () {
         openit("#catNum");
+        closenav();
+        clearall();
+    })
+    //Smallest number divisible calculator
+    $("#sm-num-btn").click(function () {
+        openit("#smNum");
+        closenav();
+        clearall();
+    })
+    //Lucas series calculator
+    $("#luc-btn").click(function () {
+        openit("#lucNum");
         closenav();
         clearall();
     })
@@ -606,6 +642,11 @@ $(document).ready(function () {
     });
     $("#reppbtn").click(function () {
         openit("#repp");
+        closenav();
+        clearall();
+    });
+    $("#height1btn").click(function () {
+        openit("#height1");
         closenav();
         clearall();
     });
@@ -690,6 +731,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#faulbtn").click(function () {
+        openit("#faul");
+        closenav();
+        clearall();
+    });
     $("#mulsolwithstepsbtn").click(function () {
         openit('#mulsolwithsteps');
         closenav();
@@ -752,6 +798,11 @@ $(document).ready(function () {
     });
     $("#solutiontributton").click(function () {
         openit("#solutiontri");
+        closenav();
+        clearall();
+    });
+    $("#sumAndDiffTributton").click(function () {
+        openit("#sumAndDiffTri");
         closenav();
         clearall();
     });
@@ -1140,6 +1191,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#ideventbtn").click(function () {
+        openit("#idevent");
+        closenav();
+        clearall();
+    });
 
 
     $("#bayesprobabilitycollapsebtn").click(function () {
@@ -1179,7 +1235,11 @@ $(document).ready(function () {
         clearall();
     });
 
-
+    $("#confInterval").click(function () {
+        openit("#confIntrvl");
+        closenav();
+        clearall();
+    });
 
     $("#cv").click(function(){
         openit("#cvs");
@@ -1203,7 +1263,11 @@ $(document).ready(function () {
         clearall();
     });
 
-
+    $("#halflifebtn").click(function () {
+        openit("#halflife");
+        closenav();
+        clearall();
+    });
     $("#perrankcalbtn").click(function(){
         openit("#rankcals");
         closenav();
