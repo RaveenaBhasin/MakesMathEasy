@@ -399,6 +399,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     })
+    $("#crossbtn").click(function () {
+        openit("#cross");
+        closenav();
+        clearall();
+    })
     $("#wandtbtn").click(function () {
         openit("#wandt");
         closenav();
@@ -459,6 +464,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });   
+    $("#ftestbtn").click(function () {
+        openit("#ftest");
+        closenav();
+        clearall();
+    }); 
     $("#ztestbtn").click(function () {
         openit("#ztest");
         closenav();
@@ -511,6 +521,11 @@ $(document).ready(function () {
     });
     $("#gcdbtn").click(function () {
         openit("#gcd");
+        closenav();
+        clearall();
+    });
+    $("#dbltimebtn").click(function () {
+        openit("#dbltime");
         closenav();
         clearall();
     });
@@ -634,6 +649,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#binoexpbtn").click(function () {
+        openit("#binoexp");
+        closenav();
+        clearall();
+    });
 
     $("#clrbtn").click(function () {
         openit("#clr");
@@ -723,6 +743,11 @@ $(document).ready(function () {
     });
     $("#convdivbtn").click(function () {
         openit("#convdiv");
+        closenav();
+        clearall();
+    });
+    $("#impsebtn").click(function () {
+        openit("#impse");
         closenav();
         clearall();
     });
@@ -852,6 +877,13 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+
+    $("#quadeqncalbtn").click(function () {
+        openit("#quadeqncal");
+        closenav();
+        clearall();
+    });
+  
     $("#plotgraphoption").click(function () {
         openit("#plotgraph");
         closenav();
