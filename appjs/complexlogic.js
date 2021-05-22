@@ -698,83 +698,70 @@ function stresscalc()
 
     ans+="Stress is defined as “The restoring force per unit area of the material”. It is a tensor quantity. Denoted by Greek letter σ. Measured using Pascal or N/m2. Mathematically expressed as <br>    σ=F/A Where, <br>    F is the restoring force measured in Newton or N. <b>    A is the area of cross-section measured in m2. <br>    σ is the stress measured using N/m2 or Pa. <br>"
 }
-document.getElementById("stressans").innerHTML=ans;
-    
-
+document.getElementById("stressans").innerHTML=ans;  
 }
 
-function arcal()
-{
+function arcal() {
       var a=document.getElementById("ang12").value;
       var b=document.getElementById("rad").value;
       var y=document.getElementById("radit").value;
       var d=document.getElementById("angit").value;
-      var ans="";
-      if(a == "" && b == "")
-      {
-          ans="Error: All values are required to obtain answer";
-      }
-      else
-      {
-
-        if(d=="degree")
-        {
+      if(a == "" || b == "") {
+        document.getElementById("arcans1").innerHTML ="\\[Error: \\space All \\space values \\space are \\space required \\space to \\space obtain \\space answer\\]";
+        renderMathInElement(document.getElementById("arcans1"));
+        document.getElementById("arcans2").innerHTML = ""; document.getElementById("arcans3").innerHTML = ""; document.getElementById("arcans4").innerHTML = ""; 
+        document.getElementById("arcans5").innerHTML = ""; document.getElementById("arcans6").innerHTML = ""; return;
+        } else {
+        if(d=="degree") {
             b/=57.296;
-        }
-
-
+            document.getElementById("arcans1").innerHTML = "\\[\\frac{\\theta \\space (degree)}{57.296} \\space = "+b.toFixed(2)+" \\space (radian)\\]";
+            renderMathInElement(document.getElementById("arcans1")); } else{ document.getElementById("arcans1").innerHTML = ""; }
         var c= a*b;
-
-        if(y=="cm")
-        {
+        document.getElementById("arcans2").innerHTML = "\\[Arc \\space length = \\space "+a+" \\times "+b.toFixed(2)+" = \\space "+c.toFixed(3)+" \\space m\\]";
+        renderMathInElement(document.getElementById("arcans2"));
+        if(y=="cm") {
             c=c/100;
-        }
-        else if(y=="mm")
-        {
+            document.getElementById("arcans3").innerHTML = "\\[\\frac{Arc \\space length \\space (m)}{100} = \\space "+c.toFixed(3)+" \\space cm\\]";
+            renderMathInElement(document.getElementById("arcans3"));
+            document.getElementById("arcans4").innerHTML = ""; document.getElementById("arcans5").innerHTML = "";
+        } else if(y=="mm") {
             c=c/1000;
-        }
-        else if(y=="inch")
-        {
+            document.getElementById("arcans4").innerHTML = "\\[\\frac{Arc \\space length \\space (m)}{1000} = \\space "+c.toFixed(3)+" \\space mm\\]";
+            renderMathInElement(document.getElementById("arcans4"));
+            document.getElementById("arcans3").innerHTML = ""; document.getElementById("arcans5").innerHTML = "";
+        } else if(y=="inch") {
               c=c/0.0254;
-        }
-      
-        var k=c.toPrecision(5);
-
-             ans="The arc length is: "+k+" m";
-      }
-
-      document.getElementById("arcans").innerHTML=ans;
-
-
+                document.getElementById("arcans5").innerHTML = "\\[\\frac{Arc \\space length \\space (m)}{0.0254} = \\space "+c.toFixed(3)+" \\space inch\\]";
+                renderMathInElement(document.getElementById("arcans5"));
+                document.getElementById("arcans4").innerHTML = ""; document.getElementById("arcans3").innerHTML = "";
+        } else{
+            document.getElementById("arcans3").innerHTML = ""; document.getElementById("arcans4").innerHTML = ""; document.getElementById("arcans5").innerHTML = "";}
+        document.getElementById("arcans6").innerHTML ="\\[The \\space Arc \\space length \\space is: \\space "+c.toFixed(3)+" \\space "+y+"\\]";
+        renderMathInElement(document.getElementById("arcans6"));}
 }
 
 function cresccal() {
     var r1 = document.getElementById("cresc_rad1").value;
     var r2 = document.getElementById("cresc_rad2").value;
     var d = document.getElementById("cresc_dist").value;
-    var ans = "";
-    var lans1, lans2, dans;
     if (r1 == "" || r2 == "" || d == "") {
-        ans = "Error: All values are required to obtain answer";
+        document.getElementById("crescans1").innerHTML = "Error: All values are required to obtain answer";
+        document.getElementById("crescans2").innerHTML ="";
+        document.getElementById("crescans3").innerHTML = "";
+    } else {
+        if (!isNaN(Math.acos((r2 ** 2 - r1 ** 2 - d ** 2) / (2 * r1 * d))) && !isNaN(Math.acos((r2 ** 2 + d ** 2 - r1 ** 2) / (2 * r2 * d))) ){
+            var lune1 = Math.trunc(2 * (Math.sqrt((r1 + r2 + d) * (r2 + d - r1) * (d + r1 - r2) * (r1 + r2 - d)) / 4) + r1 ** 2 * Math.acos((r2 ** 2 - r1 ** 2 - d ** 2) / (2 * r1 * d)) - r2 ** 2 * Math.acos((r2 ** 2 + d ** 2 - r1 ** 2) / (2 * r2 * d)));
+            var op = Math.trunc(Math.PI * r1 ** 2 - lune1);
+            var lune2 = Math.trunc(Math.PI * r2 ** 2 - op);
+            document.getElementById("crescans1").innerHTML = "Area of Lune 1: " + lune1;
+            document.getElementById("crescans2").innerHTML = "Area of Lune 2: " + lune2;
+            document.getElementById("crescans3").innerHTML = "Overlap Area: " + op;
+        } else{
+            document.getElementById("crescans1").innerHTML  = "Error: Enter proper values";
+            document.getElementById("crescans2").innerHTML = "";
+            document.getElementById("crescans3").innerHTML = "";
+        }
     }
-    else {
-        var lune1 = Math.trunc(2 * (Math.sqrt((r1 + r2 + d) * (r2 + d - r1) * (d + r1 - r2) * (r1 + r2 - d)) / 4) + r1 ** 2 * Math.acos((r2 ** 2 - r1 ** 2 - d ** 2) / (2 * r1 * d)) - r2 ** 2 * Math.acos((r2 ** 2 + d ** 2 - r1 ** 2) / (2 * r2 * d)));
-        var op = Math.trunc(Math.PI * r1 ** 2 - lune1);
-        var lune2 = Math.trunc(Math.PI * r2 ** 2 - op);
-
-
-        lans1 = document.createElement('div');
-        lans1.innerHTML = "Area of Lune 1: " + lune1;
-
-        lans2 = document.createElement('div');
-        lans2.innerHTML = "Area of Lune 2: " + lune2;
-
-        dans = document.createElement('div');
-        dans.innerHTML = "Overlap Area: " + op;
-    }
-    document.getElementById("crescans").appendChild(lans1);
-    document.getElementById("crescans").appendChild(lans2);
-    document.getElementById("crescans").appendChild(dans);
 }
 
 function ssqcal()
@@ -1350,6 +1337,15 @@ function confidence() {
     document.getElementById("confans").innerHTML = s;
 }
 
+function unitcircCal(){
+    var deg = document.getElementById("unitdeg").value;
+    var x = Math.cos(deg);
+    var y = Math.sin(deg);
+
+    document.getElementById("unitcircxans").innerHTML = "X: " + x;
+    document.getElementById("unitcircyans").innerHTML = "Y: " + y;
+}
+
 function wmccal()
 {
     var num1=document.getElementById("wmcx").value;
@@ -1401,18 +1397,18 @@ function wmccal()
         console.log(wsum);
         console.log(sum);
         var wm=sum/wsum;
-        ans="The calculated weighted mean is: "+wm;
-
-    }
-    
+        ans="The calculated weighted mean is: "+wm;}
     }
     document.getElementById("wmcans").innerHTML=ans;
 }
 
 function dbltimeCal(){
-    let inc = parseInt(document.getElementById("inctime").value);
-    let ans = Math.log(2) / Math.log(1 + inc);
-    document.getElementById("dbltimeans").innerHTML =  "doubling time: " + ans + " periods";
+    var inc = parseInt(document.getElementById("inctime").value);
+    var ans = Math.log(2) / Math.log(1 + inc);
+    document.getElementById("dbltimeans").innerHTML = "\\[Doubling \\space Time \\space is \\space \\space \\frac{log \\space (2) }{log \\space (1 + (\\% \\space per \\space period \\space increase)) } \\space \\space that \\space is, \\]";
+    renderMathInElement(document.getElementById("dbltimeans"));
+    document.getElementById("dbltimeans1").innerHTML = "\\[\\frac{log \\space (2)}{log \\space (1 + ("+inc+")) } \\space = \\space "+ans.toFixed(3)+" \\space periods\\]";
+    renderMathInElement(document.getElementById("dbltimeans1"));
 }
 
 function covcalcu(){
@@ -2016,4 +2012,31 @@ function hypergeosvar2cal()
    
     }
     document.getElementById("hypergeos2ans").innerHTML=ans;
+}
+
+function egccal()
+{
+    var num1=document.getElementById("egc1").value;
+    var num2=document.getElementById("egc2").value;
+    var num3=document.getElementById("egc3").value;
+    ans="";
+    let explain="";
+    if(num1==""||num2==""||num3=="")
+    {
+        ans="\\[Please \\space fill \\space all \\space the \\space field\\]";
+    }
+    else
+    {
+        num1=parseFloat(num1);
+        num2=parseFloat(num2);
+        num3=parseFloat(num3);
+        var si=(num1*((1+(num2/100))**num3)).toFixed(3);
+        ans="\\[The \\space effective \\space rate \\space of \\space growth \\space is: "+si+"\\]";
+        explain="\\[x(t)="+num1+"(1+\\frac{"+num2+"}{100})^"+num3+"\\]"+"\\[\\space "+num1+"("+((1+(num2/100))**num3).toFixed(3)+")\\]"+"\\[\\space ="+si+"\\]";
+   
+    }
+    document.getElementById("egcans").innerHTML=ans;
+    document.getElementById("egcexplain").innerHTML=explain;
+    renderMathInElement(document.getElementById("egcans"));
+    renderMathInElement(document.getElementById("egcexplain"));
 }

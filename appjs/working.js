@@ -117,6 +117,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#corrbtn").click(function () {
+        openit("#corr");
+        closenav();
+        clearall();
+    });
     $("#cov").click(function () {
         openit("#covs");
         closenav();
@@ -301,6 +306,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#dribtn").click(function () {
+        openit("#dri");
+        closenav();
+        clearall();
+    });
     $("#integrate").click(function () {
         openit("#integralcollapse");
         closenav();
@@ -473,6 +483,16 @@ $(document).ready(function () {
         openit("#ztest");
         closenav();
         clearall();
+    }); 
+    $("#pbtn").click(function () {
+        openit("#pchart");
+        closenav();
+        clearall();
+    });   
+    $("#npbtn").click(function () {
+        openit("#npchart");
+        closenav();
+        clearall();
     });   
     $("#chitestbtn").click(function () {
         openit("#chitest");
@@ -501,6 +521,11 @@ $(document).ready(function () {
     });
     $("#sigmabtn").click(function () {
         openit("#sigma");
+        closenav();
+        clearall();
+    });
+    $("#alibtn").click(function () {
+        openit("#ali");
         closenav();
         clearall();
     });
@@ -617,7 +642,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-
+    $("#typenumbtn").click(function () {
+        openit("#typenum");
+        closenav();
+        clearall();
+    });
 
     $("#resbtn").click(function () {
         openit("#res1");
@@ -708,6 +737,11 @@ $(document).ready(function () {
 
     $("#tdshapescalbtn").click(function () {
         openit("#tdshapescal");
+        closenav();
+        clearall();
+    });
+    $("#fdshapescalbtn").click(function () {
+        openit("#fdshapescal");
         closenav();
         clearall();
     });
@@ -856,6 +890,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#unitcircbtn").click(function () {
+        openit("#unitcirc");
+        closenav();
+        clearall();
+    });
     $("#trigsolcollapsebtn").click(function () {
         openit("#trigsolcollapse");
         closenav();
@@ -909,8 +948,13 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-    $("#parabbtn").click(function () {
-        openit("#parab");
+    $("#pandcbtn").click(function () {
+        openit("#pandc");
+        closenav();
+        clearall();
+    });
+    $("#expgrwth").click(function () {
+        openit("#expgrwths");
         closenav();
         clearall();
     });
@@ -1169,7 +1213,12 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
-
+    
+    $("#platonicbtn").click(function () {
+        openit("#platonic");
+        closenav();
+        clearall();
+    });
     $("#degbtn").click(function () {
         openit("#degcal");
         closenav();
