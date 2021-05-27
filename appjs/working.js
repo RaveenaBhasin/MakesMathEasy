@@ -434,6 +434,11 @@ $(document).ready(function () {
         clearall();
 
     });
+    $("#planeinterceptbtn").click(function () {
+        openit("#planeintercept");
+        closenav();
+        clearall();
+    });
     $("#declbtn").click(function () {
         openit("#decl");
         closenav();
@@ -1008,6 +1013,11 @@ $(document).ready(function () {
     });
     $("#equationssolverbtn").click(function () {
         openit("#equationssolver");
+        closenav();
+        clearall();
+    });
+    $("#circumradiusareabtn").click(function () {
+        openit("#circumradiusarea");
         closenav();
         clearall();
     });

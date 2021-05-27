@@ -3562,6 +3562,38 @@ function alisum1find(){
     document.getElementById("alisum1ans").innerHTML =  "true";
 }
 
+function alisum2find(){
+    let n = parseInt(document.getElementById("alisum2").value)
+    Set<Integer> v = ABUNDANT();  
+        for (let i = 1; i <= n; i++) {
+            if (v.contains(i) & v.contains(n - i)) {
+                document.getElementById("alisum2ans").innerHTML =  i + " " + (n - i);
+                return;
+            }
+        }
+}
+
+function ABUNDANT() {
+    Set<Integer> v = new HashSet();
+
+    for (let i = 1; i < N; i++) {
+        let sum = 1;
+        for (let j = 2; j * j <= i; j++) {
+            if (i % j == 0) {
+                sum += j;
+                if (i / j != j) {
+                    sum += i / j;
+                }
+            }
+        }
+        if (sum > i) {
+            v.add(i);
+        }
+    }
+
+    return v;
+}
+
 function getSum( n) {
     let sum = 0;
     for ( let i = 1; i <= Math.sqrt(n); i++) {
@@ -6596,14 +6628,66 @@ function crossedrectsolve() {
     var area = (baseLength * rectSide) / 2;
 
     if ((baseLength != "") && (rectSide != "")) {
-        legLengthField.innerHTML = `Leg length (c) = ${legLength.toFixed(3)} units`;
-        baseAngleField.innerHTML = `Base angle (α) = ${baseAngle.toFixed(3)} °`
-        intersectAngleField.innerHTML = `Intersection angle (β) = ${intersectAngle.toFixed(3)} °`;
-        apexAngleField.innerHTML = `Apex angle (γ) = ${apexAngle.toFixed(3)} °`;
-        perimeterField.innerHTML = `Perimeter (p) = ${perimeter.toFixed(3)} units`;
-        areaField.innerHTML =  `Area (A) = ${area.toFixed(3)} sq.units`;
+        legLengthField.innerHTML = "\\[Leg \\space length (c) =\\frac{\\sqrt{"+baseLength+"^2 + "+rectSide+"^2}}{2} = "+legLength.toFixed(3)+" \\space units\\]";
+        renderMathInElement(legLengthField);
+        baseAngleField.innerHTML = "\\[Base \\space angle (\\alpha) =\\frac{"+intersectAngle+"}{2} = "+baseAngle.toFixed(3)+" \\degree \\]";
+        renderMathInElement(baseAngleField);
+        intersectAngleField.innerHTML = "\\[Intersection \\space angle (\\beta) = 180 \\degree - "+apexAngle+" = "+intersectAngle.toFixed(3)+" \\degree \\]";
+        renderMathInElement(intersectAngleField);
+        apexAngleField.innerHTML = "\\[Apex \\space angle (\\gamma) = \\arccos \\frac{2 \\times "+legLength+"^2 - "+baseLength+"^2}{2 \\times "+baseLength+"^2} = "+apexAngle.toFixed(3)+" \\degree \\]";
+        renderMathInElement(apexAngleField);
+        perimeterField.innerHTML = "\\[Perimeter (p) = 2 \\times "+baseLength+" + 4 \\times "+legLength+" = "+perimeter.toFixed(3)+" \\space units \\]";
+        renderMathInElement(perimeterField);
+        areaField.innerHTML =  "\\[Area (A) = \\frac{"+baseLength+" \\times "+rectSide+"}{2} = "+apexAngle.toFixed(3)+" \\space sq.units \\]";
+        renderMathInElement(areaField);
     }
 }
+
+function tshapesolve() {
+    var beamLength = parseFloat(document.getElementById("tshape-a").value);
+    var beamThickness = parseFloat(document.getElementById("tshape-b").value);
+    var shaftLength = parseFloat(document.getElementById("tshape-c").value);
+    var shaftThickness = parseFloat(document.getElementById("tshape-d").value);
+    var armLengthField = document.getElementById("resultOfArmLengthTshape");
+    var heightField = document.getElementById("resultOfHeightTshape");
+    var perimeterField = document.getElementById("resultOfPerimeterTshape");
+    var areaField = document.getElementById("resultOfAreaTshape");
+    var armLengthTshape = (beamLength - shaftThickness) / 2;
+    var heightTshape = beamThickness + shaftLength;
+    var perimeterTshape = 2 * (beamLength + beamThickness + shaftLength);
+    var areaTshape = (beamLength * beamThickness) + (shaftLength * shaftThickness);
+    if ((!isNaN(beamLength)) && (!isNaN(beamThickness)) && (!isNaN(shaftLength)) && (!isNaN(shaftThickness))) {
+        armLengthField.innerHTML = `Arm length (a') = ${armLengthTshape}`;
+        heightField.innerHTML = `Height (h) = ${heightTshape}`;
+        perimeterField.innerHTML = `Perimeter (p) = ${perimeterTshape}`;
+        areaField.innerHTML = `Area (A) = ${areaTshape}`;
+    }
+}
+
+
+
+function tshapesolve() {
+    var beamLength = parseFloat(document.getElementById("tshape-a").value);
+    var beamThickness = parseFloat(document.getElementById("tshape-b").value);
+    var shaftLength = parseFloat(document.getElementById("tshape-c").value);
+    var shaftThickness = parseFloat(document.getElementById("tshape-d").value);
+    var armLengthField = document.getElementById("resultOfArmLengthTshape");
+    var heightField = document.getElementById("resultOfHeightTshape");
+    var perimeterField = document.getElementById("resultOfPerimeterTshape");
+    var areaField = document.getElementById("resultOfAreaTshape");
+    var armLengthTshape = (beamLength - shaftThickness) / 2;
+    var heightTshape = beamThickness + shaftLength;
+    var perimeterTshape = 2 * (beamLength + beamThickness + shaftLength);
+    var areaTshape = (beamLength * beamThickness) + (shaftLength * shaftThickness);
+    if ((!isNaN(beamLength)) && (!isNaN(beamThickness)) && (!isNaN(shaftLength)) && (!isNaN(shaftThickness))) {
+        armLengthField.innerHTML = `Arm length (a') = ${armLengthTshape}`;
+        heightField.innerHTML = `Height (h) = ${heightTshape}`;
+        perimeterField.innerHTML = `Perimeter (p) = ${perimeterTshape}`;
+        areaField.innerHTML = `Area (A) = ${areaTshape}`;
+    }
+}
+
+
 //Circle
 function solvecircle() {
     let radius = document.getElementById("inputradius").value;
@@ -12265,6 +12349,19 @@ function typenum10find(){
     document.getElementById("typenum10ans").innerHTML=  ans;
 }
 
+function typenum11find(){
+    var N = parseInt(document.getElementById("typenum14").value)
+    var sum=0; 
+    var arr =[];
+    for(var i=1;i<N;i++){
+        sum = ((i*(i+1)*(2*i+1))/6) ;
+        if(sum<N)
+            arr.push(sum)
+    }
+    arr.sort();
+    document.getElementById("typenum11ans").innerHTML=  arr;
+}
+
 //Find all combinations that add upto given number
 function typenum5find(){
     let n = parseInt(document.getElementById("typenum6").value)
@@ -14141,20 +14238,22 @@ function scyffind(){
 }
 
 function scyf1find(){
-    let h = parseInt(document.getElementById("scyf3").value) 
-    let R = parseInt(document.getElementById("scyf4").value)
-    let r = parseInt(document.getElementById("scyf5").value) 
-    var r1 = r;
-    var h1 = h;
-    var V = (3.14 * Math.pow(r1, 2) * h1);
-    document.getElementById("scyf1ans").innerHTML =  V;
+    var h = parseInt(document.getElementById("scyf3").value) 
+    var r = parseInt(document.getElementById("scyf5").value) 
+    var v = 3.14 * Math.pow(r, 2) * h;
+    if(!isNaN(r) && (!isNaN(h)) ){
+        document.getElementById("scyf1ans").innerHTML =  "\\[Largest \\space right \\space circular \\space cylinder \\space within \\space a \\space frustum \\space will \\space be, \\newline \\pi \\times (Shorter \\space radius \\space of \\space cone)^{2} \\times (Height \\space of \\space cone) \\newline "+(math.pi).toFixed(2)+" \\times "+r+"^{2} \\times "+h+" \\newline = \\space "+v.toFixed(3)+"\\]";
+    } else{
+        document.getElementById("scyf1ans").innerHTML = "\\[Please \\space enter \\space valid \\space input\\]";
+    }
+    renderMathInElement( document.getElementById("scyf1ans"));
 }
 
 function scyf2find(){
-    let b = parseInt(document.getElementById("scyf6").value) 
-    let h = parseInt(document.getElementById("scyf7").value)
-    let ans = 2 * b * s + parseInt(Math.pow(b, 2));
-    document.getElementById("scyf2ans").innerHTML = ans
+    var b = parseInt(document.getElementById("scyf6").value);
+    var h = parseInt(document.getElementById("scyf7").value);
+    let ans = 2 * b * h + parseInt(Math.pow(b, 2));
+    document.getElementById("scyf2ans").innerHTML = ans;
 }
 
 
@@ -14233,6 +14332,70 @@ function sumDivisor(num)
       }
     }
     document.getElementById("smDivResult").innerHTML = "The sum of divisors of " + num + " is: " + res;
+}
+
+// Intercept form of plane
+//-----------------------------------------
+
+function planeequation(){
+  let x1 = parseInt(document.getElementById("x1").value);
+  let y1 = parseInt(document.getElementById("y1").value);
+  let z1 = parseInt(document.getElementById("z1").value);
+  let x2 = parseInt(document.getElementById("x2").value);
+  let y2 = parseInt(document.getElementById("y2").value);
+  let z2 = parseInt(document.getElementById("z2").value);
+  let x3 = parseInt(document.getElementById("x3").value);
+  let y3 = parseInt(document.getElementById("y3").value);
+  let z3 = parseInt(document.getElementById("z3").value);
+
+  var a1 = x2 - x1;
+  var b1 = y2 - y1;
+  var c1 = z2 - z1;
+  var a2 = x3 - x1;
+  var b2 = y3 - y1;
+  var c2 = z3 - z1;
+  var a = b1*c2 - b2*c1;
+  var b = a2*c1 - a1*c2;
+  var c = a1*b2 - b1*a2;
+  var d = (-a*x1 - b*y1 - c*z1);
+
+  document.getElementById("interceptresult").innerHTML = a+"x+"+b+"y+"+c+"z"+"="+(-1)*d;
+
+  if (b>0 && c<0){
+    document.getElementById("interceptresult").innerHTML = a+"x+"+b+"y"+c+"z"+"="+(-1)*d;
+  }
+  else if (b<0 && c>0){
+    document.getElementById("interceptresult").innerHTML = a+"x"+b+"y+"+c+"z"+"="+(-1)*d;
+  }
+  else if (c<0 && b<0){
+    document.getElementById("interceptresult3").innerHTML = a+"x"+b+"y"+c+"z"+"="+(-1)*d;
+  }
+ 
+}
+
+
+// Circum area and external radius
+
+function external_area(){
+    let R = parseInt(document.getElementById("radius").value);
+  let A = parseInt(document.getElementById("angle1").value);
+  let B = parseInt(document.getElementById("angle2").value);
+  let C = parseInt(document.getElementById("angle3").value);
+
+  var res = 8*R*R*(cos(A/2)*cos(B/2)*cos(C/2));
+  document.getElementById("externarea").innerHTML = res;
+
+
+}
+function cos(degrees) {
+    var radians = (degrees*Math.PI)/180;
+    return Math.cos(radians);
+}
+
+function external_radius(){
+    let R1 = parseInt(document.getElementById("radius1").value);
+    var re = 2*R1;
+    document.getElementById("externradius").innerHTML = re;
 }
 
 // function to find double factorial
@@ -18289,9 +18452,23 @@ function polarcal(){
     var y=parseFloat(document.getElementById("polary").value);
     var outputr = document.getElementById("polarans1");
     var outputo = document.getElementById("polarans2");
-    var r =  Math.sqrt(x*x + y*y);
-    var o = Math.atan(y/x);
+    var r =  Math.sqrt(x*x + y*y).toFixed(2);
+    var o = Math.atan(y/x).toFixed(2);
     var ans="";
+
+
+    var temp1 = (x*x + y*y).toFixed(2);
+    var temp2 = (y/x).toFixed(2);
+    var ansr = "\\[r:\\space \\sqrt{x^2 + y^2}\\]";
+    ansr += "\\[=\\space \\sqrt{"+x+"^2 + "+y+"^2}\\]";
+    ansr += "\\[=\\space \\sqrt{"+temp1+"} \\]";
+    ansr += "\\[=\\space "+r+" \\]";
+
+    var anso = "\\[θ:\\space \\tan(\\frac{y}{x} )\\]";
+    anso = "\\[θ:\\space \\tan(\\frac{"+y+"}{"+x+"} )\\]";
+    anso += "\\[=\\space \\tan("+temp2+")\\]"
+    anso += "\\[=\\space "+o+"\\]"
+
     if(isNaN(x)||isNaN(y))
     {
         ans += "Please fill all the field";
@@ -18299,9 +18476,11 @@ function polarcal(){
         outputo.innerHTML = "";
     }
     else{
-        outputr.innerHTML= "r: " + r;
-        outputo.innerHTML = "θ: " + o;
+        outputr.innerHTML= ansr;
+        outputo.innerHTML = anso;
     }
+    renderMathInElement(outputr);
+    renderMathInElement(outputo);
 }
 
 function cylcartcal(){
@@ -18383,11 +18562,24 @@ function sphcal(){
     var outputr = document.getElementById("sphrans");
     var outputo = document.getElementById("sphoans");
     var outputfi = document.getElementById("sphfians");
-    var r =  Math.sqrt(x*x + y*y + z*z);
-    var o = Math.acos(z/r);
-    var fi = Math.atan(y/x);
+    var r =  Math.sqrt(x*x + y*y + z*z).toFixed(2);
+    var o = Math.acos(z/r).toFixed(2);
+    var fi = Math.atan(y/x).toFixed(2);
     var ans="";
+    var temp1 = x*x + y*y + z*z;
+    var temp2 = (z/r).toFixed(2);
+    var ansr = "\\[r:\\space \\sqrt{x^2 + y^2 + z^2}\\]";
+    ansr += "\\[=\\space \\sqrt{"+x+"^2 + "+y+"^2 + "+z+"^2}\\]";
+    ansr += "\\[=\\space \\sqrt{"+temp1+"} \\]";
+    ansr += "\\[=\\space "+r+" \\]";
 
+    var anso = "\\[θ:\\space \\arccos(\\frac{z}{r} )\\]";
+    anso = "\\[θ:\\space \\arccos(\\frac{"+z+"}{"+r+"} )\\]";
+    anso += "\\[=\\space \\arccos("+temp2+")\\]"
+    anso += "\\[=\\space "+o+"\\]"
+
+    var ansz = "\\[z:\\space Z\\]";
+    ansz += "\\[=\\space "+z+"\\]";
     if(isNaN(x)||isNaN(y)||isNaN(z))
     {
         ans += "Please fill all the field";
@@ -18396,10 +18588,16 @@ function sphcal(){
         outputfi.innerHTML = "";
     }
     else{
-        outputr.innerHTML= "r: " + r;
-        outputo.innerHTML = "θ: " + o;
-        outputfi.innerHTML = "φ: " + fi;
+
+        outputr.innerHTML= ansr;
+        outputo.innerHTML = anso;
+        outputfi.innerHTML = ansz;
+
     }
+    renderMathInElement(outputr);
+    renderMathInElement(outputo);
+    renderMathInElement(outputfi);
+
 }
 
 function cylcal(){
@@ -18410,10 +18608,24 @@ function cylcal(){
     var outputp = document.getElementById("cylpans");
     var outputo = document.getElementById("cyloans");
     var outputz = document.getElementById("cylzans");
-    var p =  Math.sqrt(x*x + y*y).tofixed(3);
+    var p =  Math.sqrt(x*x + y*y).toFixed(3);
     var o = Math.tan(y/x).toFixed(3);
     var ans="";
 
+    var temp1 = (x*x + y*y).toFixed(3);
+    var temp2 = (y/x).toFixed(3);
+    var ansp = "\\[ρ:\\space \\sqrt{x^2 + y^2}\\]";
+    ansp += "\\[=\\space \\sqrt{"+x+"^2 + "+y+"^2}\\]";
+    ansp += "\\[=\\space \\sqrt{"+temp1+"} \\]";
+    ansp += "\\[=\\space "+p+" \\]";
+
+    var anso = "\\[θ:\\space \\tan(\\frac{y}{x} )\\]";
+    anso = "\\[θ:\\space \\tan(\\frac{"+y+"}{"+x+"} )\\]";
+    anso += "\\[=\\space \\arccos("+temp2+")\\]"
+    anso += "\\[=\\space "+o+"\\]"
+
+    var ansz = "\\[z:\\space z\\]";
+    ansz += "\\[=\\space "+z+"\\]";
     if(isNaN(x)||isNaN(y)||isNaN(z))
     {
         ans += "Please fill all the field";
@@ -18422,10 +18634,14 @@ function cylcal(){
         outputz.innerHTML = "";
     }
     else{
-        outputp.innerHTML= "ρ: " + p;
-        outputo.innerHTML = "θ: " + o;
-        outputz.innerHTML = "z: " + z;
+        outputp.innerHTML= ansp;
+        outputo.innerHTML = anso;
+        outputz.innerHTML = ansz;
     }
+    renderMathInElement(outputp);
+    renderMathInElement(outputo);
+    renderMathInElement(outputz);
+
 }
 
 //BILINEAR INTERPOLATION CALCULATOR
