@@ -187,6 +187,8 @@ Other Tech/Libraries
   - Clock Angle Calculator
   - Root Mean Square
   - Squares and Cubes Calculator
+  - Relative Risk Calculator
+  - Negative Binomial Distribution Calculator
   - n-th base root calculator
   - Perfect Squares & Cubes in a range
   - Factorization
@@ -277,6 +279,7 @@ Other Tech/Libraries
     - Plots a Bar Graph along x and y axis by taking input from the user
   - Plot Angle
   - Supplementary Angle Calculator
+  - Complementary Angle Calculator
   - Coterminal Angle Calculator
   - SSS Triangle's Angle Calculator
   - Straight Line Formulas
@@ -330,8 +333,8 @@ Other Tech/Libraries
     - Polygons: Pentagon, Hexagon, Heptagon, Octagon, Nonagon, Decagon, Dodecagon, Hendecagon, TriDecagon, TetraDecagon, Pentadecagon, Hexadecagon, Heptadecagon, Octadecagon, Enneadecagon, Icosagon, Polygon Calculator
     - Star Polygons: Pentagram, Hexagram, Unicursal Hexagram, Octagram, Double Star Polygon, Star of Lakshmi
     - T-Shape
+    - H-Shape
 
-    - T-Shape
   - Name Of 3D Shapes
   - 3D Shapes Calculator
     - Cube
@@ -444,6 +447,7 @@ Other Tech/Libraries
   - Bayes Probability Theorem
   - Poisson Distribution Statistics
   - Hypergeometric Distribution Statistics
+  - Exponential Distribution Calculator
 
 - Statistics
 
