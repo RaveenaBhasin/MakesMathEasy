@@ -1336,6 +1336,23 @@
                 <table class="table">
                     <tr>
                         <td style="border-top: none;">
+                            <a id="pentatopbtn"
+                               style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">Pentatope calculator
+                                </a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span onclick="addtofavourite('Co-Prime Numbers Theory','#pentatop','c','pentatopimgfav')"><img
+                                        id="pentatopimgfav" src="images/unfavourite.png"
+                                        style="height:1.5625rem; filter:none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
+
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
                             <a id="lancentarcbtn"
                                style="font-size:0.9375rem;cursor: pointer;background:transparent;border:none;">
                                 Lancent Arc Calculator
@@ -5146,6 +5163,23 @@
                     </tr>
                 </table>
             </li>
+            <!-- Regression coefficient calculator -->
+            <li>
+                <table class="table">
+                    <tr>
+                        <td style="border-top: none;">
+                            <a id="regressionbtn"
+                               style="font-size:0.875rem;cursor: pointer;background:transparent;border:none;">Regression Coefficient Calculator</a>
+                        </td>
+                        <td style="float:right;border-top: none;">
+                                <span
+                                        onclick="addtofavourite('regressiontest','#regressiontest','c','regressiontestfav')"><img
+                                        id="regressiontestfav"  src="images/unfavourite.png"
+                                        style="height:1.5625rem;filter: none;"></span>
+                        </td>
+                    </tr>
+                </table>
+            </li>
             <li>
                 <table class="table">
                     <tr>
@@ -7013,6 +7047,9 @@
                 <button type="button" class="btn btn-light" onclick=tanglenght()>
                     Tangent length
                 </button>
+                <button type="button" class="btn btn-light" onclick=chordeqution()>
+                    Chord Of Equation
+                </button>
                 
                 <button type="button" class="btn btn-light" onclick="this.form.reset();">
                     Reset
@@ -7050,6 +7087,35 @@
                 <h1 id = "centererpr"></h1>
                 <h1 id = "centerrrpr"></h1> 
 
+                <h3 style="text-align: center;">Common Tangent</h3><br>
+                <form action="">
+                    <div class="coll">
+                        <p>
+                            Center 1 = (<input type="text" id="ctx1" size=5 value='' placeholder="x1"> , 
+                        <input type="text" id="cty1" size=5 value='' placeholder="y1">)
+                            <br><br>
+                            Center 2 = (<input type="text" id="ctx2" size=5 value='' placeholder="x2"> , 
+                        <input type="text" id="cty2" size=5 value='' placeholder="y2">)
+                                <br><br>
+                            Radius 1 = <input type="text" id="ctm1" size=3 value='' placeholder="m"> , 
+                            <br>
+                            Radius 2 = <input type="text" id="ctm2" size=3 value='' placeholder="m"> , 
+                            <br>
+                                <br><br>    
+                        <button type="button" class="btn btn-light" onclick=directl()>
+                            Length of Direct
+                        </button>
+                        <button type="button" class="btn btn-light" onclick="this.form.reset();">
+                            Reset
+                           </button><br>
+                        </p>
+                    </div>
+                </form>
+                <br>
+                <p id="comt1" style="font-family:mathfont;;width:auto;"
+                    class="stopwrap"></p>
+                <p  id="comt2"> </p> <br>
+    
    
         </div>
         <div class="collapse" id="vecalg">
@@ -13393,6 +13459,18 @@
             <h5 id="golds4exp"></h5>
             <br>
             </form>
+            <br>
+            <h2>Check if a number is Primorial Prime or not</h2>
+            <br>
+            <form>
+            <input type="text" id="golds7" class="form__field"placeholder="Enter the number">
+            <br>
+            <button type="button" class="btn btn-dark" onclick="golds5find()">Find</button>
+            <button type="button" class="btn btn-dark" onclick="this.form.reset();">Reset</button>        
+            <br>
+            <h5 id="golds5ans"></h5>
+            <br>
+            </form>
         </div>
 
         <div class="collapse" id="hyptrigonoiden">
@@ -13810,9 +13888,9 @@
                 </button>
                 <button class="btn btn-dark" onclick="this.form.reset();">Reset</button>
                 <br>
-            </form>
-            
+            </form>            
             <p id="alisum2ans" style="font-size: 26px;"></p>
+            <p id="alisum2exp" style="font-size: 26px;"></p>
             <br>
             <p>Hosoya’s Triangle</p>
             <br>
@@ -14504,7 +14582,28 @@
                 
                 <p  id="externradius"></p><br>
         </div>
+        
+        <div class="collapse" id="lancentarcl">
+            <h2>Lancent Arc Calculator</h2><br>
+            <p id="lance">\[h = √ r * b - b² / 4\]</p>
+            <p id="lance">\[b = 2 (r - √ r² - h² )\]</p> 
+            <p id="lance">\[r = ( 4h² + b² ) / (4b)\]</p> 
+            <p id="lance">\[p = 2r * arccos [ 1 - b / ( 2 * r ) ] + b\]</p> 
+            <p id="lance">\[A = r * ( u - b ) / 2 - h * ( r - b/2 )\]</p> 
+            <form action="">
+                <div class="form-group">
+                    <input type="text" style="width: 250px;" class="form__field" name="a" id="lance_x" placeholder="Enter h:"/>
+                    <input type="text" name="b" style="width: 250px;" class="form__field" id="lance_y" placeholder="Enter b: "/>  
+                    <input type="text" name="b" style="width: 250px;" class="form__field" id="lance_z" placeholder="Enter r: "/> <br> <br>
 
+                    <button  class = "btn btn-outline-light" onclick = "lance_cal()" >Find</button>
+                    <button  class = "btn btn-outline-light" onclick = "this.form.reset();" >Reset</button>
+                    <br>
+                </div>
+            </form>   
+
+                <p  id="lance_res"></p><br><br>    
+        </div>
 
         <div class="collapse" id="incenterexcenter">
             <h2>Distance between Incenter and Excenter of a Triangle</h2><br>
@@ -15010,6 +15109,27 @@
                 <p id="SD1" style="text-align: left;"></p>
                 <p id="SD2" style="text-align: left;"></p>
             </div>
+        </div>
+
+         <!-- Regression-test -->
+         <div class="collapse" id="regressiontest">
+            <h1 style="text-align: center; margin: 2rem auto 2rem auto;">Regression Coefficient Calculator</h1>
+            <p style="margin-top: 2rem;">
+                The Regression Coefficient is the constant ‘b’ in the regression equation that tells about the change
+                 in the value of dependent variable corresponding to the unit change in the independent variable.
+            </p>
+            <br><br>
+            <form action="">
+                <input class = "form__field"type="text" id="valuex" placeholder="Enter list of number separated by SPACE ">
+                <br><br>
+                <input class = "form__field"type="text" id="valuey" placeholder="Enter list of number separated by SPACE">
+                <br><br>
+                <button class = "btn btn-light" type="button" onclick="regressionvalue()">Test</button>&nbsp;
+                <button class = "btn btn-light" type="button" onclick="this.form.reset();">Reset</button>
+            </form>
+            
+            <p id="regressionans"></p>
+            
         </div>
 
 <!-- t -test -->
@@ -17765,26 +17885,21 @@
                 <p  id="car_polar_res"></p><br><br>    
         </div>
 
-        <div class="collapse" id="lancentarcl">
-            <h2>Lancent Arc Calculator</h2><br>
-            <p id="lance">\[h = √ r * b - b² / 4\]</p>
-            <p id="lance">\[b = 2 (r - √ r² - h² )\]</p> 
-            <p id="lance">\[r = ( 4h² + b² ) / (4b)\]</p> 
-            <p id="lance">\[p = 2r * arccos [ 1 - b / ( 2 * r ) ] + b\]</p> 
-            <p id="lance">\[A = r * ( u - b ) / 2 - h * ( r - b/2 )\]</p> 
+        <div class="collapse" id="pentatop">
+            <h2>Pentope Calculator</h2><br>
+            
             <form action="">
                 <div class="form-group">
-                    <input type="text" style="width: 250px;" class="form__field" name="a" id="lance_x" placeholder="Enter h:"/>
-                    <input type="text" name="b" style="width: 250px;" class="form__field" id="lance_y" placeholder="Enter b: "/>  
-                    <input type="text" name="b" style="width: 250px;" class="form__field" id="lance_z" placeholder="Enter r: "/> <br> <br>
+                    <input type="text" style="width: 250px;" class="form__field" name="a" id="penta_n" placeholder="Enter n:"/>
+                    <br> <br>
 
-                    <button  class = "btn btn-outline-light" onclick = "lance_cal()" >Find</button>
+                    <button  class = "btn btn-outline-light" onclick = "penta_cal()" >Find</button>
                     <button  class = "btn btn-outline-light" onclick = "this.form.reset();" >Reset</button>
                     <br>
                 </div>
             </form>   
             
-                <p  id="lance_res"></p><br><br>    
+                <p  id="penta_res"></p><br><br>    
         </div>
 
 
@@ -19409,7 +19524,7 @@
                     <tr>
                         <th scope="row">\[90\]</th>
                         <td>\[Enneacontahedron\]</td>
-                    </tr>>
+                    </tr>
                     <tr>
                         <th scope="row">\[100\]</th>
                         <td>\[Hectohedron\]</td>
@@ -20795,14 +20910,14 @@
             <!--sum of nterms in A.P.-->
             <br>
             <h4 class="d-flex justify-content-center">If first term, number of terms and common difference is given</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="napterms" placeholder="Enter the Nterms  (n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="rapterms" placeholder="Enter the first term(a) "
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="r1val"
                        placeholder="Enter the difference between two consecutive terms (d) "
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);">
                 <br>
                 <br>
                 <div class="row">
@@ -20831,13 +20946,13 @@
                 <br>
             </div>
             <h4 class="d-flex justify-content-center">If first term,number of terms and last term is given</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="numterms" placeholder="Enter the Nterms  (n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="ft" placeholder="Enter the first term(a) "
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="lt" placeholder="Enter the last term(l)"
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);">
                 <br>
                 <br>
                 <div class="row">
@@ -20868,13 +20983,13 @@
 			<br>
 
             <h4 class="d-flex justify-content-center">Insert n-Arthimetic Mean between two numbers</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="nt1" placeholder="Enter the Nterms  (n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="ft1" placeholder="Enter the first number(a) "
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="lt1" placeholder="Enter the second number(b)"
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);">
                 <br>
                 <br>
                 <div class="row">
@@ -20883,15 +20998,16 @@
                             Find
                         </button>
                     </div>
-                    <div class="col-4">
-                        <button type="button" class="btn btn-light" onclick=calcexnap()>
-                            Example
-                        </button>
-                    </div>
+                    
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light" onclick=calcexnap()>
+                            Example
                         </button>
                     </div>
                 </div>
@@ -20902,22 +21018,17 @@
             </div>
 			<br>
             <h4 class="d-flex justify-content-center">If number of terms and the AP is given</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center">
+            <form class="form-inline d-flex justify-content-center">
                 <input type="number" id="nterms" placeholder="Enter the Number of terms(n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white;width:30%; color: var(--appimage);"><br>
 
                 <input type="text" id="ap" placeholder="Enter AP(comma separated)"
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white;width:40%; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white;width:40%; color: var(--appimage);">
                 <br><br>
                 <div class="row">
                     <div class="col-4">        
                         <button type="button" class="btn btn-light" onclick=apsum()>
                             Find
-                        </button>
-                    </div>
-                    <div class="col-4">        
-                        <button type="button" class="btn btn-light" onclick=calcexapsum()>
-                            Example
                         </button>
                     </div>
                     <div class="col-4">
@@ -20926,12 +21037,18 @@
                         Reset
                         </button>
                     </div>
+                    <div class="col-4">        
+                        <button type="button" class="btn btn-light" onclick=calcexapsum()>
+                            Example
+                        </button>
+                    </div>
+                    
                 </div>
             </form>
             <p id="printAP" style="display:flex;font-family:mathfont;width:auto;" class="stopwrap"></p><br>
             <br>
             <h4 class="d-flex justify-content-center">Sum of P terms of an AP if mth and nth terms are given</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center">
+            <form class="form-inline d-flex justify-content-center">
                 <input type="number" id="mterm" placeholder="Enter the Number of terms (m)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white;width:40%; color: var(--appimage);"><br>
                 <input type="number" id="nterm" placeholder="Enter the Number of terms (n)"
@@ -20949,24 +21066,25 @@
                             Find
                         </button>
                     </div>
-                    <div class="col-4">        
-                        <button type="button" class="btn btn-light" onclick=calcexmnapsum()>
-                            Example
-                        </button>
-                    </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
                         </button>
                     </div>
+                    <div class="col-4">        
+                        <button type="button" class="btn btn-light" onclick=calcexmnapsum()>
+                            Example
+                        </button>
+                    </div>
+                    
                 </div>
             </form>
             <br><br>
             <h5 id="printmnAP"  style="text-align: center;font-family:mathfont;width:auto;" class="stopwrap"></h5><br>
             <br>
             <h4 class="d-flex justify-content-center">Ratio of mth and nth terms of an AP</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center">
+            <form class="form-inline d-flex justify-content-center">
                 <input type="number" id="mterm99" placeholder="Enter the Number of terms (m)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white;width:40%; color: var(--appimage);"><br>
                 <input type="number" id="nterm98" placeholder="Enter the Number of terms (n)"
@@ -20978,15 +21096,15 @@
                             Find
                         </button>
                     </div>
-                    <div class="col-4">        
-                        <button type="button" class="btn btn-light" onclick=calcexmnap()>
-                            Example
-                        </button>
-                    </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">        
+                        <button type="button" class="btn btn-light" onclick=calcexmnap()>
+                            Example
                         </button>
                     </div>
                 </div>
@@ -20995,7 +21113,7 @@
             <h5 id="printmnAPans"  style="text-align: center;font-family:mathfont;width:auto;" class="stopwrap"></h5><br>
             <br>
             <h4 class="d-flex justify-content-center">Constant/Increasing/Decreasing AP</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
             <!-- <form class="form-inline"> -->
                 <input type="number" id="term121" placeholder="Enter the first term  (a)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
@@ -21028,7 +21146,7 @@
             </div>
             <br>
             <h4 class="d-flex justify-content-center">Three consecutive term (AP, GP OR HP)</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="num131" placeholder="Enter the first term  (a)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="num141" placeholder="Enter the second term (b) "
@@ -21065,7 +21183,7 @@
 			<br>
             <!-- sum of nterms in G.P.  -->
        <h2 class="d-flex justify-content-center">2) Sum of N terms of a Geometric Progression</h2>
-       <div class="form-group d-flex flex-column align-items-center">
+       <div class="form-group d-flex justify-content-center">
        <form>
            <input type="number" style="width: 15.625rem;" class="form__field"
                   id="firstterm"
@@ -21105,7 +21223,7 @@
 
             <h2 class="d-flex justify-content-center">Sum of infinite terms of a Geometric Progression with common ratio less than
                 1</h2>
-            <div class="form-group d-flex flex-column align-items-center">
+            <div class="form-group d-flex justify-content-center">
                 <form>
                     <input type="number" style="width: 15.625rem;" class="form__field" id="fterm"
                        placeholder="Enter first term"/>
@@ -21136,13 +21254,13 @@
             <br>
 
             <h4 class="d-flex justify-content-center">Insert n-Geometric Mean between two numbers</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="nt2" placeholder="Enter the Nterms  (n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="ft2" placeholder="Enter the first number(a) "
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="lt2" placeholder="Enter the second number(b)"
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);">
                 <br>
                 <br>
                 <div class="row">
@@ -21152,14 +21270,14 @@
                         </button>
                     </div>
                     <div class="col-4">
-                        <button type="button" class="btn btn-light" onclick=calcexngp()>
-                            Example
-                        </button>
-                    </div>
-                    <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">
+                        <button type="button" class="btn btn-light" onclick=calcexngp()>
+                            Example
                         </button>
                     </div>
                 </div>
@@ -21172,7 +21290,7 @@
             
             <br>
             <h4 class="d-flex justify-content-center">Sum of P terms of an GP if mth and nth terms are given</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center">
+            <form class="form-inline d-flex justify-content-center">
                 <input type="number" id="mterm1" placeholder="Enter the Number of terms (m)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white;width:40%; color: var(--appimage);"><br>
                 <input type="number" id="nterm1" placeholder="Enter the Number of terms (n)"
@@ -21190,15 +21308,15 @@
                             Find
                         </button>
                     </div>
-                    <div class="col-4">        
-                        <button type="button" class="btn btn-light" onclick=calcexmngpsum()>
-                            Example
-                        </button>
-                    </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">        
+                        <button type="button" class="btn btn-light" onclick=calcexmngpsum()>
+                            Example
                         </button>
                     </div>
                 </div>
@@ -21207,7 +21325,7 @@
             <h5 id="printmnGP"  style="text-align: center;font-family:mathfont;width:auto;" class="stopwrap"></h5><br>
             <br>
             <h4 class="d-flex justify-content-center">Constant/Increasing/Decreasing GP</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
             <!-- <form class="form-inline"> -->
                 <input type="number" id="term151" placeholder="Enter the first term  (a)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
@@ -21223,14 +21341,14 @@
                     </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
-                        onclick="calcexconstGp()">
-                            Example
+                        onclick="this.form.reset();">
+                        Reset
                         </button>
                     </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
-                        onclick="ResetVal()">
-                        Reset
+                        onclick="calcexconstGp()">
+                            Example
                         </button>
                     </div>
                 </div>
@@ -21243,7 +21361,7 @@
             <br>
             <!-- sum of nterms in H.P.  -->
             <h2 class="d-flex justify-content-center">3) Sum of N terms of a Harmonic Progression</h2>
-            <div class="form-group d-flex flex-column align-items-center">
+            <div class="form-group d-flex justify-content-center">
                 <form>
                     <input type="number" style="width: 15.625rem;" class="form__field"
                        id="firstTerm"
@@ -21257,15 +21375,15 @@
                     <div class="col-4">      
                         <button type="button" class="btn btn-light" onclick="hp()">Find</button>
                     </div>
-                    <div class="col-4">      
-                        <button type="button" class="btn btn-light" onclick="calcexhp()">
-                            Example
-                        </button>
-                    </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">      
+                        <button type="button" class="btn btn-light" onclick="calcexhp()">
+                            Example
                         </button>
                     </div>
                 </div>
@@ -21275,13 +21393,13 @@
                 <p id="printHPseries"></p>
                 <br><br>
             <h4 class="d-flex justify-content-center">Insert n-Harmonic Mean between two numbers</h4><br>
-            <form class="form-inline d-flex flex-column align-items-center" id="myForm">
+            <form class="form-inline d-flex justify-content-center" id="myForm">
                 <input type="number" id="nt3" placeholder="Enter the Nterms  (n)"
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="ft3" placeholder="Enter the first number(a) "
                        style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);"><br>
                 <input type="number" id="lt3" placeholder="Enter the second number(b)"
-                       style="border: none; background: transparent;width: 25rem; border-bottom: 0.0625rem solid white; color: var(--appimage);">
+                       style="border: none; background: transparent; border-bottom: 0.0625rem solid white; color: var(--appimage);">
                 <br>
                 <br>
                 <div class="row">
@@ -21290,15 +21408,15 @@
                             Find
                         </button>
                     </div>
-                    <div class="col-4">        
-                        <button type="button" class="btn btn-light" onclick=calcexnhp()>
-                            Example
-                        </button>
-                    </div>
                     <div class="col-4">
                         <button type="button" class="btn btn-light"
                         onclick="this.form.reset();">
                         Reset
+                        </button>
+                    </div>
+                    <div class="col-4">        
+                        <button type="button" class="btn btn-light" onclick=calcexnhp()>
+                            Example
                         </button>
                     </div>
                 </div>
@@ -21308,7 +21426,7 @@
 			<br>
 
                 <h2  class="d-flex justify-content-center" style="font-family:mathfont; text-align:center;">Harmonic Progression's N<sub>th</sub> term </h2>
-                <div class="form-group d-flex flex-column align-items-center">
+                <div class="form-group d-flex justify-content-center">
                     <form>
                         <input type="number" name="ath" class="form__field" id="ath" width="5em" placeholder="Enter first number">
                         <p>&nbsp;</p>
@@ -21318,15 +21436,18 @@
                         <p>&nbsp;</p>
                         <div class="row">
                             <div class="col-4">      
-                                <button type="button" class="btn btn-outline-light" onclick="hpcal()">Calculate</button>
+                                <button type="button" class="btn btn-light" onclick="hpcal()">Calculate</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-light"
+                                onclick="this.form.reset();">
+                                Reset
+                                </button>
                             </div>
                             <div class="col-4">        
                                 <button type="button" class="btn btn-light" onclick=calcexhpcal()>
                                     Example
                                 </button>
-                            </div>
-                            <div class="col-4">
-                                <button type="button" class="btn btn-outline-light" onclick="this.form.reset();">Reset</button>
                             </div>
                         </div>
                     </form>
@@ -21341,7 +21462,7 @@
                 </div>
                 <br>
                 <h2  class="d-flex justify-content-center" style="font-family:mathfont; text-align:center;">Harmonic Progression's N<sub>th</sub> term from End </h2>
-                <div class="form-group d-flex flex-column align-items-center">
+                <div class="form-group d-flex justify-content-center">
                     <form>
                         <input type="number" name="lterm" class="form__field" id="lterm1" width="5em" placeholder="Enter last term (l)">
                         <p>&nbsp;</p>
@@ -21351,15 +21472,18 @@
                         <p>&nbsp;</p>
                         <div class="row">
                             <div class="col-4">      
-                                <button type="button" class="btn btn-outline-light" onclick="hpcal11()">Calculate</button>
+                                <button type="button" class="btn btn-light" onclick="hpcal11()">Calculate</button>
+                            </div>
+                            <div class="col-4">
+                                <button type="button" class="btn btn-light"
+                                onclick="this.form.reset();">
+                                Reset
+                                </button>
                             </div>
                             <div class="col-4">        
                                 <button type="button" class="btn btn-light" onclick=calcexhpcal11()>
                                     Example
                                 </button>
-                            </div>
-                            <div class="col-4">
-                                <button type="button" class="btn btn-outline-light" onclick="this.form.reset();">Reset</button>
                             </div>
                         </div>
                     </form>
@@ -22930,8 +23054,9 @@ N is the population size.
     <button type="button" class="btn btn-dark" onclick="typenum47find()">Find</button>
     <button type="button" class="btn btn-dark" onclick="this.form.reset();">Reset</button>
     <br>
-    <h5 id="typenum47ans"></h5>
+    <br>    
     <h5 id="typenum47exp"></h5>
+    <h5 id="typenum47ans"></h5>
     <h2>Check for Amicable Pair</h2>
     <br>
     <form>
@@ -39555,39 +39680,7 @@ N is the population size.
         </div>
     </div>
     <!--roman numeral end-->
-<<<<<<< HEAD
-    <!-- Armstrong -->
-=======
-<<<<<<< HEAD
 <!-- Armstrong -->
-    <div class="collapse" id="armnum" style="text-align: center;">
-        <div class="container">
-            <h1 style="color: white;font-family:mathfont;text-align: center;">Armstrong Number Checker</h2>
-            <br>
-            <p>In numerical number theory, the Armstrong number definition is the number in any given number base, which forms the total of the same number,
-                 when each of its digits is raised to the power of the number of digits in the number.</p>
-            <br>
-            <br>
-            <br>
-            <form action="">
-                <div class="form-group">
-                    <input style="color: white; font-family:mathfont" type="number" id="arm" placeholder="Enter the input number" class="form__field">
-                </div>
-                <div class="form-group">
-                    <button type="button" class="btn btn-light" onclick="armstrongvalue()">Find</button>
-                    <button type="button" class="btn btn-light" onclick="this.form.reset();">
-                        Reset
-                    </button>
-                </div>
-            </form>
-            <br>
-                <p class="stopwrap" style="color:white;" id="armans"></p><br>
-        </div>
-    </div>
-||||||| 57299174
-=======
-<!-- Armstrong -->
->>>>>>> 9c3b3392b955d0eee2ea2e4b1802300b75565417
     <div class="collapse" id="armnum" style="text-align: center;">
         <div class="container">
             <h1 style="color: white;font-family:mathfont;text-align: center;">Armstrong Number Checker</h2>
@@ -39611,7 +39704,7 @@ N is the population size.
                 <p class="stopwrap" style="color:white;" id="armans"></p><br>
         </div>
     </div>
-<<<<<<< HEAD
+
      <!-- Perfect -->
      <div class="collapse" id="perfectnum" style="text-align: center;">
         <div class="container">
@@ -39635,9 +39728,7 @@ N is the population size.
                 <p class="stopwrap" style="color:white;" id="perfectans"></p><br>
         </div>
     </div>
-=======
->>>>>>> upstream/main
->>>>>>> 9c3b3392b955d0eee2ea2e4b1802300b75565417
+
     <!-- Disarium Number start-->
     <div class="collapse" id="disnum" style="text-align: center;">
         <div class="container">

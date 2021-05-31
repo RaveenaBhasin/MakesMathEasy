@@ -4633,14 +4633,22 @@ function calcexalisum2find() {
 
 function alisum2find() {
     let n = parseInt(document.getElementById("alisum2").value)
-    Set < Integer > v;
-    v = ABUNDANT();
-    for (let i = 1; i <= n; i++) {
-        if (v.contains(i) & v.contains(n - i)) {
-            document.getElementById("alisum2ans").innerHTML = i + " " + (n - i);
-            return;
-        }
+    if(!isNaN(n)){
+        Set < Integer > v;
+        v = ABUNDANT();
+        for (let i = 1; i <= n; i++) {
+            if (v.contains(i) & v.contains(n - i)) {
+                document.getElementById("alisum2ans").innerHTML = i + " " + (n - i);
+                return;
+            }
+        }        
+        document.getElementById("alisum2exp").innerHTML = "\\[if j is proper divisor sum+=j\\]"
+        document.getElementById("alisum2exp").innerHTML = "\\[if i is not a perfect square sum +=i/j\\]"
+        document.getElementById("alisum2exp").innerHTML = "\\[if sum is greater than i then i is a abundant number\\]"
+        renderMathInElement(document.getElementById("alisum2exp"))
     }
+    else
+        document.getElementById("alisum2ans").innerHTML = "Please Enter valid input"
 }
 
 function ABUNDANT() {
@@ -4934,6 +4942,30 @@ function calcexvectorsection() {
     n.value = 1;
 
     vectorsection();
+}
+function directl() {
+    var x1, y1, x2, y2, m, n;
+    x1 = parseFloat(document.getElementById('ctx1').value);
+    y1 = parseFloat(document.getElementById('cty1').value);
+    x2 = parseFloat(document.getElementById('ctx2').value);
+    y2 = parseFloat(document.getElementById('cty2').value);
+    m = parseFloat(document.getElementById('ctm1').value);
+    n = parseFloat(document.getElementById('ctm2').value);
+
+    if (isNaN(x1) || isNaN(y1) || isNaN(x2) || isNaN(y2) || isNaN(m) || isNaN(n)) {
+        document.getElementById('comt2').innerHTML = "\\[ Please \\space enter \\space all \\space input \\]";
+        renderMathInElement(document.getElementById("comt1"));
+        document.getElementById('comt1').innerHTML = "";
+    }
+    else {
+        document.getElementById('comt1').innerHTML = "\\[ Length \\space of \\space direct \\space common \\space tangent \\space = \\sqrt{(C1C2)^2 - (r1-r1)^2} \\] ";
+
+        var answer = Math.sqrt((x1-x2)^2 + (y1-y2)^2 - (m-n)^2);
+        
+        document.getElementById('comt2').innerHTML = "\\[ = " + answer  + " \\] ";
+        renderMathInElement(document.getElementById("comt1"));
+        renderMathInElement(document.getElementById("comt2"));
+    }
 }
 
 function vectorsection() {
@@ -6140,6 +6172,18 @@ function vectorcross() {
     }
 }
 
+function penta_cal() {
+    let a = parseInt(document.getElementById("penta_n").value);
+    if (!isNaN(parseInt(a))){
+       var r = n * (n + 1) *(n + 2) * (n + 3)/ 24;
+       document.getElementById("penta_res").innerHTML = a+" th Pentatope number : " + r;
+    }
+    else{
+        document.getElementById("penta_res").innerHTML = "Invalid input";
+    }
+
+}
+
 //Shortest Distance
 
 function calcexvectordistance() {
@@ -7021,6 +7065,37 @@ function director_c() {
     renderMathInElement(document.getElementById("centerrr"));
 
 }
+function chordeqution() {
+    var a, b, c, d, e, f;
+    g = parseInt(document.getElementById("acenterrp").value);
+    f = parseInt(document.getElementById("bcenterrp").value);
+    c = parseInt(document.getElementById("ccenterrp").value);
+    a = parseInt(document.getElementById("bcenterrpx").value);
+    b = parseInt(document.getElementById("bcenterrpy").value);
+    var x  = g/2;
+    var y = f/2;
+
+    var one = a+x;
+    var two = b+y;
+    var three = c + x*a +y*b;
+
+    
+        document.getElementById("centererp").innerHTML = "\\[Equation  \\space Of Chord \\space of  \\space Contact \\space -> \\newline";
+        document.getElementById("centererp").innerHTML += " g\\space = \\frac {" + g + "} { ( \\space " + 2 + " ) } " + " \\space = " + x + "\\newline";
+        document.getElementById("centererp").innerHTML += " h\\space = \\frac {" + f + "} { (  \\space " + 2 + " ) } " + " \\space = " + y + "\\newline"; 
+        document.getElementById("centererp").innerHTML += " Equation \\space = \\space \\ ( \\space a \\space + \\space g) \\space  x  + \\space ( \\space b \\space + \\space f ) \\space  y   \\space + ( \\space  ga \\space + fy \\space  + c \\space ) \\newline \\] ";
+
+        
+        document.getElementById("centerrrp").innerHTML += " \\[  "+ one + "x \\space + (" +  two + ") y \\space +("+three + ") \\space = \\space 0 \\newline \\] ";
+       
+
+    
+
+    renderMathInElement(document.getElementById("centererp"));
+    renderMathInElement(document.getElementById("centerrrp"));
+
+}
+
 function tanglenght() {
     var a, b, c, d, e, f;
     g = parseInt(document.getElementById("acenterrp").value);
@@ -7049,6 +7124,7 @@ function tanglenght() {
     renderMathInElement(document.getElementById("centerrrp"));
 
 }
+
 function tangeqution() {
     var a, b, c, d, e, f;
     var g = parseInt(document.getElementById("acenterrp").value);
@@ -9988,12 +10064,18 @@ function trunsquaresolve() {
     var p = 4 * (a + b);
     var A = Math.pow(a + 2 * e, 2) - 2 * e * e;
     if ((!isNaN(a)) && (!isNaN(b))) {
-        missingLenField.innerHTML = `Missing length (e) = ${e.toFixed(3)} units`;
-        lenField.innerHTML = `Length (l) = ${l.toFixed(3)} units`;
-        heightField.innerHTML = `Height (h) = ${h.toFixed(3)} units`;
-        diagField.innerHTML = `Diagonal (d) = ${d.toFixed(3)} units`;
-        periField.innerHTML = `Peimeter (p) = ${p.toFixed(3)} units`;
-        areaField.innerHTML = `Area (A) = ${A.toFixed(3)} sq.units`;
+        missingLenField.innerHTML = "\\[Missing \\space length \\space (e) = \\frac{"+b.toFixed(3)+"}{\\sqrt 2} = "+e.toFixed(3)+" \\space units\\]";
+        lenField.innerHTML = "\\[Length \\space (l) = \\sqrt 2 \\times \\left ( "+a.toFixed(3)+" + "+e.toFixed(3)+" \\right ) = "+l.toFixed(3)+" \\space units\\]";
+        heightField.innerHTML = "\\[Height \\space (h) = "+a.toFixed(3)+" + 2 \\times "+e.toFixed(3)+" = "+h.toFixed(3)+" \\space units\\]";
+        diagField.innerHTML = "\\[Diagonal \\space (d) = \\sqrt{"+a.toFixed(3)+"^2 + \\left ( "+a.toFixed(3)+" + 2 \\times "+e.toFixed(3)+" \\right )^2} = "+d.toFixed(3)+" \\space units\\]";
+        periField.innerHTML = "\\[Peimeter \\space (p) = 4 \\times \\left ( "+a.toFixed(3)+" + "+b.toFixed(3)+" \\right ) = "+p.toFixed(3)+" \\space units\\]";
+        areaField.innerHTML = "\\[Area \\space (A) = \\left ( "+a.toFixed(3)+" + 2 \\times "+e.toFixed(3)+" \\right )^2 - 2 \\times "+e.toFixed(3)+"^2 = "+A.toFixed(3)+" \\space sq.units \\]";
+        renderMathInElement(missingLenField);
+        renderMathInElement(lenField);
+        renderMathInElement(heightField);
+        renderMathInElement(diagField);
+        renderMathInElement(periField);
+        renderMathInElement(areaField);
     }
 }
 
@@ -16417,6 +16499,8 @@ function typenum47find() {
         if (prime[(num)])
             document.getElementById("typenum47exp").innerHTML = num + " "
     }
+    else
+        document.getElementById("typenum47ans").innerHTML= " Please enter valid input"
 }
 
 function typenum12find() {
@@ -17500,7 +17584,7 @@ function lance_cal(){
     let z = parseInt(document.getElementById("lance_z").value);
 
     var area = z * ( u - y ) / 2 - x * ( z - y/2 );
-    var peri = 2z * arccos ( 1 - y / ( 2 * z ) ) + y;
+    var peri = 2*z * arccos ( 1 - y / ( 2 * z ) ) + y;
     document.getElementById("lance_res").innerHTML = "Area : "+ area+" and perimeter : "+peri;
 }
 function arccos(degrees) {
@@ -24289,6 +24373,46 @@ function tvalue_SD(diff, length) {
     return Math.sqrt(val);
 }
 
+// Regression coefficient calculator
+function regressionvalue(){
+    let list1 = document.getElementById("valuex").value;
+    let list2 = document.getElementById("valuey").value;
+
+
+    if (list1 == "" || list2 == "") {
+        document.getElementById('regressionans').innerHTML = "Please input all the numbers to find answer";
+    }
+    else {
+        list1 = list1.split(" ");
+        list2 = list2.split(" ");
+        let n1 = list1.length;
+        let n2 = list2.length;
+        if (list1.length != list2.length) {
+            document.getElementById('regressionans').innerHTML = "Number of inputs in both dataset should be same";
+        }
+        else{
+            let sumx=0;
+            let sumy=0;
+            let sumxy=0;
+            let sumx2=0;
+            let sumy2=0;
+        for (var i = 0; i < n1; i++) {
+            list1[i] = parseInt(list1[i]);
+            list2[i] = parseInt(list2[i]);
+            sumx=sumx+list1[i];
+            sumy=sumy+list2[i];
+            sumxy=sumxy+(list1[i]*list2[i]);
+            sumx2=sumx2+Math.pow(list1[i],2);
+            sumy2=sumy2+Math.pow(list2[i],2);
+        }//for
+        var bxy=((n1*sumxy)-(sumx*sumy))/((n1*sumx2)-(Math.pow(sumx,2)));
+        var byx=((n1*sumxy)-(sumx*sumy))/((n1*sumy2)-(Math.pow(sumy,2)));
+        document.getElementById('regressionans').innerHTML = "bxy= "+bxy+" and bxy= "+ byx;
+    }//else
+    }//else
+
+}//function
+
 function abvalue() {
     let n1 = parseInt(document.getElementById("absize1").value);
     let n2 = parseInt(document.getElementById("absize2").value);
@@ -26804,14 +26928,18 @@ function ppvCal() {
     let prev = document.getElementById("ppvprev").value;
 
     let ans = "";
+    let steps = "";
     if (sensi == "" || speci == "" || prev == "" || isNaN(sensi) || isNaN(speci) || isNaN(prev)) {
         ans = "Enter valid inputs"
         document.getElementById("ppvans").innerHTML = ans;
     }
     else {
         ans = (sensi * prev) / ((sensi * prev) + ((1 - speci) * (1 - prev)));
-
-        document.getElementById('ppvans').innerHTML = "Positive Predictive Value " + ans.toFixed(2);
+        steps += "\\[PPV = frac{(Sensitivity\\times Prevalence)}{((Sensitivity \\times Prevalence) + ((1-Specificity) \\times (1- Prevalence)))}\\]";
+        steps += "\\[= frac{("+sensi+" \\times "+prev+")}{(("+sensi+" \\times "+prev+") + ((1-"+speci+") \\times (1- "+prev+")))}\\]";
+        steps += "\\[=" + ans + "\\]";
+        document.getElementById('ppvans').innerHTML = steps;
+        renderMathInElement(document.getElementById('ppvans'));
     }
 }
 // NPV Calculator

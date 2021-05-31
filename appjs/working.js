@@ -276,6 +276,11 @@ $(document).ready(function () {
         closenav();
         clearall();
     });
+    $("#pentatop").click(function () {
+        openit("#pentatop");
+        closenav();
+        clearall();
+    });
     $("#perat").click(function () {
         openit("#perats");
         closenav();
@@ -612,6 +617,11 @@ $(document).ready(function () {
     });
     $("#ttestbtn").click(function () {
         openit("#ttest");
+        closenav();
+        clearall();
+    });   
+    $("#regressionbtn").click(function () {
+        openit("#regressiontest");
         closenav();
         clearall();
     });   
