@@ -1452,6 +1452,12 @@ function confidence() {
 
 function unitcircCal(){
     var deg = document.getElementById("unitdeg").value;
+    if(deg==""||isNaN(deg))
+    {
+        document.getElementById("unitcircxans").innerHTML = "Please enter proper numeric value";
+
+    }
+    else{
     var rad=0.0174533*deg;
     var x = Math.cos(rad);
     var y = Math.sin(rad);
@@ -1460,6 +1466,7 @@ function unitcircCal(){
     document.getElementById("unitcircyans").innerHTML = "\\[X \\space =cos("+deg+"\\degree )="+x+"  \\space \\newline Y \\space =sin("+deg+"\\degree )="+y+"  \\]"
     renderMathInElement(document.getElementById("unitcircxans"));
     renderMathInElement(document.getElementById("unitcircyans"));
+    }
 }
 
 function wmccal()
@@ -1574,7 +1581,6 @@ function perchngCal(){
     renderMathInElement(output);
 }
 
-
 function peroffCal(){
     var original = parseInt(document.getElementById("originalPrice").value);
     var off = parseInt(document.getElementById("offper").value);
@@ -1599,7 +1605,7 @@ function peroffCal(){
 
         output1.innerHTML = temp1;
 
-        temp2 += "\\[Finally,\\space we \\space substract \\space this \\space (Final \\space Price) \\space value \\space from \\space the \\space (Orginal \\space Price)\\]"
+        temp2 += "\\[Finally,\\space we \\space subtract \\space this \\space (Final \\space Price) \\space value \\space from \\space the \\space (Orginal \\space Price)\\]"
         temp2 += "\\[Savings \\space = \\space (Orginal \\space Price) \\space - \\space (Final \\space Price)\\]"
         temp2 += "\\[\\space = \\space "+original+" - "+final.toFixed(2)+"\\]"
         temp2 += "\\[\\space = \\space "+savings.toFixed(3)+"\\]"
@@ -2058,43 +2064,55 @@ function facpaircal()
 
 
 function skewcal()
-{   var num=document.getElementById("skewinput").value;
+{   
+var num=document.getElementById("skewinput").value;
 var ans="";
 if(num=="")
 {
     ans="Please enter datasets";
+    document.getElementById("skewans").innerHTML=ans;
 }
 else{
     num=num.trim();
     num = num.split(" ");
     var len=parseInt(num.length);
-   var sum=0;
+    var sum=0;
     var number=[]
+    let steps = "";
     for (i = 0; i < len; i++) {
         number[i] = parseFloat(num[i].trim());
         sum+=number[i];
     }
+    
+    steps += "\\[Sum\\space of\\space data\\space set\\space you\\space entered:\\space "+sum+" \\]";
     sum=sum/len;
     var ansno=0;
     for (i = 0; i < len; i++)
-     {
-       var g=(number[i]-sum);
-       g=g**3;
-       ansno+=g;
-     }
+    {
+        var g=(number[i]-sum);
+        g=g**3;
+        ansno+=g;
+    }
+    
+    steps += "\\[Now\\space calculate\\space the\\space Mean\\space and\\space the\\space Standard\\space Deviation\\]";
+    steps += "\\[Subtract\\space the\\space mean\\space from\\space each\\space raw\\space score\\]";
+    steps += "\\[Raise\\space each\\space of\\space these\\space deviations\\space from\\space the\\space mean\\space to\\space the\\space third\\space power\\space and\\space sum\\]";
+    steps += "\\[Skewness\\space = \\space sum\\space of\\space the\\space deviations\\space from\\space the\\space mean,\\space raise\\space to\\space the\\space third\\space power,\\space divided\\space by\\space number\\space of\\space cases\\space minus\\space 1,\\space times\\space the\\space standard\\space deviation\\space raised\\space to\\space the\\space third\\space power.</p>\\]";
+    var varrzlt=0;
+    for (i = 0; i < len; i++) {
+        varrzlt = varrzlt + ((number[i])-sum)*((number[i])-sum);
+    }
+    
+    varrzlt = varrzlt/(len-1);
+    var sampstddev=Math.sqrt(varrzlt);
+    sampstddev=sampstddev**3;
+    var rzlt= ansno/((len-1)*sampstddev);
 
-     var varrzlt=0;
-     for (i = 0; i < len; i++) {
-         varrzlt = varrzlt + ((number[i])-sum)*((number[i])-sum);
-     }
+    steps += "\\[Skewness\\space = \\space "+rzlt+"\\]";
 
-     varrzlt = varrzlt/(len-1);
-     var sampstddev=Math.sqrt(varrzlt);
-     sampstddev=sampstddev**3;
-     var rzlt= ansno/((len-1)*sampstddev);
-     ans="The skewness is: "+rzlt;
 }
-document.getElementById("skewans").innerHTML=ans;
+document.getElementById("skewans").innerHTML=steps;
+renderMathInElement(document.getElementById("skewans"));
 }
 // kurtosis calculator
 // kurtosis calculator
@@ -2163,6 +2181,35 @@ var ans="";
 document.getElementById("kurtans").innerHTML=ans;
 renderMathInElement(document.getElementById("kurtans"));
 
+}
+
+function bmifind()
+{
+    a=document.getElementById("bmis1").value;  
+    b=document.getElementById("bmis2").value;  
+    c=document.getElementById("bmis3").value;   
+    var ans="";
+    if(a==""||b==""||c=="")
+    {
+        ans="Please enter all field to find answer";
+    }
+    else
+    {
+        a=parseFloat(a);
+        b=parseFloat(b);
+        c=parseFloat(c);
+       var height= (a*0.308)+(b*0.0245);
+        var bm= c/(height**2);
+
+       var vi="The B.M.I is the ratio of your weight in kg and your height in metre's square<br>"
+       vi+=" Square of your Height in metre is: "+height**2;
+       vi+="<br>Your weight is: "+c;
+       vi+="<br>Thus, your B.M.I is: "+ c+" / "+height**2;
+       document.getElementById("bmians1").innerHTML=vi;
+
+        ans="Your B.M.I is: "+bm;
+    }
+    document.getElementById("bmians").innerHTML=ans;
 }
 function clockcal()
 {
@@ -2536,21 +2583,25 @@ function iskaprekar(n)
 }
 function kapfind()
 {
-    var num=document.getElementById("kap1").value;
-    var ans="";
+    let num=document.getElementById("kap1").value;
+    let ans="";
     if(num==""||isNaN(num))
     {
-        ans="Please enter proper number";
+        ans+="Please enter proper number";
     }
     else
     {
-      if(iskaprekar(num)==true)
+      ans += "Step 1: Number => " + num;
+      ans += `<br> Step 2: The Square of ${num} => ${num}^2 = ${Math.pow(num,2)}`;
+      if(iskaprekar(num))
       {
-          ans=num+" is a Kaprekar Number";
+        ans += `<br> Step 3: The square can be divided into two parts <br>and such that sum of parts is equal to the original number `;
+        ans += `<br> Step 4: Hence ${num} is a Kaprekar Number `;
       }
       else
       {
-        ans=num+" is not a Kaprekar Number";
+        ans += `<br> Step 3: The square can't be divided into two parts <br>and such that sum of parts is equal to the original number `;
+        ans += `<br> Step 4: Hence ${num} is not a Kaprekar Number `;
       }
     }
     document.getElementById("kapans").innerHTML=ans;
@@ -2572,6 +2623,77 @@ function isPrime( n)
         }
         return true;
     }
+   
+function wagcal()
+{
+    var num1=document.getElementById("wag1").value;
+    ans="";
+    if(num1==""||isNaN(num1))
+    {
+        ans="Please enter the number";
+    }
+    else
+    {
+        num1=parseInt(num1);
+        if(isPrime(num1) && (isPowerOfTwo(num1 * 3 - 1)))
+        {
+            ans=num1+" is a Wagstaff number"
+        }
+        else
+        {
+            ans=num1+" is not a Wagstaff number"   
+        }
+    }
+    document.getElementById("wagans").innerHTML=ans;
+}
+
+function Ranges()
+{
+   var num = document.getElementById('getNum').value;
+    
+    valid=/^([-]{0,1}\d{1,}[\.]{0,1}\d{0,}[ ]?)*$/
+
+
+    if(num=="")
+    {
+       document.getElementById('Meanresult').innerHTML = "Please enter number";
+    }
+    else if(!valid.test(num))
+    {
+        document.getElementById('Meanresult').innerHTML = "Enter space separated numbers. Use of alphabets and special character is not allowed for calculation purpose";
+    }
+    else
+    {
+        var outputstring="";
+        var s=0;
+        num=num.trim();
+        num = num.split(" ");
+        var len=parseInt(num.length);
+       
+        var number=[]
+        for (i = 0; i < len; i++) {
+            number[i] = parseFloat(num[i].trim());
+        }
+
+        var max=Math.max(...number);
+        var min=Math.min(...number);
+
+        var d=max-min;
+
+       var ans= "The highest number is: "+max;
+        ans+="<br> The lowest number is: "+min;
+        ans+="<br>The Range is: "+max+" -"+" "+min+" = "+d;
+        document.getElementById('Meanresult').innerHTML = ans;
+
+        document.getElementById('Meanresult').innerHTML = "Range is: "+d;
+
+
+
+}
+}
+
+
+
     function isPowerOfTwo(n)
     {
         return (n != 0 )&& ((n & (n - 1)) == 0);
@@ -2603,4 +2725,5 @@ function wagcal()
     document.getElementById("wagans").innerHTML=ans+explain;
     renderMathInElement(document.getElementById("wagans"))
 }
+
 

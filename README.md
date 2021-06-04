@@ -41,7 +41,6 @@ Other Tech/Libraries
 - [SideNav from MaterializeCSS](https://materializecss.com/sidenav.html) for touch friendly SideNav only
 - [Flaticons](https://www.flaticon.com/) for Icons
 - [eMathHelp](https://www.emathhelp.net/) for Calculus Steps
-- [Numbers API](http://numbersapi.com/) for facts about numbers
 
 ---
 
@@ -249,11 +248,14 @@ Other Tech/Libraries
   - Disarium Number
   - Krishnamurthy Number
   - Automorphic Number 
-  - Pronic Number 
+  - Pronic Number
   - Harshad Number
+  - Cullen Number 
   - Trimorphic Number
   - Eulerian Number
+  - Carmichael Number
   
+  - Delannoy Number
 - Basic Convertors
 
   - Currency Convertor
@@ -475,6 +477,7 @@ Other Tech/Libraries
   - Hypergeometric Distribution Statistics
   - Exponential Distribution Calculator
   - Gamma Distribution Calculator
+  - Mean and Variance of Random variable
 - Statistics
 
   - Statistics Formulae
